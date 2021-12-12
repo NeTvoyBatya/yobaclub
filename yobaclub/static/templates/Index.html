@@ -6,7 +6,7 @@
             <main class="container">
                 <div class="mainMenu">
                     <div class="closeMainMenu" id="CloaseMainMenu">
-                        <img class="YobaImg" src={{ static('media/YobaImg.png') }} alt="">
+                        <img class="YobaImg" src={{ static('media/YobaImg.png') }} alt="" pointer-events: none; draggable="false">
                         <div class="allOrvits">
                             <div class="orbit">
                                 <div class="link" data-number="1" onclick="LinkFunction(this)" id = "Link1">
@@ -25,7 +25,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="openMainMenu">
+
+                    <div class="openMainMenu" id="openMainMenu">
+
+                        <div class="CloseButton" id="CloseButton" onclick="closeButton()">
+                            <img src={{ static('media/svg/Cross.svg') }} alt="">
+                        </div>
 
                         <div class="openLink" id="OpenLink1">
                             <img src={{ static('media/svg/2ChVideo.svg') }} alt="">
@@ -34,12 +39,7 @@
                                 Warning:<br> 
                                 В данном разделе вам могут попастся видо непрестойного характера,  а так же видео содержашие непреемлемый контент.
                             </P>
-                            <p>
-                                Для поерехода на страницу нажмите на этот большой круг.
-                            </p>
-                            <div class="CloseButton" data-number="1" onclick="LinkFunction(this)">
-                                <img src={{ static('media/svg/Cross.svg') }} alt="">
-                            </div>
+                            <p>Для поерехода на страницу нажмите на этот большой круг.</p>
                         </div>
 
                         <div class="openLink" id="OpenLink2">
@@ -47,9 +47,6 @@
                             <h2>Галерея сущностей</h2>
                             <P>В нашей галерее ты можешь посмотреть на необычнх сущностей, а так же добавить свою сущность!</P>
                             <p>Для поерехода на страницу нажмите на этот большой круг.</p>
-                            <div class="CloseButton" data-number="2" onclick="LinkFunction(this)">
-                                <img src={{ static('media/svg/Cross.svg') }} alt="">
-                            </div>
                         </div>
 
                         <div class="openLink" id="OpenLink3" onclick="javascript:document.location.href='/cinema'"> <!--Ебанулся что ли блять?-->
@@ -57,10 +54,8 @@
                             <h2>Кинотеатр</h2>
                             <P>В кинотеатре ты можешь фпосмотреть видео с ютуба вместе со своими друзьями, для того чтобы это сделать достаточно скинуть ссылку в чат!</P>
                             <p>Для поерехода на страницу нажмите на этот большой круг.</p>
-                            <div class="CloseButton" data-number="3" onclick="LinkFunction(this)">
-                                <img src={{ static('media/svg/Cross.svg') }} alt="">
-                            </div>
                         </div>
+
                     </div>
                 </div>
             </main>
