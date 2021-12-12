@@ -9,7 +9,7 @@ var FactoryCheckMark = document.getElementById('FactoryCheckMark')
 var WhiteAreaCheckBox = document.getElementById('WhiteAreaCheckBoxId')
 var WhiteAreaCheckMark = document.getElementById('WhiteAreaCheckMark')
 var BodyBacgroundTheme = document.getElementById('body')
-
+const storage = window.localStorage
 
 function ThemeMenu (){
     if (ButtonThemMenuIcon.classList.contains ('on') != true && ButtonThemMenuIcon.classList.contains ('off') != true){
@@ -43,6 +43,7 @@ function SamuraiTheme(){
         BodyBacgroundTheme.classList.remove('Forest')
         BodyBacgroundTheme.classList.remove('Factory')
         BodyBacgroundTheme.classList.remove('WhiteArea')
+        storage.setItem('theme', 'samurai')
 
 }
 function ForestTheme(){
@@ -58,7 +59,7 @@ function ForestTheme(){
         BodyBacgroundTheme.classList.add('Forest')
         BodyBacgroundTheme.classList.remove('Factory')
         BodyBacgroundTheme.classList.remove('WhiteArea')
-
+        storage.setItem('theme', 'forest')
 }
 function FactoryTheme(){
    
@@ -73,7 +74,7 @@ function FactoryTheme(){
         BodyBacgroundTheme.classList.remove('Forest')
         BodyBacgroundTheme.classList.add('Factory')
         BodyBacgroundTheme.classList.remove('WhiteArea')
-
+        storage.setItem('theme', 'factory')
 }
 function WhiteAreaTheme(){
 
@@ -88,4 +89,5 @@ function WhiteAreaTheme(){
         BodyBacgroundTheme.classList.remove('Forest')
         BodyBacgroundTheme.classList.remove('Factory')
         BodyBacgroundTheme.classList.add('WhiteArea')
+        storage.setItem('theme', 'white_area')
 }
