@@ -9,7 +9,33 @@ var FactoryCheckMark = document.getElementById('FactoryCheckMark')
 var WhiteAreaCheckBox = document.getElementById('WhiteAreaCheckBoxId')
 var WhiteAreaCheckMark = document.getElementById('WhiteAreaCheckMark')
 var BodyBacgroundTheme = document.getElementById('body')
-const storage = window.localStorage
+
+let cookies = document.cookie
+for (let cookie of cookies.split('; ')) {
+    if(cookie.startsWith('theme')){
+        var cookieValue = cookie.split('=')[1]
+    }
+}
+if (cookieValue != null){
+    switch (cookieValue){
+        case 'samurai':
+            SamuraiCheckBox.toggleAttribute('checked')
+            SamuraiCheckMark.classList.add('on')
+            break;
+        case 'forest':
+            ForestCheckBox.toggleAttribute('checked')
+            ForestCheckMark.classList.add('on')
+            break;
+        case 'factory':
+            FactoryCheckBox.toggleAttribute('checked')
+            FactoryCheckMark.classList.add('on')
+            break;
+        case 'white_area':
+            WhiteAreaCheckBox.toggleAttribute('checked')
+            WhiteAreaCheckMark.classList.add('on')
+            break;
+    }
+}
 
 function ThemeMenu (){
     if (ButtonThemMenuIcon.classList.contains ('on') != true && ButtonThemMenuIcon.classList.contains ('off') != true){
@@ -43,7 +69,7 @@ function SamuraiTheme(){
         BodyBacgroundTheme.classList.remove('Forest')
         BodyBacgroundTheme.classList.remove('Factory')
         BodyBacgroundTheme.classList.remove('WhiteArea')
-        storage.setItem('theme', 'samurai')
+        document.cookie = "theme=samurai"
 
 }
 function ForestTheme(){
@@ -59,7 +85,7 @@ function ForestTheme(){
         BodyBacgroundTheme.classList.add('Forest')
         BodyBacgroundTheme.classList.remove('Factory')
         BodyBacgroundTheme.classList.remove('WhiteArea')
-        storage.setItem('theme', 'forest')
+        document.cookie = "theme=forest"
 }
 function FactoryTheme(){
    
@@ -74,7 +100,7 @@ function FactoryTheme(){
         BodyBacgroundTheme.classList.remove('Forest')
         BodyBacgroundTheme.classList.add('Factory')
         BodyBacgroundTheme.classList.remove('WhiteArea')
-        storage.setItem('theme', 'factory')
+        document.cookie = "theme=factory"
 }
 function WhiteAreaTheme(){
 
@@ -89,5 +115,5 @@ function WhiteAreaTheme(){
         BodyBacgroundTheme.classList.remove('Forest')
         BodyBacgroundTheme.classList.remove('Factory')
         BodyBacgroundTheme.classList.add('WhiteArea')
-        storage.setItem('theme', 'white_area')
+        document.cookie = "theme=white_area"
 }

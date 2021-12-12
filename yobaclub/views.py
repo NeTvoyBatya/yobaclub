@@ -1,10 +1,11 @@
 from django.http import HttpResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.core.handlers.wsgi import WSGIRequest
-from yobaclub.logic import forms
-from yobaclub.logic import models
+from yobaclub.logic.utils import forms
+from yobaclub.logic.utils import models
+from yobaclub.logic.utils.themedRender import render
 
 @require_http_methods(["GET"])
 def index(request: WSGIRequest):
