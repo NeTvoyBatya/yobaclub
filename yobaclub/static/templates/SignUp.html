@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block page_title %}Yoba SignUp{% endblock %}
+        {% block page_content %}
+        <div class="main">
+            <main class="container">
+                <div class="signup">
+                    <h2>Регистрация на Yoba-Клубе</h2>
+                    <form class="signupBox" method="post">
+                        <h3>Логин / Никнейм</h3>
+                        <input class="signup__input" type="text" name="login" required id="login" placeholder="Твой никнейм в Йоба-клубе">
+                        <h3>Электронная почта</h3>
+                        <input class="signup__input" type="email" name="mail" required id="mail" placeholder="Твоя электронная почта">
+                        <h3>Пароль</h3>
+                        <input class="signup__input" type="password" name="password" required pattern="[A-Za-z0-9]{1,150}" id="password" placeholder="Твой пароль">
+                        <h3>Подтверждение пароля</h3>
+                        <input class="signup__input" type="password" name="password_confirm" required pattern="[A-Za-z0-9]{1,150}" id="password_confirm" placeholder="Пароль ещё раз">
+                        <input type="submit" value="ГО"> <!-- УБРАТЬ МАМУ ЭТУ-->
+                        <div class="line"></div>
+                        <div class="SignUpFooter">
+                            <h4>Уже есть  аккаунта?</h4>
+                            <a href="#">Войти</a>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+        {% endblock %}
+

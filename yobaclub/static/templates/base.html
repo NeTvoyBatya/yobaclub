@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ static('css/reset.css') }}>  
+    <link rel="stylesheet" href={{ static('css/genStyle.css') }}>
+    <link rel="stylesheet" href={{ static('css/ThemeMenu.css') }}>
+    {% block page_styles %}
+    {% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <title>{% block page_title%}{% endblock %}</title>
+</head>
+
+<body class="body" id = body>
+    <div class="loadScreen" id="loadScreenId">
+        <div class="container">
+            <div class="loader">
+                <img class="YobaImg" src={{ static('media/YobaImg.png') }} alt="" pointer-events: none; draggable="false";>
+                <img class="YobaLoader" src={{ static('media/svg/YobaLoader.svg') }} alt="0" pointer-events: none; draggable="false";>
+                <img class="YobaLoaderCircle" src={{ static('media/svg/circle.svg') }} alt="" pointer-events: none; draggable="false";>
+            </div>
+            <div class="LoadTextBox">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum totam eum dignissimos, perferendis officia impedit vitae eaque voluptatum facilis nam libero deserunt ullam iste fugit tempora quis sed, perspiciatis aperiam?</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="header">     
+            <header class="container">
+                <img class="YobaLogo" src={{ static('media/YobaLogo.png') }} alt="YobaClub" pointer-events: none; draggable="false">
+                <div class="headerNavigation">
+                    <a href={{ url('index') }}>Главная</a>
+                    <a href="#">О нас</a>
+                    <a href={{ url('sign_up') }}>Регистрация</a>
+                    <a href={{ url('sign_in') }}>Войти</a>
+                    <div class="ThemeMenu">
+                        <div class="ThemeMenuButton" onclick="ThemeMenu()">
+                            <img class="TMBIcon" id="ThemeMenuIcon" src={{ static('media/svg/gear.svg') }} alt="*">
+                        </div>
+                        <div id = "ThemeMenuId" class="ThemeMenuContainer">
+                            <div class="ThemeMenuWrapper">
+                                <h4 class="ChangeTheme"> Change Theme </h4>
+                                <div class="ThemeMenuBox">
+                                    <div class="ThemeCheckBox">
+                                        <div class="NewCheckBox">
+                                            <img class="TCBCheckMark SamuraiCheckMark" id = "SamuraiCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                            <div class="TCBCircle"></div>
+                                        </div>
+                                        <input id="SamuraiCheckBoxId" type="checkbox">
+                                        <h4 href="#" onclick="SamuraiTheme()">Samurai</h4>
+                                    </div>
+                                    <div class="ThemeCheckBox">
+                                        <div class="NewCheckBox">
+                                            <img class="TCBCheckMark ForestCheckMark" id = "ForestCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                            <div class="TCBCircle"></div>
+                                        </div>
+                                        <input id="ForestCheckBoxId" type="checkbox">
+                                        <h4 href="#" onclick="ForestTheme()">Forest</h4>
+                                    </div>
+                                    <div class="ThemeCheckBox">
+                                        <div class="NewCheckBox">
+                                            <img class="TCBCheckMark FactoryCheckMark" id = "FactoryCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                            <div class="TCBCircle"></div>
+                                        </div>
+                                        <input id="FactoryCheckBoxId" type="checkbox">
+                                        <h4 href="#" onclick="FactoryTheme()">Factory</h4>
+                                    </div>
+                                    <div class="ThemeCheckBox">
+                                        <div class="NewCheckBox">
+                                            <img class="TCBCheckMark WhiteAreaCheckMark" id = "WhiteAreaCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                            <div class="TCBCircle"></div>
+                                        </div>
+                                        <input id="WhiteAreaCheckBoxId" type="checkbox">
+                                        <h4 href="#" onclick="WhiteAreaTheme()">White area</h4>
+                                    </div> 
+                                </div>
+                            </div>
+                            <img class="BecgroundThemeMenu" src={{ static('media/svg/ThemeMenu.svg') }} alt="" pointer-events: none; draggable="false">
+                        </div>    
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        {% block page_content %}
+        {% endblock %}
+        
+        <div class="footer"> 
+            <footer class="container">
+                <div>3.0 - alpha<br>Design by Medvils</div>
+                <div class="Weather"></div>
+                <div class="FooterLink">
+                    <img src={{ static('media/DiscordLogo.png') }} alt="">
+                    <img src={{ static('media/VkLogo.png') }} alt="">
+                </div>  
+            </footer>
+        </div>
+    </div>
+
+{% block page_scripts%}
+{% endblock%}
+<script src={{ static('js/preloader.js') }}></script>
+<script src={{ static('js/SelectTheme.js') }}></script>
+</body>
+
+</html>

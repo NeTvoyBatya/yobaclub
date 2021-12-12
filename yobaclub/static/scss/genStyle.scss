@@ -1,0 +1,296 @@
+*{
+    z-index: 1;
+}
+*::selection{
+    background-color: #7e61ff79;
+    color: #ffffff;
+}
+html, body{
+    height: 100%;
+}
+body{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(/static/media/SamuraiBacground.png);
+    background-color: #373348;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;  
+    color: rgba(255, 255, 255, 0.75);
+    overflow: hidden;
+}
+
+body.Samurai{
+    background-image: url(/static/media/SamuraiBacground.png);
+}
+body.Forest{
+    background-image: url(/static/media/ForestBacground.png);
+}
+body.Factory{
+    background-image: url(/static/media/FactoryBacground.png);
+}
+body.WhiteArea{
+    background-image: url(/static/media/WhiteAreaBacground.png);
+}
+
+
+.wrapper{
+    max-height: 100%;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+.LoadTextBox{
+    width: 900px;
+}
+.loadScreen{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(/static/media/SamuraiBacground.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+.loadScreen.done{
+    display: none;
+    animation: 1s LoadScreenDone linear;
+}
+.loader{
+    width: 500px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader .YobaImg{
+    width: 198px;
+    height: 198px;
+    margin: 0;
+    opacity: 75%;
+}
+.loader .YobaLoader{
+    position: absolute;
+    animation: 1s spin infinite ease-out;
+    opacity: 85%;
+}
+.loader .YobaLoaderCircle{
+    position: absolute;
+    animation: 2s zoom infinite cubic-bezier(0.65, 0.05, 0.36, 1);;
+    opacity: 85%;
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+.header .YobaLogo{
+    cursor: pointer;
+    opacity: 75%;
+    transition: 0.4s;
+}
+.header .YobaLogo:hover{
+    opacity: 90%;
+    transition: 0.4s;
+}
+.header .headerNavigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .headerNavigation a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0px 4px 0px 4px;
+    transition: 0.4s;
+}
+.header .headerNavigation a:hover{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.90);
+    margin: 0px 4px 0px 4px;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+.Weather{
+    width: 50px;
+    height: 50px;
+}
+.FooterLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.FooterLink img{
+    margin:0px 4px 0px 4px;
+    cursor: pointer;
+}
+
+@keyframes LoadScreenDone {
+    from{
+        opacity: 100%;
+    }
+    to{
+        opacity: 0%;
+    }
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+@keyframes zoom {
+    0%{
+        transform: scale(100%);
+    }
+    50%{
+        transform: scale(110%);
+    }
+    100%{
+        transform: scale(100%);
+    }
+}
+
+.signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0px 0px 24px 0px;
+    }
+    .signupBox{
+        width: 500px;
+        height: 550px;
+        border-radius: 10%;
+        background-color: rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3{
+            margin: 0px 0px 8px 0px;
+        }
+        .signup__input{
+            border: 0px;
+            width: 358px;
+            background-color: rgba(0, 0, 0, 0.25);
+            padding:10px;
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0px 0px 24px 0px;
+        }
+        .line{
+            width: 358px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 45px;
+            margin: 36px 0px 0px 0px;
+        }
+        .SignUpFooter{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            margin: 36px 0px 0px 0px;
+            a{
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.75);
+                transition: 0.4s;
+                margin-left: 8px;
+            }
+            a:hover{
+                transition: 0.4s;
+                color: rgba(255, 255, 255, 0.90);
+            }
+        }
+    }
+}
+.signin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0px 0px 24px 0px;
+    }
+    .signinBox{
+        width: 500px;
+        height: 430px;
+        border-radius: 10%;
+        background-color: rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3{
+            margin: 0px 0px 8px 0px;
+        }
+        .signin__input{
+            border: 0px;
+            width: 358px;
+            background-color: rgba(0, 0, 0, 0.25);
+            padding:10px;
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0px 0px 24px 0px;
+        }
+        .line{
+            width: 358px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 45px;
+            margin: 36px 0px 0px 0px;
+        }
+        .signInFooter{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            margin: 36px 0px 0px 0px;
+            a{
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.75);
+                transition: 0.4s;
+                margin-left: 8px;
+            }
+            a:hover{
+                transition: 0.4s;
+                color: rgba(255, 255, 255, 0.90);
+            }  
+        }
+    }
+}

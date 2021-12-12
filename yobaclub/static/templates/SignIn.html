@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block page_title %}Yoba SignIn{% endblock %}
+        {%block page_content%}
+        <div class="main">
+            <main class="container">
+                <div class="signin">
+                    <h2>Вход на Yoba-Клуб</h2>
+                    <div class="signinBox">
+                        <h3>Логин / Электронная почта</h3>
+                        <input class="signin__input" type="text" name="login" required id="login" placeholder="Твой логин или email">
+                        <h3>Пароль</h3>
+                        <input class="signin__input" type="password" name="password" required pattern="[A-Za-z0-9]{1,150}" id="password" placeholder="Твой пароль">
+                        <div class="line"></div>
+                        <div class="signInFooter">
+                            <h4>У вас еще нет аккаунта?</h4>
+                            <a href="#">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        {% endblock%}

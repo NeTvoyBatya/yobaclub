@@ -1,0 +1,241 @@
+%Orbit{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    z-index: 0;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container{
+        justify-content: center;
+    }
+}
+
+.mainMenu{
+    position: relative;
+    transform: scale(1);
+    .closeMainMenu{
+        &.on{
+            opacity: 0%;
+            pointer-events: none;
+        }
+        .YobaImg{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 350px;
+            height: 350px;
+            transform: translate(-50%,-50%);
+            opacity: 75%;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        .allOrvits{
+            position: relative;
+            width: 710px;
+            height: 710px;
+            transition: 0.4s;
+            .orbit{
+                &:nth-child(1){
+                    @extend %Orbit;
+                    width: 700px;
+                    height: 700px;
+                    & .link{
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        top: -25px;
+                        left: 50%;
+                        transform: translate(-50%);
+                        width: 50px;
+                        height: 50px;
+                        background-color: rgba(0, 0, 0, 0.25);
+                        border-radius: 50%;
+                        cursor: pointer;
+                        transform-origin: 0px 375px;
+                        animation: 70s orbitRotating infinite linear;
+                        transition: 0.4s;
+                        & img{
+                            height: 35px;
+                            animation: 70s rotate infinite linear;
+                        }
+                        &:hover{
+                            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+                        }
+                    }
+                }
+                &:nth-child(2){
+                    @extend %Orbit;
+                    width: 580px;
+                    height: 580px;
+                    border: 3px solid rgba(255, 255, 255, 0.20);
+                    & .link{
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        top: 50%;
+                        left: -25px;
+                        transform: translate(0,-50%);
+                        width: 50px;
+                        height: 50px;
+                        background-color: rgba(0, 0, 0, 0.25);
+                        border-radius: 50%;
+                        cursor: pointer;
+                        transform-origin: 315px 0px;
+                        animation: 60s orbitRotating infinite linear;
+                        transition: 0.4s;
+                        &:hover{
+                            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+                        }
+                        & img{
+                            height: 35px;
+                            animation: 60s rotate infinite linear;
+                        }
+                    }
+                }
+                &:nth-child(3){
+                    @extend %Orbit;
+                    width: 450px;
+                    height: 450px;
+                    border: 3px solid rgba(255, 255, 255, 0.25);
+                    & .link{
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        top: 50%;
+                        right: -25px;
+                        transform: translate(0,-50%);
+                        width: 50px;
+                        height: 50px;
+                        background-color: rgba(0, 0, 0, 0.25);
+
+                        border-radius: 50%;
+                        cursor: pointer;
+                        transform-origin: -200px 0px;
+                        animation: 50s orbitRotating infinite linear;
+                        transition: 0.4s;
+                        &:hover{
+                            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+                        }
+                        & img{
+                            height: 35px;
+                            animation: 50s rotate infinite linear;
+                        }
+                    }
+                }
+            }   
+        }
+    }
+    .openMainMenu{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        .openLink{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 50%;
+            transition: 0.4s;
+            opacity: 0;
+            pointer-events: none;
+            &.on{
+                opacity: 100;
+                width: 700px;
+                height: 700px;
+                background-color: rgba(0, 0, 0, 0.25);
+                pointer-events: auto;
+                box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+            } 
+            & img{
+                margin: 0px 0px 50px 0px;
+                opacity: 75%;
+            }
+            & h2{
+                opacity: 75%;
+                margin-top: 50px;
+                font-weight: 700;
+                font-size: 36px;
+                text-align: center;
+                transition: 0.2s;
+                margin: 18px 0px 18px 0px;
+            }
+            & p{
+                opacity: 75%;
+                font-size: 18px;
+                text-align: center;
+                max-width: 500px;
+                transition: 0.2s;
+                margin: 18px 0px 18px 0px;
+            }
+            & .CloseButton{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 40px;
+                right: 40px;
+                width: 50px;
+                height: 50px;
+                background-color: rgba(0, 0, 0, 0.25);
+                border-radius: 50%;
+                animation: 2s puls infinite ease-in-out;
+                transition: 0.4s;
+                & img{
+                    width: 25px;
+                    height: 25px;
+                    margin: 0px 0px 0px 0px;
+                }
+                &:hover{
+                    background-color: rgba(0, 0, 0, 0.35);
+                    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+                }
+            }
+            
+        }
+    }
+    
+}
+
+@keyframes puls{
+    0%{
+        transform: translate(0px, 0px);
+    }
+    
+    50%{transform: translate(0px, 10px);}
+    
+    100%{
+        transform: translate(0px, 0px);
+    }
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes orbitRotating {
+    0%{transform: rotate(0deg);}
+    100% {transform: rotate(-360deg);}
+}
+

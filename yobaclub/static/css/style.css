@@ -1,0 +1,195 @@
+*{
+    z-index: 1;
+}
+
+body{
+    background-color: #373348;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100%;
+    padding: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;  
+    color: rgba(255, 255, 255, 0.75);
+    overflow: hidden;
+}
+
+.loader{
+    width: 500px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader .YobaImg{
+    width: 198px;
+    height: 198px;
+    margin: 0;
+    opacity: 75%;
+}
+.loader .YobaLoader{
+    position: absolute;
+    animation: 1s spin infinite ease-out;
+    opacity: 85%;
+}
+.loader .YobaLoaderCircle{
+    position: absolute;
+    animation: 2s zoom infinite cubic-bezier(0.65, 0.05, 0.36, 1);;
+    opacity: 85%;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+@keyframes zoom {
+    0%{
+        transform: scale(100%);
+    }
+    50%{
+        transform: scale(110%);
+    }
+    100%{
+        transform: scale(100%);
+    }
+}
+.ThemeMenu .ThemeMenuButton{
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+.ThemeMenu .ThemeMenuButton .TMBIcon{
+    width: 18px;
+    height: 18px;
+    animation: 1s spinbuttonUp ease-out;
+}
+.ThemeMenu .ThemeMenuButton .TMBIcon.on{
+    width: 18px;
+    height: 18px;
+    animation: 1s spinbuttonDown ease-out;
+}
+.ThemeMenu .ThemeMenuContainer{
+    position: absolute;
+    animation: 400ms ThemeMenuKeyFrameUp cubic-bezier(0, 0, 1, 0.56);
+    transform: translate(-47%,5%);
+    opacity: 0;
+}
+.ThemeMenu .ThemeMenuContainer.on{
+    position: absolute;
+    animation: 400ms ThemeMenuKeyFrameDown cubic-bezier(0, 0.81, 0.72, 0.97);
+    opacity: 1;
+    transform: translate(-46%,5%);
+}
+.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ThemeMenu .ThemeMenuContainer .BecgroundThemeMenu{
+    opacity: 25%;
+    z-index: 0;
+}
+.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ChangeTheme{
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ThemeMenuBox{
+    display: flexbox;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ThemeMenuBox .ThemeCheckBox{
+    display: flex;
+    margin: 4% 0px 4% 0px ;
+    align-items: center;
+}
+.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ThemeMenuBox .ThemeCheckBox input{
+    display: none;
+}
+.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ThemeMenuBox .ThemeCheckBox h4{
+    display: flex;    
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.NewCheckBox{
+    width: 6px;
+    height: 6px;
+    margin-right: 10px;
+    position: relative;
+}
+.TCBCheckMark{
+    position: absolute;
+    left: -1px;
+    bottom: 1px;
+    opacity: 0;
+}
+.TCBCircle{
+    width: 6px;
+    height: 6px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+}
+.SamuraiCheckMark.on{
+    animation: 1s ease-out;
+    opacity: 1;
+}
+.ForestCheckMark.on{
+    opacity: 1;
+}
+.FactoryCheckMark.on{
+    opacity: 1;
+}
+.WhiteAreaCheckMark.on{
+    opacity: 1;
+}
+@keyframes ThemeMenuKeyFrameDown {
+    from{
+        transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+        opacity: 0%;
+    }
+    to{
+        transform: translate(-46%, 5%) scale(100%) perspective(0px) rotateX(0deg);
+        opacity: 100%;
+    }
+}
+@keyframes ThemeMenuKeyFrameUp {
+    from{
+        transform: translate(-46%, 5%) scale(100%) perspective(0px) rotateX(0deg);
+        opacity: 100%;
+    }
+    to{
+        transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+        
+        opacity: 0%;
+    }
+}
+@keyframes spinbuttonUp {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+@keyframes spinbuttonDown {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
