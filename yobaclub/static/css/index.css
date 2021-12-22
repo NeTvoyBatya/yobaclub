@@ -19,6 +19,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 50vh;
 }
 .main .container {
   -webkit-box-pack: center;
@@ -27,9 +28,12 @@
 }
 
 .mainMenu {
+  -webkit-transform: scale(calc(((42/100)*1280)/710));
+          transform: scale(calc(((42/100)*1280)/710));
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
   position: relative;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  z-index: 5;
 }
 .mainMenu .closeMainMenu.on {
   opacity: 0%;
@@ -223,6 +227,7 @@
 .mainMenu .openMainMenu .CloseButton.on {
   opacity: 100;
   pointer-events: auto;
+  cursor: pointer;
 }
 .mainMenu .openMainMenu .CloseButton img {
   width: 25px;
@@ -359,5 +364,35 @@
   100% {
     -webkit-transform: rotate(-360deg);
             transform: rotate(-360deg);
+  }
+}
+@media (min-width: 1365px) {
+  .mainMenu {
+    -webkit-transform: scale(calc(((42/100)*1366)/710)) !important;
+            transform: scale(calc(((42/100)*1366)/710)) !important;
+  }
+}
+@media (min-width: 1679px) {
+  .mainMenu {
+    -webkit-transform: scale(calc(((42/100)*1680)/710)) !important;
+            transform: scale(calc(((42/100)*1680)/710)) !important;
+  }
+}
+@media (min-width: 1919px) {
+  .mainMenu {
+    -webkit-transform: scale(calc(((42/100)*1920)/710)) !important;
+            transform: scale(calc(((42/100)*1920)/710)) !important;
+  }
+}
+@media (min-width: 2559px) {
+  .mainMenu {
+    -webkit-transform: scale(calc(((42/100)*2560)/710)) !important;
+            transform: scale(calc(((42/100)*2560)/710)) !important;
+  }
+}
+@media (min-width: 3839px) {
+  .mainMenu {
+    -webkit-transform: scale(calc(((42/100)*3840)/710)) !important;
+            transform: scale(calc(((42/100)*3840)/710)) !important;
   }
 }

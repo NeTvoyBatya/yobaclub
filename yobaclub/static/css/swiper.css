@@ -1,0 +1,83 @@
+.swiper-slide{
+    height: 50px;
+    position: relative;
+}
+.swiper-image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.swiper-button-prev,.swiper-button-next{
+    color: #ffffff;
+}
+.swiper-pagination-bullet{
+    background-color: #1D1D22;
+}
+.swiper-image{ 
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+}
+.swiper__info{
+    display: flex;
+    padding: 10px;
+}
+.swiper__text{
+    color: #ffffff;
+    background-color: #00000085;
+    width: 70%;
+    padding: 5px;
+    margin: 10px;
+}
+.swiper__text h1{
+    font-size: calc(20px + 10 * (100vw / 1920));
+}
+.swiper__text p{
+    font-size: calc(15px + 4 * (100vw / 1920));
+}
+.pagination{
+    padding-top: 10px;
+    width: 100%;
+    height: auto;
+}
+.swiper-pagination {
+    margin: 0 auto;
+    position: unset;
+}
+.swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
+}
+.swiper-image.BGImg1{
+    background-image: url(../media/Img/2chVideo.jpg);
+}
+.swiper-image.BGImg2{
+    background-image: url(../media/Img/Cinema.jpg);
+}
+.swiper-image.BGImg3{
+    background-image: url(../media/Img/Gallery.jpg);
+}
+@media(max-width:768px){
+    .swiper-slide{
+        height: calc(300px + 100 * (100vw / 1920));
+        position: relative;
+    }
+    .swiper__text{
+        width: 100% ;
+    }
+}
+@media(max-width:425px){
+    .swiper-slide{
+        height: calc(400px + 100 * (100vw / 1920));
+        position: relative;
+    }
+    .swiper__text{
+        width: 100% ;
+    }
+}
+body.dark .swiper-pagination-bullet{
+    background-color: #ffffff;
+}
+

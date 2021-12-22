@@ -15,6 +15,10 @@ def index(request: WSGIRequest):
 def cinema(request: WSGIRequest):
     return HttpResponse(render(request, 'Cinema.html'))
 
+@require_http_methods(["GET"])
+def gallery(request: WSGIRequest):
+    return HttpResponse(render(request, 'gallery.html'))
+
 @require_http_methods(["GET", "POST"])
 def sign_in(request: WSGIRequest):
     return HttpResponse(render(request, 'SignIn.html'))

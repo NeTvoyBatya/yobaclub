@@ -1,0 +1,110 @@
+.main .container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.signup h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0px 0px 24px 0px;
+}
+.signup__form {
+  width: 500px;
+  height: 550px;
+  border-radius: 10%;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.signup__form .signup__item {
+  margin: 0px 0px 24px 0px;
+  text-align: center;
+}
+.signup__form .signup__item h3 {
+  margin: 0px 0px 8px 0px;
+}
+.signup__form .signup__item .signup__input {
+  border: 0px;
+  width: 358px;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.75);
+}
+.signup__form .signup__button {
+  border: 0;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+  font-size: 18px;
+  padding: 10px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
+.signup__form .signup__button:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+          box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+.signup__form .line {
+  width: 358px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 45px;
+  margin: 36px 0px 0px 0px;
+}
+.signup__form .SignUpFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 36px 0px 0px 0px;
+}
+.signup__form .SignUpFooter a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  margin-left: 8px;
+}
+.signup__form .SignUpFooter a:hover {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: rgba(255, 255, 255, 0.9);
+}

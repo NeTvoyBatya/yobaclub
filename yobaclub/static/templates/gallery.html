@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block page_title %}Yoba SignIn{% endblock %}
+        {%block page_content%}
+        <div class="main">
+            <main class="container">
+
+                <div class="gallery">
+                    <button class="gallery-button">Добавить сущность</button>
+                    <div class="gallery__list">
+                        <div class="gallery__item">
+                            <img src={{ static('media/IMAGE1.png') }} alt="">
+                            <div class="gallery__item-text">
+                                <h3>Название сущности: Name</h3>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum nulla eius tempora ipsum eos hic!</p>
+                            </div>
+                        </div>
+                        <div class="gallery__item">
+                            <img src={{ static('media/IMAGE1.png') }} alt="">
+                            <div class="gallery__item-text">
+                                <h3>Название сущности: Name</h3>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum nulla eius tempora ipsum eos hic!</p>
+                            </div>
+                        </div>
+                        <div class="gallery__item">
+                            <img src={{ static('media/IMAGE1.png') }} alt="">
+                            <div class="gallery__item-text">
+                                <h3>Название сущности: Name</h3>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum nulla eius tempora ipsum eos hic!</p>
+                            </div>
+                        </div>
+                        <div class="gallery__item">
+                            <img src={{ static('media/IMAGE1.png') }} alt="">
+                            <div class="gallery__item-text">
+                                <h3>Название сущности: Name</h3>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum nulla eius tempora ipsum eos hic!</p>
+                            </div>
+                        </div>
+                        <div class="gallery__item">
+                            <img src={{ static('media/IMAGE1.png') }} alt="">
+                            <div class="gallery__item-text">
+                                <h3>Название сущности: Name</h3>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum nulla eius tempora ipsum eos hic!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        {% endblock%}
+{% block page_styles %}
+    <link rel="stylesheet" href={{ static('css/gallery.css') }}>
+{% endblock%}
