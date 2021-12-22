@@ -91,7 +91,6 @@ body.WhiteArea {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(/static/media/SamuraiBacground.png);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -102,6 +101,22 @@ body.WhiteArea {
       -ms-flex-align: center;
           align-items: center;
   z-index: 10;
+}
+
+.loadScreen.Samurai{
+    background-image: url(/static/media/SamuraiBacground.png);
+}
+
+.loadScreen.Forest{
+    background-image: url(/static/media/ForestBacground.png);
+}
+
+.loadScreen.Factory{
+    background-image: url(/static/media/FactoryBacground.png);
+}
+
+.loadScreen.WhiteArea{
+    background-image: url(/static/media/WhiteAreaBacground.png);
 }
 
 .loadScreen.done {
