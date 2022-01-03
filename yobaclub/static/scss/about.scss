@@ -1,0 +1,92 @@
+body{
+    overflow-y: scroll;
+}
+.Weather{
+    opacity: 0;
+}
+.main{
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .aboutus{
+            width: 1234px;
+            text-align: center;
+            h3{
+                margin: 0px 0px 20px 0px;
+                font-weight: bold;
+            }
+            
+        }
+    }
+}
+.downButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 30.85%, rgba(255, 255, 255, 0.12) 100%);
+    border-radius: 50px 50px 0px 0px;
+    padding: 5px;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    .button{
+        background-color: rgb(0, 0, 0, 0);
+        border: 0px;
+        cursor: pointer;
+        img{
+            width: 50px;
+        }
+
+    }
+}
+.update_history{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #373348;
+    .container{
+        .update_history-block{
+            width: 100%;
+            height: calc(87/100*100vh);
+            background-color: rgb(0, 0, 0, 0.25);
+            border-radius: 50px;
+            text-align: center;
+            overflow-y: scroll;
+
+            h3{
+                padding: 15px;
+                font-weight: bold;
+            }               
+            .update{
+                .history-update__list{
+                    padding: 10px;
+                    .history-update__element{
+                        display: flex;
+                        align-items: center;
+                        padding: 10px 0px 10px 0px;
+                        .history-update__author{
+                            padding-right: 5px;
+                        }
+                        .history-update__message{
+                            padding-right: 5px;
+                        }
+                        .history-update__time{
+                            display: flex;
+                            flex: 1 1 auto;
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background-color: #14386100;
+}

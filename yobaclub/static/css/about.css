@@ -1,0 +1,118 @@
+body {
+  overflow-y: scroll;
+}
+
+.Weather {
+  opacity: 0;
+}
+
+.main .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.main .container .aboutus {
+  width: 1234px;
+  text-align: center;
+}
+.main .container .aboutus h3 {
+  margin: 0px 0px 20px 0px;
+  font-weight: bold;
+}
+
+.downButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(30.85%, rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.12)));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 30.85%, rgba(255, 255, 255, 0.12) 100%);
+  border-radius: 50px 50px 0px 0px;
+  padding: 5px;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+.downButton .button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  cursor: pointer;
+}
+.downButton .button img {
+  width: 50px;
+}
+
+.update_history {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #373348;
+}
+.update_history .container .update_history-block {
+  width: 100%;
+  height: calc(87/100*100vh);
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  text-align: center;
+  overflow-y: scroll;
+}
+.update_history .container .update_history-block h3 {
+  padding: 15px;
+  font-weight: bold;
+}
+.update_history .container .update_history-block .update .history-update__list {
+  padding: 10px;
+}
+.update_history .container .update_history-block .update .history-update__list .history-update__element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0px 10px 0px;
+}
+.update_history .container .update_history-block .update .history-update__list .history-update__element .history-update__author {
+  padding-right: 5px;
+}
+.update_history .container .update_history-block .update .history-update__list .history-update__element .history-update__message {
+  padding-right: 5px;
+}
+.update_history .container .update_history-block .update .history-update__list .history-update__element .history-update__time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background-color: #14386100;
+}

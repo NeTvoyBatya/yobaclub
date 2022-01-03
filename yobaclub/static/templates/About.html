@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block page_title %}Yoba SignIn{% endblock %}
+        {%block page_content%}
+        <div class="main">
+            <main class="container">
+                <div class="aboutus">
+                    <h3>
+                        Хочешь узнать, куда ты вообще попал?
+                    </h3>
+                    <p>
+                        Сейчас я тебе всё поясню, это хороший сайт Йоба-Клуба. Йоба-Клуб - это, по сути, сборище крышей поехавших, 
+                        но у нас есть крутые штучки. На этом сайтике ты можешь найти ссылку на классную группу в вк, зайти в хороший 
+                        дискорд и посмотреть крутые видосы. Больше здесь ничего нет и скорее всего, не будет, но разве не плевать? 
+                        Возможно, если рак на горе свистнет, на этом сайте будет что-то кроме видосов, но вероятность этого очень мала, 
+                        да и работает это всё через жопу, но раз уж ты сюда зашёл, то привет! Так или иначе, этот сайт создавался 55 лет, 
+                        а сейчас он даже работает и на нём что-то есть. Это уже праздник, так что добро пожаловать в йоба-клуб, чувствуй 
+                        себя как дома, сынок!<br> • <br>Кстати, пошёл бы ты! :)
+                    </p>
+                </div>
+            </main>
+        </div>
+        {% endblock%}
+        {% block under_page_content %}
+            <div class="update_history">
+                <div class="container">
+                    <div class="update_history-block">
+                        <h3>История обновлений Yoba-клуба</h3>
+                        <div class="update">
+                            <ul type="none" class="history-update__list">
+                                <li type="none" class="history-update__element">
+                                    <span class="history-update__author">Author:</span>
+                                    <span class="history-update__message">Message</span>
+                                    <span class="history-update__time">Time</span>
+                                </li>
+                            </ul>
+                            
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  class="downButton">
+                <div id="scrolldown" class="button">
+                    <img src={{ static('media/svg/ArrowDown.svg') }} alt="♥">                    
+                </div>
+            </div>
+        {% endblock %}
+{% block page_scripts%}
+    <script src={{ static('js/scrollto.js') }}></script>
+{% endblock%}
+{% block page_styles %}
+    <link rel="stylesheet" href={{ static('css/about.css') }}>
+{% endblock%}

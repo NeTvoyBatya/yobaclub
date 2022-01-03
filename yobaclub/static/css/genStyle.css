@@ -91,6 +91,7 @@ body.WhiteArea {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-image: url(/static/media/SamuraiBacground.png);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,22 +102,6 @@ body.WhiteArea {
       -ms-flex-align: center;
           align-items: center;
   z-index: 10;
-}
-
-.loadScreen.Samurai{
-    background-image: url(/static/media/SamuraiBacground.png);
-}
-
-.loadScreen.Forest{
-    background-image: url(/static/media/ForestBacground.png);
-}
-
-.loadScreen.Factory{
-    background-image: url(/static/media/FactoryBacground.png);
-}
-
-.loadScreen.WhiteArea{
-    background-image: url(/static/media/WhiteAreaBacground.png);
 }
 
 .loadScreen.done {
@@ -250,7 +235,16 @@ body.WhiteArea {
           justify-content: center;
 }
 
-.FooterLink img {
+.FooterLink a {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.FooterLink a:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.FooterLink a img {
   margin: 0px 4px 0px 4px;
   cursor: pointer;
 }

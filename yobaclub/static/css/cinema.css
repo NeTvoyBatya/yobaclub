@@ -108,3 +108,34 @@
   width: 15px;
   height: 15px;
 }
+
+@media (min-width: 1365px) {
+  .cinema {
+    -webkit-transform: scale(calc(((69/100)*1366)/1166)) !important;
+            transform: scale(calc(((69/100)*1366)/1166)) !important;
+  }
+}
+@media (min-width: 1679px) {
+  .cinema {
+    -webkit-transform: scale(calc(((69/100)*1680)/1166)) !important;
+            transform: scale(calc(((69/100)*1680)/1166)) !important;
+  }
+}
+@media (min-width: 1919px) {
+  .cinema {
+    -webkit-transform: scale(calc(((69/100)*1920)/1166)) !important;
+            transform: scale(calc(((69/100)*1920)/1166)) !important;
+  }
+}
+@media (min-width: 2559px) {
+  .cinema {
+    -webkit-transform: scale(calc(((69/100)*2560)/1166)) !important;
+            transform: scale(calc(((69/100)*2560)/1166)) !important;
+  }
+}
+@media (min-width: 3839px) {
+  .cinema {
+    -webkit-transform: scale(calc(((69/100)*3840)/1166)) !important;
+            transform: scale(calc(((69/100)*3840)/1166)) !important;
+  }
+}

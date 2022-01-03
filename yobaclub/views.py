@@ -16,8 +16,16 @@ def cinema(request: WSGIRequest):
     return HttpResponse(render(request, 'Cinema.html'))
 
 @require_http_methods(["GET"])
+def about(request: WSGIRequest):
+    return HttpResponse(render(request, 'About.html'))
+
+@require_http_methods(["GET"])
 def gallery(request: WSGIRequest):
     return HttpResponse(render(request, 'gallery.html'))
+
+@require_http_methods(["GET"])
+def video(request: WSGIRequest):
+    return HttpResponse(render(request, 'video.html'))
 
 @require_http_methods(["GET", "POST"])
 def sign_in(request: WSGIRequest):

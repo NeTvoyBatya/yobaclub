@@ -33,10 +33,12 @@
     <div class="wrapper">
         <div class="header">     
             <header class="container">
-                <img class="YobaLogo" src={{ static('media/YobaLogo.png') }} alt="YobaClub" pointer-events: none; draggable="false">
+                <a href={{ url('index') }}>
+                    <img class="YobaLogo" id="YobaLogo" src={{ static('media/YobaLogo.png') }} alt="YobaClub" pointer-events: none; draggable="false">
+                </a>
                 <div class="headerNavigation">
                     <a href={{ url('index') }}>Главная</a>
-                    <a href="#">О нас</a>
+                    <a href={{ url('about') }}>О нас</a>
                     <a href={{ url('sign_up') }}>Регистрация</a>
                     <a href={{ url('sign_in') }}>Войти</a>
                     <div class="ThemeMenu">
@@ -94,13 +96,23 @@
             <footer class="container">
                 <div>3.0 - alpha<br>Design by Medvils</div>
                 <div class="Weather"></div>
+                {% block footer_content %}
+                {% endblock %}
                 <div class="FooterLink">
-                    <img src={{ static('media/DiscordLogo.png') }} alt="">
-                    <img src={{ static('media/VkLogo.png') }} alt="">
+                    <a href="">
+                        <img src={{ static('media/DiscordLogo.png') }} alt="">
+                    </a>
+                    <a href="">
+                        <img src={{ static('media/VkLogo.png') }} alt="">
+                    </a>
+                    
+                    
                 </div>  
             </footer>
-        </div>
+        </div>   
     </div>
+    {% block under_page_content %}
+    {% endblock %}
 
 {% block page_scripts%}
 {% endblock%}

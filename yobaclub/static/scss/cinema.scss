@@ -84,7 +84,31 @@
       }
     }
   }
+}
 
-
+@media (min-width:1365px) {
+  .cinema{
+      transform:scale(calc(((69/100)*1366)/1166)) !important;
+  } 
+}
+@media (min-width:1679px) {
+  .cinema{
+      transform:scale(calc(((69/100)*1680)/1166)) !important;
+  } 
+}
+@media (min-width:1919px) {
+  .cinema{
+      transform:scale(calc(((69/100)*1920)/1166)) !important;
+  } 
+}
+@media (min-width:2559px) {
+  .cinema{
+      transform:scale(calc(((69/100)*2560)/1166)) !important;
+  } 
+}
+@media (min-width:3839px) {
+  .cinema{
+      transform:scale(calc(((69/100)*3840)/1166)) !important;
+  } 
 }
 
