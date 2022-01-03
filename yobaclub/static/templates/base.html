@@ -39,8 +39,12 @@
                 <div class="headerNavigation">
                     <a href={{ url('index') }}>Главная</a>
                     <a href={{ url('about') }}>О нас</a>
-                    <a href={{ url('sign_up') }}>Регистрация</a>
-                    <a href={{ url('sign_in') }}>Войти</a>
+                    {% if request.user.is_anonymous %}
+                        <a href={{ url('sign_up') }}>Регистрация</a>
+                        <a href={{ url('sign_in') }}>Войти</a>
+                    {% else %}
+                        <a href ={{url('logout')}}>Выйти({{request.user.name}})</a>
+                    {% endif %}
                     <div class="ThemeMenu">
                         <div class="ThemeMenuButton" onclick="ThemeMenu()">
                             <img class="TMBIcon" id="ThemeMenuIcon" src={{ static('media/svg/gear.svg') }} alt="*">

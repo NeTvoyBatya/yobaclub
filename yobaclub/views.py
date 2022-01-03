@@ -3,9 +3,10 @@ from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect
 from django.core.handlers.wsgi import WSGIRequest
-from yobaclub.logic.utils import forms
-from yobaclub.logic.utils import models
+from yobaclub import forms
 from yobaclub.logic.utils.themedRender import render
+from yobaclub.logic.utils.redirect_back import redirect_back_or_index
+from django.contrib.auth import logout as logout_user
 
 @require_http_methods(["GET"])
 def index(request: WSGIRequest):
@@ -27,9 +28,16 @@ def gallery(request: WSGIRequest):
 def video(request: WSGIRequest):
     return HttpResponse(render(request, 'video.html'))
 
+@csrf_exempt
 @require_http_methods(["GET", "POST"])
 def sign_in(request: WSGIRequest):
-    return HttpResponse(render(request, 'SignIn.html'))
+    if request.method.lower() == 'get':
+        return HttpResponse(render(request, 'SignIn.html'))
+    form = forms.SignInForm(request.POST)
+    if form.is_valid():
+        if form.login_user(request):
+            return redirect('index')
+    return HttpResponse(render(request, 'SignIn.html')) 
 
 @csrf_exempt
 @require_http_methods(["GET", "POST"])
@@ -38,16 +46,13 @@ def sign_up(request: WSGIRequest):
         return HttpResponse(render(request, 'SignUp.html'))
     form = forms.SignUpForm(request.POST)
     if form.is_valid():
-        form_data = form.cleaned_data
-        new_user = models.User(name=form_data['login'],
-                               password = form_data['password'],
-                               mail = form_data['mail'])
-        new_user.save()
-        return redirect('index')
-    else:
-        return HttpResponse(render(request, '<h1>503 ERROR</h1>', status=503)) #TODO: ERROR PAGE TEMPLATE
+        if form.save_user():
+            return redirect('sign_in')
+    return HttpResponse(render(request, '<h1>503 ERROR</h1>', status=503)) 
     
-
 @require_http_methods(["GET"])
-def test(request: WSGIRequest):
-    return HttpResponse(render(request, 'base.html'))
+def logout(request: WSGIRequest):
+    if not request.user.is_anonymous:
+        logout_user(request)
+    return redirect_back_or_index(request)
+    
