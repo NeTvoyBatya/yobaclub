@@ -17,26 +17,26 @@
 </head>
 
 <body class="body {{theme}}" id = body>
-    <div class="loadScreen {{theme}}" id="loadScreenId">
+    <div class="load_screen {{theme}}" id="loadScreenId">
         <div class="container">
             <div class="loader">
-                <img class="YobaImg" src={{ static('media/YobaImg.png') }} alt="" pointer-events: none; draggable="false";>
-                <img class="YobaLoader" src={{ static('media/svg/YobaLoader.svg') }} alt="0" pointer-events: none; draggable="false";>
-                <img class="YobaLoaderCircle" src={{ static('media/svg/circle.svg') }} alt="" pointer-events: none; draggable="false";>
+                <img class="loader-YobaImg" src={{ static('media/YobaImg.png') }} alt="" pointer-events: none; draggable="false";>
+                <img class="loader-YobaLoader" src={{ static('media/svg/YobaLoader.svg') }} alt="0" pointer-events: none; draggable="false";>
+                <img class="loader-YobaLoaderCircle" src={{ static('media/svg/circle.svg') }} alt="" pointer-events: none; draggable="false";>
             </div>
-            <div class="LoadTextBox">
+            <div class="load_screen-text">
                 <p>{% block loading_text%}Загрузка{% endblock %}</p>
             </div>
         </div>
     </div>
 
     <div class="wrapper">
-        <div class="header">     
-            <header class="container">
+        <header class="header">     
+            <div class="container">
                 <a href={{ url('index') }}>
                     <img class="YobaLogo" id="YobaLogo" src={{ static('media/YobaLogo.png') }} alt="YobaClub" pointer-events: none; draggable="false">
                 </a>
-                <div class="headerNavigation">
+                <div class="header_navigation">
                     <a href={{ url('index') }}>Главная</a>
                     <a href={{ url('about') }}>О нас</a>
                     {% if request.user.is_anonymous %}
@@ -45,42 +45,42 @@
                     {% else %}
                         <a href ={{url('logout')}}>Выйти({{request.user.name}})</a>
                     {% endif %}
-                    <div class="ThemeMenu">
-                        <div class="ThemeMenuButton" onclick="ThemeMenu()">
-                            <img class="TMBIcon" id="ThemeMenuIcon" src={{ static('media/svg/gear.svg') }} alt="*">
+                    <div class="theme_menu">
+                        <div class="theme_menu-button" onclick="ThemeMenu()">
+                            <img class="icon" id="ThemeMenuIcon" src={{ static('media/svg/gear.svg') }} alt="*">
                         </div>
-                        <div class="ThemeMenuContainer" id = "ThemeMenuId">
-                            <div class="ThemeMenuWrapper">
-                                <h4 class="ChangeTheme"> Change Theme </h4>
-                                <div class="ThemeMenuBox">
-                                    <div class="ThemeCheckBox">
-                                        <div class="NewCheckBox">
-                                            <img class="TCBCheckMark SamuraiCheckMark" id = "SamuraiCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
-                                            <div class="TCBCircle"></div>
+                        <div class="theme_menu_container" id = "ThemeMenuId">
+                            <div class="theme_menu_wrapper">
+                                <h4 class="theme_menu_wrapper-title"> Change Theme </h4>
+                                <div class="theme_menu_box">
+                                    <div class="theme_check_box">
+                                        <div class="new_check_box">
+                                            <img class="Marker SamuraiCheckMark" id = "SamuraiCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                            <div class="Circle"></div>
                                         </div>
                                         <input id="SamuraiCheckBoxId" type="checkbox">
                                         <h4 href="#" onclick="SamuraiTheme()">Samurai</h4>
                                     </div>
-                                    <div class="ThemeCheckBox">
-                                        <div class="NewCheckBox">
-                                            <img class="TCBCheckMark ForestCheckMark" id = "ForestCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
-                                            <div class="TCBCircle"></div>
+                                    <div class="theme_check_box">
+                                        <div class="new_check_box">
+                                            <img class="Marker ForestCheckMark" id = "ForestCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                            <div class="Circle"></div>
                                         </div>
                                         <input id="ForestCheckBoxId" type="checkbox">
                                         <h4 href="#" onclick="ForestTheme()">Forest</h4>
                                     </div>
-                                    <div class="ThemeCheckBox">
-                                        <div class="NewCheckBox">
-                                            <img class="TCBCheckMark FactoryCheckMark" id = "FactoryCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
-                                            <div class="TCBCircle"></div>
+                                    <div class="theme_check_box">
+                                        <div class="new_check_box">
+                                            <img class="Marker FactoryCheckMark" id = "FactoryCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                            <div class="Circle"></div>
                                         </div>
                                         <input id="FactoryCheckBoxId" type="checkbox">
                                         <h4 href="#" onclick="FactoryTheme()">Factory</h4>
                                     </div>
-                                    <div class="ThemeCheckBox">
-                                        <div class="NewCheckBox">
-                                            <img class="TCBCheckMark WhiteAreaCheckMark" id = "WhiteAreaCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
-                                            <div class="TCBCircle"></div>
+                                    <div class="theme_check_box">
+                                        <div class="new_check_box">
+                                            <img class="Marker WhiteAreaCheckMark" id = "WhiteAreaCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                            <div class="Circle"></div>
                                         </div>
                                         <input id="WhiteAreaCheckBoxId" type="checkbox">
                                         <h4 href="#" onclick="WhiteAreaTheme()">White area</h4>
@@ -90,30 +90,28 @@
                         </div>    
                     </div>
                 </div>
-            </header>
-        </div>
+            </div>
+        </header>
 
         {% block page_content %}
         {% endblock %}
         
-        <div class="footer"> 
-            <footer class="container">
+        <footer class="footer"> 
+            <div class="container">
                 <div>3.0 - alpha<br>Design by Medvils</div>
-                <div class="Weather"></div>
+                <div class="weather"></div>
                 {% block footer_content %}
                 {% endblock %}
-                <div class="FooterLink">
+                <div class="footer_link">
                     <a href="">
                         <img src={{ static('media/DiscordLogo.png') }} alt="">
                     </a>
                     <a href="">
                         <img src={{ static('media/VkLogo.png') }} alt="">
                     </a>
-                    
-                    
                 </div>  
-            </footer>
-        </div>   
+            </div>
+        </footer>   
     </div>
     {% block under_page_content %}
     {% endblock %}

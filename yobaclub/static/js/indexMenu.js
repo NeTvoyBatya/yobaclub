@@ -15,7 +15,7 @@ function LinkFunction(element){
 }
 
 function closeButton(){
-    for (element of document.getElementsByClassName('openLink')) {
+    for (element of document.getElementsByClassName('open_link')) {
         if (element.className.endsWith(' on')){
             element.classList.toggle('on')
         }

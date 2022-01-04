@@ -69,8 +69,17 @@ body{
                         display: flex;
                         align-items: center;
                         padding: 10px 0px 10px 0px;
+                        .history-update__avatar{
+                            width: 25px;
+                            height: 25px;
+                            border-radius: 50%;
+                            margin-right: 5px;
+                        }
                         .history-update__author{
                             padding-right: 5px;
+                            &.have_link{
+                                cursor: pointer;
+                            }
                         }
                         .history-update__message{
                             padding-right: 5px;

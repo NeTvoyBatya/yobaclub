@@ -1,147 +1,225 @@
-.ThemeMenu .ThemeMenuButton{
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
+.theme_menu-button {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
-.ThemeMenu .ThemeMenuButton .TMBIcon{
-    width: 18px;
-    height: 18px;
+.theme_menu-button .icon {
+  width: 18px;
+  height: 18px;
 }
-.ThemeMenu .ThemeMenuButton .TMBIcon.on{
-    animation: 1s spinbuttonDown ease-out;
+.theme_menu-button .icon.on {
+  -webkit-animation: 1s spinbuttonDown ease-out;
+          animation: 1s spinbuttonDown ease-out;
 }
-.ThemeMenu .ThemeMenuButton .TMBIcon.off{
-    animation: 1s spinbuttonUp ease-out;
+.theme_menu-button .icon.off {
+  -webkit-animation: 1s spinbuttonUp ease-out;
+          animation: 1s spinbuttonUp ease-out;
 }
-.ThemeMenu .ThemeMenuContainer{
-    position: absolute;
-    transform: translate(-85%,5%);
-    opacity: 0;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 25%;
-    pointer-events: none;
+.theme_menu_container {
+  position: absolute;
+  -webkit-transform: translate(-85%, 5%);
+          transform: translate(-85%, 5%);
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 25%;
+  pointer-events: none;
 }
-.ThemeMenu .ThemeMenuContainer.on{
-    position: absolute;
-    animation: 400ms ThemeMenuKeyFrameDown cubic-bezier(0, 0.81, 0.72, 0.97);
-    opacity: 1;
-    transform: translate(-85%,5%);
-    pointer-events: auto;
+.theme_menu_container.on {
+  position: absolute;
+  -webkit-animation: 400ms ThemeMenuKeyFrameDown cubic-bezier(0, 0.81, 0.72, 0.97);
+          animation: 400ms ThemeMenuKeyFrameDown cubic-bezier(0, 0.81, 0.72, 0.97);
+  opacity: 1;
+  -webkit-transform: translate(-85%, 5%);
+          transform: translate(-85%, 5%);
+  pointer-events: auto;
 }
-.ThemeMenu .ThemeMenuContainer.off{
-    animation: 400ms ThemeMenuKeyFrameUp cubic-bezier(0, 0, 1, 0.56);
-    opacity: 0;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 25%;
-    pointer-events: none;
+.theme_menu_container.off {
+  -webkit-animation: 400ms ThemeMenuKeyFrameUp cubic-bezier(0, 0, 1, 0.56);
+          animation: 400ms ThemeMenuKeyFrameUp cubic-bezier(0, 0, 1, 0.56);
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 25%;
+  pointer-events: none;
 }
-.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.theme_menu_container .theme_menu_wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ChangeTheme{
-    margin-bottom: 30px;
-    font-weight: 500;
+.theme_menu_container .theme_menu_wrapper-title {
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box {
+  display: flexbox;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 4% 0px 4% 0px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box input {
+  display: none;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box h4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box h4:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box .new_check_box {
+  width: 6px;
+  height: 6px;
+  margin-right: 10px;
+  position: relative;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box .new_check_box .Marker {
+  position: absolute;
+  left: -1px;
+  bottom: 1px;
+  opacity: 0;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box .new_check_box .Circle {
+  width: 6px;
+  height: 6px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box .new_check_box .SamuraiCheckMark.on {
+  opacity: 1;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box .new_check_box .ForestCheckMark.on {
+  opacity: 1;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box .new_check_box .FactoryCheckMark.on {
+  opacity: 1;
+}
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box .new_check_box .WhiteAreaCheckMark.on {
+  opacity: 1;
 }
 
-.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ThemeMenuBox{
-    display: flexbox;
-    flex-direction: column;
-    justify-content: space-around;
+@-webkit-keyframes ThemeMenuKeyFrameDown {
+  from {
+    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+            transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+    opacity: 0%;
+  }
+  to {
+    -webkit-transform: translate(-85%, 5%) scale(100%) perspective(0px) rotateX(0deg);
+            transform: translate(-85%, 5%) scale(100%) perspective(0px) rotateX(0deg);
+    opacity: 100%;
+  }
 }
-.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ThemeMenuBox .ThemeCheckBox{
-    display: flex;
-    margin: 4% 0px 4% 0px ;
-    align-items: center;
-}
-.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ThemeMenuBox .ThemeCheckBox input{
-    display: none;
-}
-.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ThemeMenuBox .ThemeCheckBox h4{
-    display: flex;    
-    cursor: pointer;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    transition: 0.4s;
-}
-.ThemeMenu .ThemeMenuContainer .ThemeMenuWrapper .ThemeMenuBox .ThemeCheckBox h4:hover{
-    color: rgba(255, 255, 255, 0.90);
-}
-.NewCheckBox{
-    width: 6px;
-    height: 6px;
-    margin-right: 10px;
-    position: relative;
-}
-.TCBCheckMark{
-    position: absolute;
-    left: -1px;
-    bottom: 1px;
-    opacity: 0;
-}
-.TCBCircle{
-    width: 6px;
-    height: 6px;
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-}
-.SamuraiCheckMark.on{
-    opacity: 1;
-}
-.ForestCheckMark.on{
-    opacity: 1;
-}
-.FactoryCheckMark.on{
-    opacity: 1;
-}
-.WhiteAreaCheckMark.on{
-    opacity: 1;
-}
+
 @keyframes ThemeMenuKeyFrameDown {
-    from{
-        transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
-        opacity: 0%;
-    }
-    to{
-        transform: translate(-85%, 5%) scale(100%) perspective(0px) rotateX(0deg);
-        opacity: 100%;
-    }
-} 
+  from {
+    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+            transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+    opacity: 0%;
+  }
+  to {
+    -webkit-transform: translate(-85%, 5%) scale(100%) perspective(0px) rotateX(0deg);
+            transform: translate(-85%, 5%) scale(100%) perspective(0px) rotateX(0deg);
+    opacity: 100%;
+  }
+}
+@-webkit-keyframes ThemeMenuKeyFrameUp {
+  from {
+    -webkit-transform: translate(-85%, 5%) scale(100%) perspective(0px) rotateX(0deg);
+            transform: translate(-85%, 5%) scale(100%) perspective(0px) rotateX(0deg);
+    opacity: 100%;
+  }
+  to {
+    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+            transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+    opacity: 0%;
+  }
+}
 @keyframes ThemeMenuKeyFrameUp {
-    from{
-        transform: translate(-85%, 5%) scale(100%) perspective(0px) rotateX(0deg);
-        opacity: 100%;
-    }
-    to{
-        transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
-        
-        opacity: 0%;
-    }
+  from {
+    -webkit-transform: translate(-85%, 5%) scale(100%) perspective(0px) rotateX(0deg);
+            transform: translate(-85%, 5%) scale(100%) perspective(0px) rotateX(0deg);
+    opacity: 100%;
+  }
+  to {
+    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+            transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+    opacity: 0%;
+  }
+}
+@-webkit-keyframes spinbuttonUp {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
 }
 @keyframes spinbuttonUp {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(180deg);
-    }
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+@-webkit-keyframes spinbuttonDown {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
 }
 @keyframes spinbuttonDown {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(180deg);
-    }
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
 }

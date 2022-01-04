@@ -2,12 +2,12 @@
 
 {% block page_title%}YobaClub{% endblock %}
         {%block page_content%}
-        <div class="main">
-            <main class="container">
-                <div class="mainMenu">
-                    <div class="closeMainMenu" id="CloaseMainMenu">
+        <main class="main">
+            <div class="container">
+                <div class="main_menu">
+                    <div class="main_menu-close" id="CloaseMainMenu">
                         <img class="YobaImg" src={{ static('media/YobaImg.png') }} alt="" pointer-events: none; draggable="false">
-                        <div class="allOrvits">
+                        <div class="all_orvits">
                             <div class="orbit">
                                 <div class="link" data-number="1" onclick="LinkFunction(this)" id = "Link1">
                                     <img src={{ static('media/svg/2ChVideo.svg') }} alt="">
@@ -26,13 +26,13 @@
                         </div>
                     </div>
 
-                    <div class="openMainMenu" id="openMainMenu">
+                    <div class="main_menu-open" id="openMainMenu">
 
-                        <div class="CloseButton" id="CloseButton" onclick="closeButton()">
+                        <div class="close_button" id="CloseButton" onclick="closeButton()">
                             <img src={{ static('media/svg/Cross.svg') }} alt="">
                         </div>
 
-                        <div class="openLink" id="OpenLink1" onclick="javascript:document.location.href='/video'">
+                        <div class="open_link" id="OpenLink1" onclick="javascript:document.location.href='/video'">
                             <img src={{ static('media/svg/2ChVideo.svg') }} alt="">
                             <h2>Видосы с двача</h2>
                             <P>Тут ты можешь посмотреть трешовые видосы с 2ch <br>
@@ -42,14 +42,14 @@
                             <p>Для поерехода на страницу нажмите на этот большой круг.</p>
                         </div>
 
-                        <div class="openLink" id="OpenLink2" onclick="javascript:document.location.href='/gallery'">
+                        <div class="open_link" id="OpenLink2" onclick="javascript:document.location.href='/gallery'">
                             <img src={{ static('media/svg/Gallery.svg') }} alt="">
                             <h2>Галерея сущностей</h2>
                             <P>В нашей галерее ты можешь посмотреть на необычнх сущностей, а так же добавить свою сущность!</P>
                             <p>Для перехода на страницу нажмите на этот большой круг.</p>
                         </div>
 
-                        <div class="openLink" id="OpenLink3" onclick="javascript:document.location.href='/cinema'"> <!--Ебанулся что ли блять?-->
+                        <div class="open_link" id="OpenLink3" onclick="javascript:document.location.href='/cinema'"> <!--Ебанулся что ли блять?-->
                             <img src={{ static('media/svg/Cinema.svg') }} alt="">
                             <h2>Кинотеатр</h2>
                             <P>В кинотеатре ты можешь посмотреть видео с ютуба вместе со своими друзьями, для того чтобы это сделать достаточно скинуть ссылку в чат!</P>
@@ -58,14 +58,14 @@
 
                     </div>
                 </div>
-            </main>
-        </div>
+            </div>
+        </main>
         {% endblock %}
 
 {% block page_styles %}
-<link rel="stylesheet" href={{ static('css/index.css') }}>
+    <link rel="stylesheet" href={{ static('css/index.css') }}>
 {% endblock%}
 
 {% block page_scripts%}
-<script src={{ static('js/indexMenu.js') }}></script>
+    <script src={{ static('js/indexMenu.js') }}></script>
 {% endblock %}

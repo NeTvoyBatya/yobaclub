@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block page_title %}Yoba SignIn{% endblock %}
         {%block page_content%}
-        <div class="main">
-            <main class="container">
+        <main class="main">
+            <div class="container">
 
                 <div class="gallery">
                     <button class="gallery-button">Добавить сущность</button>
@@ -44,8 +44,8 @@
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
+            </div>
+        </main>
         {% endblock%}
 {% block page_styles %}
     <link rel="stylesheet" href={{ static('css/gallery.css') }}>
