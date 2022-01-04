@@ -92,6 +92,7 @@ body .load_screen {
       -ms-flex-align: center;
           align-items: center;
   z-index: 10;
+  background-image: url(/static/media/SamuraiBacground.png);
 }
 body .load_screen.Samurai {
   background-image: url(/static/media/SamuraiBacground.png);
@@ -235,6 +236,11 @@ body .wrapper .footer .container .footer_link a:hover {
 body .wrapper .footer .container .footer_link a img {
   margin: 0px 4px 0px 4px;
   cursor: pointer;
+  opacity: 75%;
+}
+
+.yoba_music_img {
+  display: none;
 }
 
 @-webkit-keyframes LoadScreenDone {

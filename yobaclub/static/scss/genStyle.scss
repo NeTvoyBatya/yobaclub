@@ -63,6 +63,7 @@ body{
         justify-content: center;
         align-items: center;
         z-index: 10;
+        background-image: url(/static/media/SamuraiBacground.png);
         &.Samurai{
             background-image: url(/static/media/SamuraiBacground.png);
         }
@@ -172,12 +173,17 @@ body{
                         & img{
                             margin:0px 4px 0px 4px;
                             cursor: pointer;
+                            opacity: 75%;
                         }
                     }
                 }
             }
         }
     }
+}
+
+.yoba_music_img{
+    display: none;
 }
 
 @keyframes LoadScreenDone {
