@@ -10,7 +10,8 @@ urlpatterns = [
     path('gallery', views.gallery, name='gallery'),
     path('sign-in', views.sign_in, name = 'sign_in'),
     path('sign-up', views.sign_up, name='sign_up'),
-    path('logout', views.logout, name="logout"),
+    path('logout', views.logout, name='logout'),
 
-    path('api/get_videos', api_views.api_get_videos, name = 'api_get_videos')
+    path('api/get_videos', api_views.api_get_videos, name = 'api_get_videos'),
+    path('api/get_commits', api_views.api_get_commits, name = 'api_get_commits')
 ]

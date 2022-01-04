@@ -25,7 +25,7 @@
                 <img class="YobaLoaderCircle" src={{ static('media/svg/circle.svg') }} alt="" pointer-events: none; draggable="false";>
             </div>
             <div class="LoadTextBox">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum totam eum dignissimos, perferendis officia impedit vitae eaque voluptatum facilis nam libero deserunt ullam iste fugit tempora quis sed, perspiciatis aperiam?</p>
+                <p>{% block loading_text%}Загрузка{% endblock %}</p>
             </div>
         </div>
     </div>
@@ -118,10 +118,10 @@
     {% block under_page_content %}
     {% endblock %}
 
-{% block page_scripts%}
-{% endblock%}
 <script src={{ static('js/SelectTheme.js') }}></script>
 <script src={{ static('js/preloader.js') }}></script>
+{% block page_scripts%}
+{% endblock%}
 </body>
 
 </html>

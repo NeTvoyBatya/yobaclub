@@ -26,16 +26,8 @@
                     <div class="update_history-block">
                         <h3>История обновлений Yoba-клуба</h3>
                         <div class="update">
-                            <ul type="none" class="history-update__list">
-                                <li type="none" class="history-update__element">
-                                    <span class="history-update__author">Author:</span>
-                                    <span class="history-update__message">Message</span>
-                                    <span class="history-update__time">Time</span>
-                                </li>
-                            </ul>
-                            
-                            
-
+                            <ul type="none" id="commits_list" class="history-update__list">
+                            </ul>                   
                         </div>
                     </div>
                 </div>
@@ -48,7 +40,10 @@
         {% endblock %}
 {% block page_scripts%}
     <script src={{ static('js/scrollto.js') }}></script>
-{% endblock%}
+    <script src={{ static('js/about.js') }}></script>
+{% endblock %}
 {% block page_styles %}
     <link rel="stylesheet" href={{ static('css/about.css') }}>
-{% endblock%}
+{% endblock %}
+
+{% block loading_text %}Собираем историю обновлений{% endblock %}
