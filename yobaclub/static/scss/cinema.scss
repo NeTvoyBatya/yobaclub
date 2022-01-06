@@ -6,22 +6,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      .vjs-poster{
-        border-radius: 25px;
-      }
-      .vjs-big-play-button{
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%,-50%) !important;
-      }
-      .vjs-control-bar{
-        border-radius: 0px 0px 25px 25px !important;
-        width: 100% !important;
-        left: 50% !important;
-        transform: translate(-50%, 0px) !important;
-      }
-      .video-js {
+      .plyr__video-embed {
         margin: 5px;
         max-width: calc(250px + 710 * (100vw / 1920));
         min-width: calc(250px + 710 * (100vw / 1920));
@@ -30,7 +15,7 @@
         background-color: rgba(255, 0, 0, 0);
         border:0px solid red;
         border-radius: 25px;
-        video{
+        iframe{
           border-radius: 25px;
         }
       }
@@ -111,6 +96,21 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgb(0, 0, 0, 0.25);
   border-radius: 9em;
+}
+
+.plyr--video{
+  background-color: rgb(0, 0, 0, 0) !important;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: calc(250px + 710 * (100vw / 1920));
+  min-width: calc(250px + 710 * (100vw / 1920));
+  max-height: calc(147px + 393 * (100vw / 1920));
+  min-height: calc(147px + 393 * (100vw / 1920));
+}
+html{
+  --plyr-color-main: rgba(113, 80, 156, 0.801);
 }
 
 @media (min-width:1365px) {
