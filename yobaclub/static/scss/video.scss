@@ -49,7 +49,7 @@
                             color: rgb(255, 255, 255, 0.75);
                             transition: 0.4s;
                             &:hover{
-                                color: rgb(255, 255, 255, 0.85);
+                                color: rgb(255, 255, 255, 0.90);
                             }
                         }
                     }
@@ -73,7 +73,10 @@
     justify-content: center;
 }
 
+.yoba_music_img{
+    display: block !important;
 
+}
 
 @media (min-width:1365px) {
     .video{

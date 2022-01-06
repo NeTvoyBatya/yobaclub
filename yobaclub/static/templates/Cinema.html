@@ -3,32 +3,28 @@
 {% block page_title %}YobaCinema{% endblock %}
 
         {% block page_content %}
-        <div class="main">
-            <main class="container">
+        <main class="main">
+            <div class="container">
                 <div class="cinema">
                     
-                    <video id="my-video" class="video-js vjs-theme-city" class="video-js vjs-theme-city" controls preload="auto" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
-
-                        <source class="bibo" src="https://2ch.hk/b/src/259430965/16392267022850.mp4" type="video/mp4" />
-
+                    <video class="video-js vjs-theme-city" id="my-video" controls preload="auto" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+                        <source src="https://2ch.hk/b/src/259430965/16392267022850.mp4" type="video/mp4" />
                         <p class="vjs-no-js">
                             To view this video please enable JavaScript, and consider upgrading to a
                             web browser that
                             <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
                         </p>
-
                     </video>
 
-                    <div class="chat">
-                        <div class="message">
-                            <h4>Name:</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="message">
-                            <h4>Name:</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="inputblock">
+                    <div class="cinema_chat">
+                        <ul class="message_block">
+                            <li class="message">
+                                <h4>Name:</h4>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit doloribus accusantium quibusdam doloremque tempora eaque.</p>
+                            </li>
+                        </ul>
+                        
+                        <div class="input_block">
                             <input type="text">
                             <button>
                                 <img src={{ static('media/svg/Send.svg') }} alt="">
@@ -38,17 +34,17 @@
                         
                     </div>
                 </div>
-            </main>
-        </div>
+            </div>
+        </main>
         {% endblock %}
 
 {% block page_scripts %}
-<script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
-<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 {% endblock%}
 
 {% block page_styles %}
-<link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
-<link rel="stylesheet" href={{ static('css/cinema.css') }}>
-<link href="https://unpkg.com/@videojs/themes@1/dist/city/index.css" rel="stylesheet"/>
+    <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href={{ static('css/cinema.css') }}>
+    <link href="https://unpkg.com/@videojs/themes@1/dist/city/index.css" rel="stylesheet"/>
 {% endblock %}

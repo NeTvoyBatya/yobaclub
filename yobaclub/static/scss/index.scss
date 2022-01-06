@@ -14,223 +14,220 @@
     height: 50vh;
     .container{
         justify-content: center;
-    }
-}
-
-.mainMenu{
-    transform:scale(calc(((42/100)*1280)/710));
-    transform-origin: 50% 50%;
-    position: relative;
-    z-index: 5;
-    .closeMainMenu{
-        &.on{
-            opacity: 0%;
-            pointer-events: none;
-        }
-        .YobaImg{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 350px;
-            height: 350px;
-            transform: translate(-50%,-50%);
-            opacity: 75%;
-            border-radius: 50%;
-            z-index: 2;
-        }
-        .allOrvits{
+        .main_menu{
+            transform:scale(calc(((42/100)*1280)/710));
+            transform-origin: 50% 50%;
             position: relative;
-            width: 710px;
-            height: 710px;
-            transition: 0.4s;
-            .orbit{
-                &:nth-child(1){
-                    @extend %Orbit;
-                    width: 700px;
-                    height: 700px;
-                    & .link{
-                        position: absolute;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        top: -25px;
-                        left: 50%;
-                        transform: translate(-50%);
-                        width: 50px;
-                        height: 50px;
-                        background-color: rgba(0, 0, 0, 0.25);
-                        border-radius: 50%;
-                        cursor: pointer;
-                        transform-origin: 0px 375px;
-                        animation: 70s orbitRotating infinite linear;
-                        transition: 0.4s;
-                        & img{
-                            height: 35px;
-                            animation: 70s rotate infinite linear;
+            z-index: 5;
+            &-close{
+                &.on{
+                    opacity: 0%;
+                    pointer-events: none;
+                }
+                .YobaImg{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 350px;
+                    height: 350px;
+                    transform: translate(-50%,-50%);
+                    opacity: 75%;
+                    border-radius: 50%;
+                    z-index: 2;
+                }
+                .all_orvits{
+                    position: relative;
+                    width: 710px;
+                    height: 710px;
+                    transition: 0.4s;
+                    .orbit{
+                        &:nth-child(1){
+                            @extend %Orbit;
+                            width: 700px;
+                            height: 700px;
+                            & .link{
+                                position: absolute;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                top: -25px;
+                                left: 50%;
+                                transform: translate(-50%);
+                                width: 50px;
+                                height: 50px;
+                                background-color: rgba(0, 0, 0, 0.25);
+                                border-radius: 50%;
+                                cursor: pointer;
+                                transform-origin: 0px 375px;
+                                animation: 70s orbitRotating infinite linear;
+                                transition: 0.4s;
+                                & img{
+                                    height: 35px;
+                                    animation: 70s rotate infinite linear;
+                                }
+                                &:hover{
+                                    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+                                }
+                            }
                         }
-                        &:hover{
-                            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+                        &:nth-child(2){
+                            @extend %Orbit;
+                            width: 580px;
+                            height: 580px;
+                            border: 3px solid rgba(255, 255, 255, 0.20);
+                            & .link{
+                                position: absolute;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                top: 50%;
+                                left: -25px;
+                                transform: translate(0,-50%);
+                                width: 50px;
+                                height: 50px;
+                                background-color: rgba(0, 0, 0, 0.25);
+                                border-radius: 50%;
+                                cursor: pointer;
+                                transform-origin: 315px 0px;
+                                animation: 60s orbitRotating infinite linear;
+                                transition: 0.4s;
+                                &:hover{
+                                    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+                                }
+                                & img{
+                                    height: 35px;
+                                    animation: 60s rotate infinite linear;
+                                }
+                            }
+                        }
+                        &:nth-child(3){
+                            @extend %Orbit;
+                            width: 450px;
+                            height: 450px;
+                            border: 3px solid rgba(255, 255, 255, 0.25);
+                            & .link{
+                                position: absolute;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                top: 50%;
+                                right: -25px;
+                                transform: translate(0,-50%);
+                                width: 50px;
+                                height: 50px;
+                                background-color: rgba(0, 0, 0, 0.25);
+        
+                                border-radius: 50%;
+                                cursor: pointer;
+                                transform-origin: -200px 0px;
+                                animation: 50s orbitRotating infinite linear;
+                                transition: 0.4s;
+                                &:hover{
+                                    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+                                }
+                                & img{
+                                    height: 35px;
+                                    animation: 50s rotate infinite linear;
+                                }
+                            }
                         }
                     }
-                }
-                &:nth-child(2){
-                    @extend %Orbit;
-                    width: 580px;
-                    height: 580px;
-                    border: 3px solid rgba(255, 255, 255, 0.20);
-                    & .link{
-                        position: absolute;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        top: 50%;
-                        left: -25px;
-                        transform: translate(0,-50%);
-                        width: 50px;
-                        height: 50px;
-                        background-color: rgba(0, 0, 0, 0.25);
-                        border-radius: 50%;
-                        cursor: pointer;
-                        transform-origin: 315px 0px;
-                        animation: 60s orbitRotating infinite linear;
-                        transition: 0.4s;
-                        &:hover{
-                            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-                        }
-                        & img{
-                            height: 35px;
-                            animation: 60s rotate infinite linear;
-                        }
-                    }
-                }
-                &:nth-child(3){
-                    @extend %Orbit;
-                    width: 450px;
-                    height: 450px;
-                    border: 3px solid rgba(255, 255, 255, 0.25);
-                    & .link{
-                        position: absolute;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        top: 50%;
-                        right: -25px;
-                        transform: translate(0,-50%);
-                        width: 50px;
-                        height: 50px;
-                        background-color: rgba(0, 0, 0, 0.25);
 
-                        border-radius: 50%;
+                }
+            }
+            &-open{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0%;
+                height: 0%;
+                border-radius: 50%;
+                background-color: rgba(0, 0, 0, 0);
+                transform: translate(-50%,-50%);
+                transition: 0.4s;
+                &.on{
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.25);
+                    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+                }
+                .close_button{
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    top: 40px;
+                    right: 40px;
+                    width: 50px;
+                    height: 50px;
+                    background-color: rgba(0, 0, 0, 0.25);
+                    border-radius: 50%;
+                    animation: 2s puls infinite ease-in-out;
+                    transition: 0.4s;
+                    pointer-events: none;
+                    opacity: 0;
+                    &.on{
+                        opacity: 100;
+                        pointer-events: auto;
                         cursor: pointer;
-                        transform-origin: -200px 0px;
-                        animation: 50s orbitRotating infinite linear;
-                        transition: 0.4s;
-                        &:hover{
-                            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-                        }
-                        & img{
-                            height: 35px;
-                            animation: 50s rotate infinite linear;
-                        }
+                    }
+                    & img{
+                        width: 25px;
+                        height: 25px;
+                        margin: 0px 0px 0px 0px;
+                    }
+                    &:hover{
+                        background-color: rgba(0, 0, 0, 0.35);
+                        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
                     }
                 }
-            }   
+                .open_link{
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    cursor: pointer;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    opacity: 0;
+                    transition: 0.4s;
+                    &.on{
+                        opacity: 100;
+                        width: 700px;
+                        height: 700px;
+                        pointer-events: auto;
+                    } 
+                    & img{
+                        margin: 0px 0px 50px 0px;
+                        opacity: 75%;
+                    }
+                    & h2{
+                        opacity: 75%;
+                        margin-top: 50px;
+                        font-weight: 700;
+                        font-size: 36px;
+                        text-align: center;
+                        transition: 0.2s;
+                        margin: 18px 0px 18px 0px;
+                    }
+                    & p{
+                        opacity: 75%;
+                        font-size: 18px;
+                        text-align: center;
+                        max-width: 500px;
+                        transition: 0.2s;
+                        margin: 18px 0px 18px 0px;
+                    }
+                }
+            }
         }
     }
-    
-    .openMainMenu{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0%;
-        height: 0%;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0);
-        transform: translate(-50%,-50%);
-        transition: 0.4s;
-        &.on{
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-        }
-        .CloseButton{
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            top: 40px;
-            right: 40px;
-            width: 50px;
-            height: 50px;
-            background-color: rgba(0, 0, 0, 0.25);
-            border-radius: 50%;
-            animation: 2s puls infinite ease-in-out;
-            transition: 0.4s;
-            pointer-events: none;
-            opacity: 0;
-            &.on{
-                opacity: 100;
-                pointer-events: auto;
-                cursor: pointer;
-            }
-            & img{
-                width: 25px;
-                height: 25px;
-                margin: 0px 0px 0px 0px;
-            }
-            &:hover{
-                background-color: rgba(0, 0, 0, 0.35);
-                box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-            }
-        }
-
-        .openLink{
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            transition: 0.4s;
-            &.on{
-                opacity: 100;
-                width: 700px;
-                height: 700px;
-                pointer-events: auto;
-            } 
-            & img{
-                margin: 0px 0px 50px 0px;
-                opacity: 75%;
-            }
-            & h2{
-                opacity: 75%;
-                margin-top: 50px;
-                font-weight: 700;
-                font-size: 36px;
-                text-align: center;
-                transition: 0.2s;
-                margin: 18px 0px 18px 0px;
-            }
-            & p{
-                opacity: 75%;
-                font-size: 18px;
-                text-align: center;
-                max-width: 500px;
-                transition: 0.2s;
-                margin: 18px 0px 18px 0px;
-            }
-        }
-    }
-    
 }
 
 @keyframes puls{
@@ -260,27 +257,27 @@
 
 
 @media (min-width:1365px) {
-    .mainMenu{
+    .main_menu{
         transform:scale(calc(((42/100)*1366)/710)) !important;
     } 
 }
 @media (min-width:1679px) {
-    .mainMenu{
+    .main_menu{
         transform:scale(calc(((42/100)*1680)/710)) !important;
     } 
 }
 @media (min-width:1919px) {
-    .mainMenu{
+    .main_menu{
         transform:scale(calc(((42/100)*1920)/710)) !important;
     } 
 }
 @media (min-width:2559px) {
-    .mainMenu{
+    .main_menu{
         transform:scale(calc(((42/100)*2560)/710)) !important;
     } 
 }
 @media (min-width:3839px) {
-    .mainMenu{
+    .main_menu{
         transform:scale(calc(((42/100)*3840)/710)) !important;
     } 
 }

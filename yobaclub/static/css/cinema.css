@@ -6,8 +6,7 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
-
-.cinema {
+.main .container .cinema {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,24 +17,24 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.cinema .vjs-poster {
+.main .container .cinema .vjs-poster {
   border-radius: 25px;
 }
-.cinema .vjs-big-play-button {
+.main .container .cinema .vjs-big-play-button {
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
   -webkit-transform: translate(-50%, -50%) !important;
           transform: translate(-50%, -50%) !important;
 }
-.cinema .vjs-control-bar {
+.main .container .cinema .vjs-control-bar {
   border-radius: 0px 0px 25px 25px !important;
   width: 100% !important;
   left: 50% !important;
   -webkit-transform: translate(-50%, 0px) !important;
           transform: translate(-50%, 0px) !important;
 }
-.cinema .video-js {
+.main .container .cinema .video-js {
   margin: 5px;
   max-width: calc(250px + 710 * (100vw / 1920));
   min-width: calc(250px + 710 * (100vw / 1920));
@@ -45,50 +44,63 @@
   border: 0px solid red;
   border-radius: 25px;
 }
-.cinema .video-js video {
+.main .container .cinema .video-js video {
   border-radius: 25px;
 }
-.cinema .chat {
+.main .container .cinema_chat {
   position: relative;
   width: 285px;
   max-height: calc(147px + 393 * (100vw / 1920));
   min-height: calc(147px + 393 * (100vw / 1920));
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
-.cinema .chat .message {
+.main .container .cinema_chat .message_block {
+  margin: 0px 5px 0px 0px;
+  overflow-y: scroll;
+  border-radius: 25px;
+  height: calc(147px + 393 * (100vw / 1920));
+}
+.main .container .cinema_chat .message_block .message {
   font-size: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 15px;
+  margin: 10px;
 }
-.cinema .chat .message h4 {
+.main .container .cinema_chat .message_block .message h4 {
   margin-right: 5px;
 }
-.cinema .chat .inputblock {
-  position: absolute;
-  bottom: 5px;
+.main .container .cinema_chat .input_block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  left: 50%;
-  -webkit-transform: translate(-50%, -5px);
-          transform: translate(-50%, -5px);
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   padding: 2px;
+  margin: 0px 8px 8px 8px;
 }
-.cinema .chat .inputblock input {
+.main .container .cinema_chat .input_block input {
   color: rgba(255, 255, 255, 0.75);
   background-color: rgba(255, 255, 255, 0);
   border: 0px;
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
 }
-.cinema .chat .inputblock button {
+.main .container .cinema_chat .input_block button {
   width: 25px;
   height: 25px;
   background-color: rgba(0, 0, 0, 0);
@@ -104,9 +116,30 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.cinema .chat .inputblock button img {
+.main .container .cinema_chat .input_block button img {
   width: 15px;
   height: 15px;
+}
+
+::-webkit-scrollbar {
+  height: 10%;
+  width: 5px;
+  background-color: #14386100;
+}
+
+::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 5px;
+}
+
+::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 9em;
 }
 
 @media (min-width: 1365px) {

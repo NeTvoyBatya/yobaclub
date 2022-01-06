@@ -16,34 +16,6 @@ html, body {
   height: 100%;
 }
 
-body {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(/static/media/SamuraiBacground.png);
-  background-color: #373348;
-  font-family: "Montserrat", sans-serif;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.75);
-  overflow: hidden;
-}
-
-body.Samurai {
-  background-image: url(/static/media/SamuraiBacground.png);
-}
-
-body.Forest {
-  background-image: url(/static/media/ForestBacground.png);
-}
-
-body.Factory {
-  background-image: url(/static/media/FactoryBacground.png);
-}
-
-body.WhiteArea {
-  background-image: url(/static/media/WhiteAreaBacground.png);
-}
-
 .wrapper {
   max-height: 100%;
   min-height: 100%;
@@ -76,11 +48,30 @@ body.WhiteArea {
   width: 90%;
 }
 
-.LoadTextBox {
-  width: 900px;
+body {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/static/media/SamuraiBacground.png);
+  background-color: #373348;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.75);
+  overflow: hidden;
 }
-
-.loadScreen {
+body.Samurai {
+  background-image: url(/static/media/SamuraiBacground.png);
+}
+body.Forest {
+  background-image: url(/static/media/ForestBacground.png);
+}
+body.Factory {
+  background-image: url(/static/media/FactoryBacground.png);
+}
+body.WhiteArea {
+  background-image: url(/static/media/WhiteAreaBacground.png);
+}
+body .load_screen {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -101,32 +92,26 @@ body.WhiteArea {
       -ms-flex-align: center;
           align-items: center;
   z-index: 10;
+  background-image: url(/static/media/SamuraiBacground.png);
 }
-/*Моё ебало, когда Никитос во второй раз удаляет стили - https://vk.com/video-163806918_456239205 */
-.loadScreen.Samurai{
-    background-image: url(/static/media/SamuraiBacground.png);
+body .load_screen.Samurai {
+  background-image: url(/static/media/SamuraiBacground.png);
 }
-
-.loadScreen.Forest{
-    background-image: url(/static/media/ForestBacground.png);
+body .load_screen.Forest {
+  background-image: url(/static/media/ForestBacground.png);
 }
-
-.loadScreen.Factory{
-    background-image: url(/static/media/FactoryBacground.png);
+body .load_screen.Factory {
+  background-image: url(/static/media/FactoryBacground.png);
 }
-
-.loadScreen.WhiteArea{
-    background-image: url(/static/media/WhiteAreaBacground.png);
+body .load_screen.WhiteArea {
+  background-image: url(/static/media/WhiteAreaBacground.png);
 }
-
-
-.loadScreen.done {
+body .load_screen.done {
   display: none;
   -webkit-animation: 1s LoadScreenDone linear;
           animation: 1s LoadScreenDone linear;
 }
-
-.loader {
+body .load_screen .container .loader {
   width: 500px;
   height: 500px;
   position: relative;
@@ -140,29 +125,28 @@ body.WhiteArea {
       -ms-flex-align: center;
           align-items: center;
 }
-
-.loader .YobaImg {
+body .load_screen .container .loader-YobaImg {
   width: 198px;
   height: 198px;
   margin: 0;
   opacity: 75%;
 }
-
-.loader .YobaLoader {
+body .load_screen .container .loader-YobaLoader {
   position: absolute;
   -webkit-animation: 1s spin infinite ease-out;
           animation: 1s spin infinite ease-out;
   opacity: 85%;
 }
-
-.loader .YobaLoaderCircle {
+body .load_screen .container .loader-YobaLoaderCircle {
   position: absolute;
   -webkit-animation: 2s zoom infinite cubic-bezier(0.65, 0.05, 0.36, 1);
           animation: 2s zoom infinite cubic-bezier(0.65, 0.05, 0.36, 1);
   opacity: 85%;
 }
-
-.header {
+body .load_screen .container .load_screen-text {
+  width: 900px;
+}
+body .wrapper .header {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -172,21 +156,18 @@ body.WhiteArea {
           justify-content: center;
   margin-top: 8px;
 }
-
-.header .YobaLogo {
+body .wrapper .header .container .YobaLogo {
   cursor: pointer;
   opacity: 75%;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
-.header .YobaLogo:hover {
+body .wrapper .header .container .YobaLogo:hover {
   opacity: 90%;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
-.header .headerNavigation {
+body .wrapper .header .container .header_navigation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -197,22 +178,19 @@ body.WhiteArea {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-
-.header .headerNavigation a {
+body .wrapper .header .container .header_navigation a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.75);
   margin: 0px 4px 0px 4px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
-.header .headerNavigation a:hover {
+body .wrapper .header .container .header_navigation a:hover {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.9);
   margin: 0px 4px 0px 4px;
 }
-
-.main {
+body .wrapper .main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -222,8 +200,7 @@ body.WhiteArea {
   width: 100%;
   z-index: 0;
 }
-
-.footer {
+body .wrapper .footer {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -233,13 +210,11 @@ body.WhiteArea {
           justify-content: center;
   margin-bottom: 8px;
 }
-
-.Weather {
+body .wrapper .footer .container .weather {
   width: 50px;
   height: 50px;
 }
-
-.FooterLink {
+body .wrapper .footer .container .footer_link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,19 +225,22 @@ body.WhiteArea {
       -ms-flex-pack: center;
           justify-content: center;
 }
-
-.FooterLink a {
+body .wrapper .footer .container .footer_link a {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-.FooterLink a:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+body .wrapper .footer .container .footer_link a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
-
-.FooterLink a img {
+body .wrapper .footer .container .footer_link a img {
   margin: 0px 4px 0px 4px;
   cursor: pointer;
+  opacity: 75%;
+}
+
+.yoba_music_img {
+  display: none;
 }
 
 @-webkit-keyframes LoadScreenDone {
