@@ -19,6 +19,8 @@ function updateTitles(){
     let title = document.getElementById("video_title")
     number.innerHTML = `${window.current_video_index+1}/${window.videos.length}`
     title.innerHTML = window.videos[window.current_video_index]["name"]
+    title.setAttribute('data-tooltip', window.videos[window.current_video_index]["name"])
+    
 }
 
 function updatePlayer(){

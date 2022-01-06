@@ -59,12 +59,12 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 90%;
+  margin: 0px 0px 5px 0px;
 }
-.video_title{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 70%;
+.main .container .video .video__block .video__player .video__player-text .video_title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 70%;
 }
 .main .container .video .video__block .video__player video {
   width: 640px;
@@ -73,6 +73,7 @@
   border-radius: 50px;
 }
 .main .container .video .video__block .video__player .video__settings {
+  margin: 5px 0px 0px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
