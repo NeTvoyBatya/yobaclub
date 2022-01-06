@@ -60,6 +60,12 @@
           justify-content: space-between;
   width: 90%;
 }
+.video_title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 70%;
+}
 .main .container .video .video__block .video__player video {
   width: 640px;
   height: 360px;
