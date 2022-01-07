@@ -7,17 +7,15 @@
             <div class="container">
                 <div class="cinema">
                     
-                    <video class="video-js vjs-theme-city" id="my-video" controls preload="auto" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+                    <video class="video-js vjs-theme-city" id="my-video" controls preload="auto" poster="" data-setup="{}">
                         <source src="https://2ch.hk/b/src/259430965/16392267022850.mp4" type="video/mp4" />
                         <p class="vjs-no-js">
-                            To view this video please enable JavaScript, and consider upgrading to a
-                            web browser that
-                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                            Дружище, JavaScript нужно ВКЛЮЧИТЬ.
                         </p>
                     </video>
 
                     <div class="cinema_chat">
-                        <ul class="message_block">
+                        <ul id="chatList" class="message_block">
                             <li class="message">
                                 <h4>Name:</h4>
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit doloribus accusantium quibusdam doloremque tempora eaque.</p>
@@ -25,8 +23,8 @@
                         </ul>
                         
                         <div class="input_block">
-                            <input type="text">
-                            <button>
+                            <input id="chatInputField" type="text">
+                            <button onclick="sendMessage()">
                                 <img src={{ static('media/svg/Send.svg') }} alt="">
                             </button>
 
@@ -41,6 +39,7 @@
 {% block page_scripts %}
     <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
     <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src = {{ static('js/cinema.js') }}></script>
 {% endblock%}
 
 {% block page_styles %}

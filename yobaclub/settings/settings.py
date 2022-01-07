@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'yobaclub',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -51,7 +52,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'yobaclub.settings.wsgi.application'
+ASGI_APPLICATION = 'yobaclub.settings.asgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
