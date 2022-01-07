@@ -112,7 +112,7 @@
 
 @keyframes ThemeMenuKeyFrameDown {
     from{
-        transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+        transform: translate(-46%, -55%) scale(0%) perspective(5px) rotateX(1deg);
         opacity: 0%;
     }
     to{
@@ -126,8 +126,8 @@
         opacity: 100%;
     }
     to{
-        transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
-        
+        transform: translate(-46%, -55%) scale(0%) perspective(5px) rotateX(1deg);
+
         opacity: 0%;
     }
 }

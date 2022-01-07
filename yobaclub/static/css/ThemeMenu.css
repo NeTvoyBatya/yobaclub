@@ -136,8 +136,8 @@
 
 @-webkit-keyframes ThemeMenuKeyFrameDown {
   from {
-    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
-            transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(5px) rotateX(1deg);
+            transform: translate(-46%, -55%) scale(0%) perspective(5px) rotateX(1deg);
     opacity: 0%;
   }
   to {
@@ -149,8 +149,8 @@
 
 @keyframes ThemeMenuKeyFrameDown {
   from {
-    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
-            transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(5px) rotateX(1deg);
+            transform: translate(-46%, -55%) scale(0%) perspective(5px) rotateX(1deg);
     opacity: 0%;
   }
   to {
@@ -166,8 +166,8 @@
     opacity: 100%;
   }
   to {
-    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
-            transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(5px) rotateX(1deg);
+            transform: translate(-46%, -55%) scale(0%) perspective(5px) rotateX(1deg);
     opacity: 0%;
   }
 }
@@ -178,8 +178,8 @@
     opacity: 100%;
   }
   to {
-    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
-            transform: translate(-46%, -55%) scale(0%) perspective(50px) rotateX(20deg);
+    -webkit-transform: translate(-46%, -55%) scale(0%) perspective(5px) rotateX(1deg);
+            transform: translate(-46%, -55%) scale(0%) perspective(5px) rotateX(1deg);
     opacity: 0%;
   }
 }

@@ -7,12 +7,16 @@
             <div class="container">
                 <div class="cinema">
                     
-                    <video class="video-js vjs-theme-city" id="my-video" controls preload="auto" poster="" data-setup="{}">
-                        <source src="https://2ch.hk/b/src/259430965/16392267022850.mp4" type="video/mp4" />
-                        <p class="vjs-no-js">
-                            Дружище, JavaScript нужно ВКЛЮЧИТЬ.
-                        </p>
-                    </video>
+                    <div class="plyr__video-embed" id="player">
+                        <iframe class="yoba_iframe"
+                            data-poster={{ static('media/YobaPreview.png') }}
+                            src="https://www.youtube.com/watch?v=02fFJ24bCdg&ab_channel=808"
+                            allowfullscreen
+                            allowtransparency
+                            allow="autoplay"
+                        ></iframe>
+                    </div>
+                    
 
                     <div class="cinema_chat">
                         <ul id="chatList" class="message_block">
@@ -37,13 +41,13 @@
         {% endblock %}
 
 {% block page_scripts %}
-    <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
-    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-    <script src = {{ static('js/cinema.js') }}></script>
+    <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+    <script src={{ static('js/cinema.js') }}></script>
 {% endblock%}
 
 {% block page_styles %}
-    <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+
     <link rel="stylesheet" href={{ static('css/cinema.css') }}>
-    <link href="https://unpkg.com/@videojs/themes@1/dist/city/index.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.3/plyr.css" />
 {% endblock %}

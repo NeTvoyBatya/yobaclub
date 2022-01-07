@@ -17,24 +17,7 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.main .container .cinema .vjs-poster {
-  border-radius: 25px;
-}
-.main .container .cinema .vjs-big-play-button {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  -webkit-transform: translate(-50%, -50%) !important;
-          transform: translate(-50%, -50%) !important;
-}
-.main .container .cinema .vjs-control-bar {
-  border-radius: 0px 0px 25px 25px !important;
-  width: 100% !important;
-  left: 50% !important;
-  -webkit-transform: translate(-50%, 0px) !important;
-          transform: translate(-50%, 0px) !important;
-}
-.main .container .cinema .video-js {
+.main .container .cinema .plyr__video-embed {
   margin: 5px;
   max-width: calc(250px + 710 * (100vw / 1920));
   min-width: calc(250px + 710 * (100vw / 1920));
@@ -44,7 +27,7 @@
   border: 0px solid red;
   border-radius: 25px;
 }
-.main .container .cinema .video-js video {
+.main .container .cinema .plyr__video-embed iframe {
   border-radius: 25px;
 }
 .main .container .cinema_chat {
@@ -140,6 +123,28 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 9em;
+}
+
+.plyr--video {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: calc(250px + 710 * (100vw / 1920));
+  min-width: calc(250px + 710 * (100vw / 1920));
+  max-height: calc(147px + 393 * (100vw / 1920));
+  min-height: calc(147px + 393 * (100vw / 1920));
+}
+
+html {
+  --plyr-color-main: rgba(132, 181, 255, 0.74);
 }
 
 @media (min-width: 1365px) {

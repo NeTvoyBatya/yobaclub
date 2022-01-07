@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   z-index: 1;
 }
@@ -57,7 +58,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.75);
-  overflow: hidden;
+  overflow-y: hidden !important;
 }
 body.Samurai {
   background-image: url(/static/media/SamuraiBacground.png);
@@ -70,6 +71,9 @@ body.Factory {
 }
 body.WhiteArea {
   background-image: url(/static/media/WhiteAreaBacground.png);
+}
+body.done {
+  overflow-y: scroll;
 }
 body .load_screen {
   width: 100%;
@@ -112,7 +116,7 @@ body .load_screen.done {
           animation: 1s LoadScreenDone linear;
 }
 body .load_screen .container .loader {
-  width: 500px;
+  min-width: 500px;
   height: 500px;
   position: relative;
   display: -webkit-box;
@@ -144,6 +148,7 @@ body .load_screen .container .loader-YobaLoaderCircle {
   opacity: 85%;
 }
 body .load_screen .container .load_screen-text {
+  margin: 0px 0px 0px 10px;
   width: 900px;
 }
 body .wrapper .header {
@@ -307,4 +312,44 @@ body .wrapper .footer .container .footer_link a img {
     -webkit-transform: scale(100%);
             transform: scale(100%);
   }
+}
+[data-tooltip] {
+  position: relative;
+  /* Относительное позиционирование */
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  /* Выводим текст */
+  position: absolute;
+  /* Абсолютное позиционирование */
+  /* Ширина подсказки */
+  left: 0;
+  bottom: 0em;
+  /* Положение подсказки */
+  background: rgba(132, 181, 255, 0.74);
+  /* Синий цвет фона */
+  color: #fff;
+  /* Цвет текста */
+  padding: 0.5em;
+  /* Поля вокруг текста */
+  border-radius: 50px;
+  font-size: 14px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  /* Параметры тени */
+  pointer-events: none;
+  /* Подсказка */
+  opacity: 0;
+  /* Подсказка невидима */
+  -webkit-transition: 1s;
+  transition: 1s;
+  /* Время появления подсказки */
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  /* Показываем подсказку */
+  bottom: 3ex;
+  /* Положение подсказки */
 }
