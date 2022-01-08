@@ -14,6 +14,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#Maybe needed for loading youtube iframes
+#SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 
 # Application definition
 

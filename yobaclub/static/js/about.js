@@ -44,5 +44,6 @@ function loadCommits(json){
 
         list.appendChild(list_item)
     });
-    preloader.classList.toggle("done")
+    preloader.classList.add("done")
+    document.getElementById('body').classList.add("done")
 }

@@ -1,6 +1,14 @@
+window.player = new Plyr('#player',{
+                        autoplay: true, 
+                        controls: ['play', 'progress', 'current-time', 'mute', 'volume','fullscreen'],
+                        youtube: { noCookie: false, rel: 0, showinfo: 0, iv_load_policy: 3, modestbranding: 1 },
+                        });
+
+
 window.onload = function(){
     connectToSocket()
     window.isConnectionLost = false
+    window.syncGotEventList = {"pause": false, "play": true, "seek": false}
     document.getElementById("chatInputField").addEventListener("keydown", function(event){
         if( event.key == "Enter"){
             sendMessage()
@@ -86,6 +94,21 @@ function loadChatHistory(messages){
     });
 }
 
+function addVideo(video_payload){
+    switch(video_payload["provider"]){
+        case "youtube":
+            player.source = {type: "video", sources: [{src:video_payload["videos"][0], provider: "youtube"}]}
+            break
+        case "raw":
+            if (video_payload["videos"][0].includes(".mp4")){
+                ext = "mp4"
+            }else{
+                ext = "webm"
+            }
+            player.source = {type: "video", title: video_payload["videos"][0], sources: [{src:video_payload["videos"][0], type: `video/${ext}`}]}
+    }
+}
+
 function socket_onmessage(payload){
     let data = JSON.parse(payload.data)
     console.log(data)
@@ -95,9 +118,51 @@ function socket_onmessage(payload){
             addChatMessage(message)
             break
         case "new_video":
-            console.log(`New videos from ${data["author"]}`)
-            console.log(data["videos"])
+            addVideo(data)
+            break
         case "history":
             loadChatHistory(data["messages"])
+            break
+        case "video_state_changed":
+            state = data["state_content"]
+            switch(state["state_type"]){
+                case "paused":
+                    syncGotEventList["pause"] = true
+                    player.pause()
+                    break
+                case "playing":
+                    syncGotEventList["play"] = true
+                    player.play()
+                    break
+                case "seeking":
+                    syncGotEventList["seek"] = true
+                    player.currentTime = state["seek_to"]
+            }
+            break
     }
 }
+
+player.on('pause', (event) => {
+    if(!syncGotEventList["pause"]){
+        chat_socket.send(JSON.stringify({"type": "video_state_changed", "state": "paused"}))
+        return
+    }
+    syncGotEventList["pause"] = false
+})
+
+player.on('play', (event) => {
+    if(!syncGotEventList["play"]){
+        chat_socket.send(JSON.stringify({"type": "video_state_changed", "state": "playing"}))
+        return
+    }
+    syncGotEventList["play"] = false 
+})
+
+function plyrSeekingEvent(seekingTime){
+    if(!syncGotEventList["seek"]){
+        chat_socket.send(JSON.stringify({"type": "video_state_changed", "state": "seeking", "seek_to": seekingTime}))
+        return
+    }
+    syncGotEventList["seek"] = false
+}
+

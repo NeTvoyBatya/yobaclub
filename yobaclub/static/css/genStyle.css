@@ -58,7 +58,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.75);
-  overflow-y: hidden !important;
+  overflow-y: hidden;
 }
 body.Samurai {
   background-image: url(/static/media/SamuraiBacground.png);
@@ -73,7 +73,7 @@ body.WhiteArea {
   background-image: url(/static/media/WhiteAreaBacground.png);
 }
 body.done {
-  overflow-y: scroll;
+    overflow-y: scroll;
 }
 body .load_screen {
   width: 100%;
@@ -242,6 +242,8 @@ body .wrapper .footer .container .footer_link a img {
   margin: 0px 4px 0px 4px;
   cursor: pointer;
   opacity: 75%;
+  width: 50px;
+  height: 50px;
 }
 
 .yoba_music_img {

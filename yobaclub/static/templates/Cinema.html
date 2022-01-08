@@ -7,23 +7,18 @@
             <div class="container">
                 <div class="cinema">
                     
-                    <div class="plyr__video-embed" id="player">
-                        <iframe class="yoba_iframe"
+                    <div class="plyr__video-embed" >
+                        <video id="player" class="yoba_iframe"
                             data-poster={{ static('media/YobaPreview.png') }}
-                            src="https://www.youtube.com/watch?v=02fFJ24bCdg&ab_channel=808"
-                            allowfullscreen
-                            allowtransparency
-                            allow="autoplay"
-                        ></iframe>
+                            autoplay
+                            playsinline
+                            controls
+                        ></video>
                     </div>
                     
 
                     <div class="cinema_chat">
                         <ul id="chatList" class="message_block">
-                            <li class="message">
-                                <h4>Name:</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit doloribus accusantium quibusdam doloremque tempora eaque.</p>
-                            </li>
                         </ul>
                         
                         <div class="input_block">
@@ -41,13 +36,11 @@
         {% endblock %}
 
 {% block page_scripts %}
-    <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+    <script src={{ static('js/plyr.js') }} ></script>
     <script src={{ static('js/cinema.js') }}></script>
 {% endblock%}
 
 {% block page_styles %}
-
     <link rel="stylesheet" href={{ static('css/cinema.css') }}>
-
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.3/plyr.css" />
 {% endblock %}
