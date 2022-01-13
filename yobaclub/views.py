@@ -20,8 +20,13 @@ def cinema(request: WSGIRequest):
 def about(request: WSGIRequest):
     return HttpResponse(render(request, 'About.html'))
 
-@require_http_methods(["GET"])
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
 def gallery(request: WSGIRequest):
+    if request.method.lower() == "get":
+        return HttpResponse(render(request, 'gallery.html'))
+    form = forms.PostThingForm(request.POST, request.FILES, user=request.user)
+    print(form.is_valid())
     return HttpResponse(render(request, 'gallery.html'))
 
 @require_http_methods(["GET"])

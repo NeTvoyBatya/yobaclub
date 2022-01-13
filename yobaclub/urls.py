@@ -13,5 +13,6 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
 
     path('api/get_videos', api_views.api_get_videos, name = 'api_get_videos'),
-    path('api/get_commits', api_views.api_get_commits, name = 'api_get_commits')
+    path('api/get_commits', api_views.api_get_commits, name = 'api_get_commits'),
+    path('api/get_things', api_views.api_get_things, name='apo_get_things')
 ]

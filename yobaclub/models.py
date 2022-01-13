@@ -32,3 +32,10 @@ class User(AbstractBaseUser):
     
     def __str__(self) -> str:
         return f"User with name {self.name}"
+
+class Thing(models.Model):
+    title = models.CharField('Name of the thing',unique=True, blank=False, max_length=40)
+    description = models.TextField('Description of the thing', unique=False, blank=False)
+    files_links = models.TextField('List of the thing\'s files with separators', blank=True)
+    author = models.CharField('Name of the thing\'s author', unique=False, blank=False, default="Аноним", max_length=25)
+    thing_id = models.AutoField('INT ID of the thing', primary_key=True, unique=True)
