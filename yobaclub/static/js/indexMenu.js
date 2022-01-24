@@ -2,6 +2,20 @@ var closeMainMenu = document.getElementById("CloaseMainMenu")
 var openMainMenu = document.getElementById("openMainMenu")
 var CloseButton = document.getElementById("CloseButton")
 
+window.onclick = function(event) {
+    switch(event.target.className){
+        case "container":
+        case "main":
+        case "main_menu":
+            if (document.getElementById("openMainMenu").classList.contains("on")){
+                closeButton()
+            }
+            break
+        default:
+            console.log(event.target)
+    }
+}
+
 
 function LinkFunction(element){
     let number = element.dataset.number

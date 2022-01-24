@@ -3,5 +3,5 @@ from django.urls import path
 from yobaclub.logic.sockets.cinema_chat import CinemaChatSocket
 
 websockets = URLRouter([
-    path("socket/cinema-chat", CinemaChatSocket.as_asgi(), name="Cinema Chat WebSocket")
+    path("socket/cinema/<str:room_id>", CinemaChatSocket.as_asgi(), name="Cinema Chat WebSocket")
 ])

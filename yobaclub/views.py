@@ -7,14 +7,38 @@ from yobaclub import forms
 from yobaclub.logic.utils.themedRender import render
 from yobaclub.logic.utils.redirect_back import redirect_back_or_index
 from django.contrib.auth import logout as logout_user
+from yobaclub.models import CinemaRoom
+
 
 @require_http_methods(["GET"])
 def index(request: WSGIRequest):
     return HttpResponse(render(request, 'Index.html'))
 
-@require_http_methods(["GET"])
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
 def cinema(request: WSGIRequest):
+    print('Rooms:\n', list(CinemaRoom.objects.all()))
+    if request.method.lower() == "get":
+        return HttpResponse(render(request, 'Cinema.html'))
+    form = forms.CreateCinemaRoomForm(request.POST, user=request.user)
+    if form.is_valid():
+        if not form.user_can_create_login_rooms():
+            return redirect('sign_in')
+        room = form.get_room()
+        room.save()
+        return redirect('cinema_room', room_id=room.room_id)
     return HttpResponse(render(request, 'Cinema.html'))
+
+@require_http_methods(["GET"])
+def cinema_room(request: WSGIRequest, room_id: str):
+    try:
+        room = CinemaRoom.objects.get(pk=room_id)
+        return HttpResponse(render(request, 'CinemaRoom.html'))
+    except CinemaRoom.DoesNotExist:
+        return redirect('index')#TODO: ERROR PAGE 404
+        
+    
+    
 
 @require_http_methods(["GET"])
 def about(request: WSGIRequest):

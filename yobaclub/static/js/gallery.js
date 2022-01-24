@@ -60,6 +60,7 @@ function showPostItemWindow(){
             case "postitem_window":
             case "container":
             case "close_button":
+            case "close_button_img":
                 document.getElementById("postItemWindow").classList.add("hidden")
                 document.getElementById("mainContainer").classList.remove("blur")
         }

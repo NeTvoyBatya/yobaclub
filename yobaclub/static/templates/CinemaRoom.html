@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block page_title %}YobaCinema{% endblock %}
+
+        {% block page_content %}
+        <main class="main">
+            <div  id="joinRoomWindow" class="join_room_window hidden">
+                <div id="joinWindowContent" class="join_room_content">
+                    <button onclick="window.location.href='/cinema'" type="button" id="closePostFormButton" class="close_button">
+                        <img class="close_button_img" src={{ static('media/svg/Cross.svg') }} alt="">
+                    </button>
+                    <h1 class="join_window_title"  id="joinWindowTitle"></h1>
+                    <h1 class="join_window_users" id="joinWindowUsers"></h1>
+                    <h1>Нажмите на круг, чтобы войти</h1>
+                </div>
+            </div>
+
+            <div id="mainContainer" class="container">
+                <div class="cinema">
+                    
+                    <div class="plyr__video-embed" >
+                        <video id="player" class="yoba_iframe"
+                            data-poster={{ static('media/YobaPreview.png') }}
+                            playsinline
+                            controls
+                        ></video>
+                    </div>
+                    
+
+                    <div class="cinema_chat">
+                        <ul id="chatList" class="message_block">
+                        </ul>
+                        
+                        <div class="input_block">
+                            <input id="chatInputField" type="text">
+                            <button onclick="sendMessage()">
+                                <img src={{ static('media/svg/Send.svg') }} alt="">
+                            </button>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% endblock %}
+
+{% block page_scripts %}
+    <script src={{ static('js/plyr.js') }} ></script>
+    <script src={{ static('js/cinemaRoom.js') }}></script>
+{% endblock%}
+
+{% block page_styles %}
+    <link rel="stylesheet" href={{ static('css/cinemaRoom.css') }}>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.3/plyr.css" />
+{% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from yobaclub.models import User, Thing
+from yobaclub.models import User, Thing, CinemaRoom
 from django.contrib.auth.hashers import PBKDF2PasswordHasher
 from django.contrib.auth import authenticate, login
 from yobaclub.logic.utils.vk_loader import VKLoader
@@ -127,3 +127,22 @@ class PostThingForm(forms.Form):
         self.process_files()
         saved = self.save_thing()
         return valid and saved
+
+class CreateCinemaRoomForm(forms.Form):
+    room_name = forms.CharField(label="Room's name", max_length=20, required=True)
+    login_only = forms.BooleanField(label="Only authenticated users can join the room", required=False)
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user',None)
+        super(CreateCinemaRoomForm, self).__init__(*args, **kwargs)
+
+    def get_room(self) -> CinemaRoom:
+        name = self.cleaned_data.get("room_name")
+        need_login = self.cleaned_data.get("login_only", False)
+        return CinemaRoom(name, need_login)
+    
+    def user_can_create_login_rooms(self):
+        need_login = self.cleaned_data.get("login_only", False)
+        user_logged_in = not self.user.is_anonymous
+        return not need_login or user_logged_in
+        

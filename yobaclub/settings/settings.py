@@ -12,7 +12,7 @@ SECRET_KEY = 'django-insecure-+=%f2x8&h@^@(4beje+d3n5v(c2t4um$phrj#vwliwyta-!t-%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 #Maybe needed for loading youtube iframes
 #SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"

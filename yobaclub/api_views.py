@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from yobaclub.logic.videos import getVideos
 from yobaclub.logic.about import get_commits
 from yobaclub.logic.gallery import get_things
+from yobaclub.logic.cinema import get_rooms
 
 @require_http_methods(["GET"])
 def api_get_videos(request):
@@ -26,6 +27,15 @@ def api_get_commits(request):
 def api_get_things(request):
     return JsonResponse(
         get_things(),
+        json_dumps_params={'ensure_ascii': False}, 
+        content_type='application/json; charset=utf8',
+        safe=False
+    )
+
+@require_http_methods(["GET"])
+def api_get_cinema_rooms(request):
+    return JsonResponse(
+        get_rooms(),
         json_dumps_params={'ensure_ascii': False}, 
         content_type='application/json; charset=utf8',
         safe=False

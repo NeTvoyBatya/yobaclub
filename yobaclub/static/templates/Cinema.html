@@ -1,46 +1,31 @@
 {% extends 'base.html' %}
+{% block page_title %}Yoba Cinema{% endblock %}
 
-{% block page_title %}YobaCinema{% endblock %}
+{% block page_content %}
+<div class="main">
+    <main class="container">
+        <div class="cinema_rooms">
+            <h3>Комнаты кинотеатра</h3>
+            <li id="roomsList" type="none" class="cinema_rooms_list">
+                <ul>
+                    <form class="cinema_room_create" method="POST">
+                        <h2>Создать комнату</h2>
+                        <h1>Название комнаты: <input type="text" name="room_name"></h1>
+                        <h1>Вход только для членов йобаклуба? <input name="login_only" type="checkbox"></h1>
+                        <h2><input type="submit" value="Создать комнату"></h2>
+                    </form>
+                </ul>
+            </li>
+        </div>
+    </main>
+</div>
 
-        {% block page_content %}
-        <main class="main">
-            <div class="container">
-                <div class="cinema">
-                    
-                    <div class="plyr__video-embed" >
-                        <video id="player" class="yoba_iframe"
-                            data-poster={{ static('media/YobaPreview.png') }}
-                            autoplay
-                            playsinline
-                            controls
-                        ></video>
-                    </div>
-                    
+{% endblock %}
 
-                    <div class="cinema_chat">
-                        <ul id="chatList" class="message_block">
-                        </ul>
-                        
-                        <div class="input_block">
-                            <input id="chatInputField" type="text">
-                            <button onclick="sendMessage()">
-                                <img src={{ static('media/svg/Send.svg') }} alt="">
-                            </button>
-
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </main>
-        {% endblock %}
-
-{% block page_scripts %}
-    <script src={{ static('js/plyr.js') }} ></script>
-    <script src={{ static('js/cinema.js') }}></script>
-{% endblock%}
+{% block page_scripts%}
+<script src={{ static('js/cinema.js') }}></script>
+{% endblock %}
 
 {% block page_styles %}
-    <link rel="stylesheet" href={{ static('css/cinema.css') }}>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.3/plyr.css" />
+<link rel="stylesheet" href={{ static('css/cinema.css') }}>
 {% endblock %}

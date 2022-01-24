@@ -9,6 +9,7 @@ var FactoryCheckMark = document.getElementById('FactoryCheckMark')
 var WhiteAreaCheckBox = document.getElementById('WhiteAreaCheckBoxId')
 var WhiteAreaCheckMark = document.getElementById('WhiteAreaCheckMark')
 var BodyBacgroundTheme = document.getElementById('body')
+var tenYearsAhead = 3650*24*60*60
 
 let cookies = document.cookie
 for (let cookie of cookies.split('; ')) {
@@ -69,7 +70,7 @@ function SamuraiTheme(){
         BodyBacgroundTheme.classList.remove('Forest')
         BodyBacgroundTheme.classList.remove('Factory')
         BodyBacgroundTheme.classList.remove('WhiteArea')
-        document.cookie = "theme=samurai"
+        document.cookie = `theme=samurai;max-age=${tenYearsAhead};`
 
 }
 function ForestTheme(){
@@ -85,7 +86,7 @@ function ForestTheme(){
         BodyBacgroundTheme.classList.add('Forest')
         BodyBacgroundTheme.classList.remove('Factory')
         BodyBacgroundTheme.classList.remove('WhiteArea')
-        document.cookie = "theme=forest"
+        document.cookie = `theme=forest;max-age=${tenYearsAhead};`
 }
 function FactoryTheme(){
    
@@ -100,7 +101,7 @@ function FactoryTheme(){
         BodyBacgroundTheme.classList.remove('Forest')
         BodyBacgroundTheme.classList.add('Factory')
         BodyBacgroundTheme.classList.remove('WhiteArea')
-        document.cookie = "theme=factory"
+        document.cookie = `theme=factory;max-age=${tenYearsAhead};`
 }
 function WhiteAreaTheme(){
 
@@ -115,5 +116,5 @@ function WhiteAreaTheme(){
         BodyBacgroundTheme.classList.remove('Forest')
         BodyBacgroundTheme.classList.remove('Factory')
         BodyBacgroundTheme.classList.add('WhiteArea')
-        document.cookie = "theme=white_area"
+        document.cookie = `theme=white_area;max-age=${tenYearsAhead};`
 }
