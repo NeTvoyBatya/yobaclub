@@ -5,6 +5,7 @@ window.onload = function(){
     })
     .then(loadVideos)
 
+    window.autoplay_on = false
     window.addEventListener("keydown", function(event) {
         if (event.key == 'ArrowRight'){
           nextVideo()
@@ -25,11 +26,8 @@ function updateTitles(){
 
 function updatePlayer(){
     let video_link = window.videos[window.current_video_index]["link"]
-    let thread_link = `${video_link.replace("src", "res").split("/").slice(0, -1).join("/")}.html#${window.videos[window.current_video_index]["post_num"]}`
     let player = document.getElementById("video_player")
-    let thread_button = document.getElementById("thread_button")
     player.setAttribute("src", video_link)
-    thread_button.setAttribute("href", thread_link)
 }
 
 function updateVideo(){
@@ -63,4 +61,38 @@ function previousVideo(){
         window.current_video_index-=1
         updateVideo()
     }
+}
+
+function loop(){
+    loopButton = document.getElementById("loopButton")
+    autoplayButton = document.getElementById("autoplayButton")
+    player = document.getElementById("video_player")
+    player.removeEventListener("ended", nextVideo, false)
+    player.toggleAttribute("loop")
+    window.autoplay_on = false
+    autoplayButton.classList.remove("active")
+    loopButton.classList.toggle("active")
+}
+
+function autoplay(){
+    loopButton = document.getElementById("loopButton")
+    autoplayButton = document.getElementById("autoplayButton")
+    player = document.getElementById("video_player")
+    if (window.autoplay_on == true){
+        player.removeEventListener("ended", nextVideo, false)
+        window.autoplay_on = false
+        autoplayButton.classList.remove("active")
+    }else{
+        player.removeAttribute("loop")
+        player.addEventListener("ended", nextVideo, false)
+        window.autoplay_on = true
+        loopButton.classList.remove("active")
+        autoplayButton.classList.add("active")
+    }
+}
+
+function inThread(){
+    video = window.videos[window.current_video_index]
+    let thread_link = `${video["link"].replace("src", "res").split("/").slice(0, -1).join("/")}.html#${video["post_num"]}`
+    window.open(thread_link, "_blank").focus()
 }

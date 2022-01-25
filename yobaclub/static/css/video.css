@@ -81,15 +81,24 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
-.main .container .video .video__block .video__player .video__settings a {
+.main .container .video .video__block .video__player .video__settings button {
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.75);
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  background-color: rgba(0, 0, 0, 0);
+  border: rgba(0, 0, 0, 0);
 }
-.main .container .video .video__block .video__player .video__settings a:hover {
+.main .container .video .video__block .video__player .video__settings button.active {
+    color: rgba(240, 122, 191, 0.75);
+}
+.main .container .video .video__block .video__player .video__settings button:hover {
   color: rgba(255, 255, 255, 0.9);
+}
+
+.main .container .video .video__block .video__player .video__settings button.active:hover {
+    color: rgba(240, 122, 191, 0.9);
 }
 
 .video__notification {

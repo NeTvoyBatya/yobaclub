@@ -19,10 +19,10 @@
                                 <source class="bibo" type="video/mp4">
                             </video>
                             <div class="video__settings">
-                                <a id="thread_button" target="_blank" href="">В тред</a>
-                                <a href="">Пост</a>
-                                <a href="">Повтор</a>
-                                <a href="">Автопроигрование</a>
+                                <button onclick="inThread()">В тред</button>
+                                <button>Пост</button>
+                                <button id="loopButton" onclick="loop()">Повтор</button>
+                                <button id="autoplayButton" onclick="autoplay()">Автопроигрование</button>
                             </div>
                         </div>
                         <button onclick="nextVideo()" class="video__block-button">
