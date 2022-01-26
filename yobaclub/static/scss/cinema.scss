@@ -1,0 +1,114 @@
+.main{
+    .container{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        .cinema_rooms{
+            border-radius: 50px;
+            width: 1344px;
+            height: 733px;
+            background-color: rgb(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-y: hidden;
+            h3{
+                padding: 15px 0px 15px 0px;
+            }
+            .cinema_rooms_list{
+                height: 100%;
+                width: 90%;
+                padding: 0px 5px 15px 0px ; 
+                overflow-y: scroll;
+                .cinema_room{
+                    display: flex;
+                    flex-direction: column;
+                    cursor: pointer;
+                    border-radius: 50px;
+                    margin-top: 4%;
+                    background-color: rgb(0, 0, 0, 0.25);
+                    padding: 10px 10px 10px 25px;
+                }
+                .cinema_room_create{
+                    display: flex;
+                    flex-direction: column;
+                    border-radius: 40px;
+                    background-color: rgb(0, 0, 0, 0.25);
+                    padding: 0px 10px 0px 10px;
+                    h1{
+                        padding: 5px 0px 5px 0px;
+                        input{
+                            background-color: rgb(0, 0, 0, 0.25);
+                            border: 0px;
+                            padding: 5px;
+                            border-radius: 50px;
+                            color: rgb(255, 255, 255, 0.75);
+                            font-family: 'Montserrat', sans-serif;
+                            font-size: 18px;
+                        }
+                    }
+                    h2{
+                        padding: 10px 0px 10px 0px;
+                        text-align: center;
+                        input{
+                            background-color: rgb(0, 0, 0, 0.25);
+                            border: 0px;
+                            padding: 10px;
+                            border-radius: 50px;
+                            color: rgb(255, 255, 255, 0.75);
+                            font-family: 'Montserrat', sans-serif;
+                            font-size: 18px;
+                            transition: 0.4s;
+                            &:hover{
+                                background-color: rgba(0, 0, 0, 0.35);
+                                box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #14386100;
+}
+::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 15px; 
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0, 0.25);
+    border-radius: 9em;
+}
+
+@media (min-width:1365px) {
+    .cinema_rooms{
+        transform:scale(calc(((55/100)*1366)/1160)) !important;
+    } 
+}
+@media (min-width:1679px) {
+    .cinema_rooms{
+        transform:scale(calc(((55/100)*1680)/1160)) !important;
+    } 
+}
+@media (min-width:1919px) {
+    .cinema_rooms{
+        transform:scale(calc(((55/100)*1920)/1160)) !important;
+    } 
+}
+@media (min-width:2559px) {
+    .cinema_rooms{
+        transform:scale(calc(((55/100)*2560)/1160)) !important;
+    } 
+}
+@media (min-width:3839px) {
+    .cinema_rooms{
+        transform:scale(calc(((55/100)*3840)/1160)) !important;
+    } 
+}

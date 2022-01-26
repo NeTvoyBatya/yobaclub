@@ -1,6 +1,6 @@
+asgiref==3.3.4
 Django
 Jinja2
 httpx
-asgiref==3.3.4
 channels
 channels-redis

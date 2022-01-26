@@ -50,14 +50,23 @@
                         width: 90%;
                         justify-content:space-around;
                         
-                        a{
+                        button{
                             font-family: 'Montserrat', sans-serif;
                             text-decoration: none;
                             color: rgb(255, 255, 255, 0.75);
                             transition: 0.4s;
+                            background-color: rgba(0, 0, 0, 0);
+                            border: rgba(0, 0, 0, 0);
                             &:hover{
                                 color: rgb(255, 255, 255, 0.90);
                             }
+                            &.active {
+                                color: rgba(240, 122, 191, 0.75);
+                                &:hover{
+                                    color: rgba(240, 122, 191, 0.9);  
+                                }
+                            }
+                            
                         }
                     }
                 }
@@ -84,6 +93,17 @@
     display: block !important;
 
 }
+
+// @media (min-width:560px) {
+//     .video__block-button{
+//         position: absolute; 
+//     }
+//     .video__player{
+//         video{
+//             width: 100vw;
+//         }
+//     }
+// }
 
 @media (min-width:1365px) {
     .video{

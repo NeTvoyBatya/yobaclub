@@ -255,6 +255,11 @@
     100% {transform: rotate(-360deg);}
 }
 
+@media (max-width:590px) {
+    .main_menu{
+        transform:scale(0.45) !important;
+    }
+} 
 
 @media (min-width:1365px) {
     .main_menu{

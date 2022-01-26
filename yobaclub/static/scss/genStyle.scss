@@ -121,6 +121,9 @@ body{
             display: flex;
             justify-content: center;
             margin-top: 8px;
+            .phone__menu{
+                display: none;
+            }
             .container{
                 .YobaLogo{
                     cursor: pointer;
@@ -135,6 +138,13 @@ body{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    .phone__menu{
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                    button{
+                        display: none;
+                    }
                     & a{
                         text-decoration: none;
                         color: rgba(255, 255, 255, 0.75);
@@ -228,21 +238,163 @@ body{
     position: relative; /* Относительное позиционирование */ 
 }
 [data-tooltip]::after {
-content: attr(data-tooltip); /* Выводим текст */
-position: absolute; /* Абсолютное позиционирование */
-    /* Ширина подсказки */
-left: 0; bottom: 0em; /* Положение подсказки */
-background: rgba(132, 181, 255, 0.74); /* Синий цвет фона */
-color: #fff; /* Цвет текста */
-padding: 0.5em; /* Поля вокруг текста */
-border-radius: 50px;
-font-size: 14px;
-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
-pointer-events: none; /* Подсказка */
-opacity: 0; /* Подсказка невидима */
-transition: 1s; /* Время появления подсказки */
+    content: attr(data-tooltip); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+        /* Ширина подсказки */
+    left: 0; bottom: 0em; /* Положение подсказки */
+    background: rgba(132, 181, 255, 0.74); /* Синий цвет фона */
+    color: #fff; /* Цвет текста */
+    padding: 0.5em; /* Поля вокруг текста */
+    border-radius: 50px;
+    font-size: 14px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+    pointer-events: none; /* Подсказка */
+    opacity: 0; /* Подсказка невидима */
+    transition: 1s; /* Время появления подсказки */
 } 
 [data-tooltip]:hover::after {
-opacity: 1; /* Показываем подсказку */
-bottom: 3ex; /* Положение подсказки */
+    opacity: 1; /* Показываем подсказку */
+    bottom: 3ex; /* Положение подсказки */
 }
+
+@media (max-width:725px) {
+    body{
+        &.nonScroll{
+            overflow:hidden;
+        }
+    }
+    .container{
+        &.blur{
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -o-filter: blur(5px);
+            -ms-filter: blur(5px);
+        }
+    }
+    .header_navigation{
+        button{
+            display: block !important;
+        }
+        a{
+            display: none;
+        }
+        .theme_menu{
+            display: none;
+        }
+        .phone__menu-button{
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.75);
+            z-index: 10;
+        } 
+    }
+    .theme_check_box{
+        display: flex;
+        margin: 4% 0px 4% 0px ;
+        align-items: center;
+        & input{
+            display: none;
+        }
+        & h4{
+            display: flex;    
+            cursor: pointer;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            font-size: 36px;
+            transition: 0.4s;
+            &:hover{
+                color: rgba(255, 255, 255, 0.90);
+            }
+        }
+        .new_check_box{
+            width: 10px;
+            height: 10px;
+            margin-right: 10px;
+            position: relative;
+            .Marker{
+                position: absolute;
+                left: -1px;
+                bottom: 1px;
+                opacity: 0;
+            }
+            .Circle{
+                width: 10px;
+                height: 10px;
+                border: 1px solid #ffffff;
+                border-radius: 50%;
+            }
+            .SamuraiCheckMark.on{
+                opacity: 1;
+            }
+            .ForestCheckMark.on{
+                opacity: 1;
+            }
+            .FactoryCheckMark.on{
+                opacity: 1;
+            }
+            .WhiteAreaCheckMark.on{
+                opacity: 1;
+            }
+        }
+    }
+    .phone__menu{
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        opacity: 0;
+        background-color: rgb(0, 0, 0, 0.25);
+        transition: 0.8s cubic-bezier(0.65, 0.05, 0.36, 1);
+        display: flex !important;
+        justify-content: center;
+        &.on{
+            opacity: 1;
+            height: 100%;
+        } 
+        .phone__nav{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.4s;
+            &.on{
+                opacity: 1;
+                visibility: visible;
+            }
+            a{
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.75);
+                margin: 0px 4px 0px 4px;
+                font-size: 36px;
+                transition: 0.4s;
+                padding: 10px 0px 10px 0px;
+            }
+        }
+    }
+}
+
+@media (max-width:590px) {
+    .load_screen{
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .loader{
+                transform:scale(0.75) !important;
+            }
+            .load_screen-text{
+                width: auto !important;
+            }
+        }
+    }
+} 

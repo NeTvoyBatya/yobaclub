@@ -31,12 +31,58 @@
         </div>
     
         <div class="wrapper">
-            <header class="header">     
+            <header class="header">
+                <div class="phone__menu" id="PhoneMenuId">
+                    <div class="phone__nav" id="phone__navId">
+                        <a href={{ url('index') }}>Главная</a>
+                        <a href={{ url('about') }}>О нас</a>
+                        {% if request.user.is_anonymous %}
+                            <a href={{ url('sign_up') }}>Регистрация</a>
+                            <a href={{ url('sign_in') }}>Войти</a>
+                        {% else %}
+                            <a href ={{url('logout')}}>Выйти({{request.user.name}})</a>
+                        {% endif %}
+                        
+                        <div class="theme_check_box">
+                            <div class="new_check_box">
+                                <img class="Marker SamuraiCheckMark" id = "SamuraiCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                <div class="Circle"></div>
+                            </div>
+                            <input id="SamuraiCheckBoxId" type="radio">
+                            <h4 href="#" onclick="SamuraiTheme()">Samurai</h4>
+                        </div>
+                        <div class="theme_check_box">
+                            <div class="new_check_box">
+                                <img class="Marker ForestCheckMark" id = "ForestCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                <div class="Circle"></div>
+                            </div>
+                            <input id="ForestCheckBoxId" type="radio">
+                            <h4 href="#" onclick="ForestTheme()">Forest</h4>
+                        </div>
+                        <div class="theme_check_box">
+                            <div class="new_check_box">
+                                <img class="Marker FactoryCheckMark" id = "FactoryCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                <div class="Circle"></div>
+                            </div>
+                            <input id="FactoryCheckBoxId" type="radio">
+                            <h4 href="#" onclick="FactoryTheme()">Factory</h4>
+                        </div>
+                        <div class="theme_check_box">
+                            <div class="new_check_box">
+                                <img class="Marker WhiteAreaCheckMark" id = "WhiteAreaCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                <div class="Circle"></div>
+                            </div>
+                            <input id="WhiteAreaCheckBoxId" type="radio">
+                            <h4 href="#" onclick="WhiteAreaTheme()">White area</h4>
+                        </div> 
+                    </div>
+                    
+                </div>     
                 <div class="container">
                     <a href={{ url('index') }}>
                         <img class="YobaLogo" id="YobaLogo" src={{ static('media/YobaLogo.png') }} alt="YobaClub" pointer-events: none; draggable="false">
                     </a>
-                    <div class="header_navigation">
+                    <div class="header_navigation" id="header_navigationId">
                         <a href={{ url('index') }}>Главная</a>
                         <a href={{ url('about') }}>О нас</a>
                         {% if request.user.is_anonymous %}
@@ -89,8 +135,10 @@
                                 </div>
                             </div>    
                         </div>
+                        <button class="phone__menu-button" onclick="PhoneMenu()"></button>
                     </div>
                 </div>
+                
             </header>
     
             {% block page_content %}
@@ -118,7 +166,7 @@
         </div>
         {% block under_page_content %}
         {% endblock %}
-    
+    <script src={{ static('js/phoneMenu.js') }}></script>
     <script src={{ static('js/SelectTheme.js') }}></script>
     <script src={{ static('js/preloader.js') }}></script>
     {% block page_scripts%}

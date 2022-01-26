@@ -1,54 +1,141 @@
-
 .main .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.main .container .cinema_rooms {
+  border-radius: 50px;
+  width: 1344px;
+  height: 733px;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-y: hidden;
+}
+.main .container .cinema_rooms h3 {
+  padding: 15px 0px 15px 0px;
+}
+.main .container .cinema_rooms .cinema_rooms_list {
+  height: 100%;
+  width: 90%;
+  padding: 0px 5px 15px 0px;
+  overflow-y: scroll;
+}
+.main .container .cinema_rooms .cinema_rooms_list .cinema_room {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+  border-radius: 50px;
+  margin-top: 4%;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 10px 10px 10px 25px;
+}
+.main .container .cinema_rooms .cinema_rooms_list .cinema_room_create {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 40px;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 0px 10px 0px 10px;
+}
+.main .container .cinema_rooms .cinema_rooms_list .cinema_room_create h1 {
+  padding: 5px 0px 5px 0px;
+}
+.main .container .cinema_rooms .cinema_rooms_list .cinema_room_create h1 input {
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 0px;
+  padding: 5px;
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
+.main .container .cinema_rooms .cinema_rooms_list .cinema_room_create h2 {
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+}
+.main .container .cinema_rooms .cinema_rooms_list .cinema_room_create h2 input {
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 0px;
+  padding: 10px;
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.main .container .cinema_rooms .cinema_rooms_list .cinema_room_create h2 input:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+          box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #14386100;
+}
+
+::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 9em;
+}
+
+@media (min-width: 1365px) {
+  .cinema_rooms {
+    -webkit-transform: scale(calc(((55/100)*1366)/1160)) !important;
+            transform: scale(calc(((55/100)*1366)/1160)) !important;
   }
-
-.main .container .cinema_rooms{
-    border-radius: 50px;
-    width: 80vw;
-    height: 80vh;
-    background-color: #373348;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow-y: scroll;
 }
-
-.main .container .cinema_rooms h3{
-    padding-top: 15px;
+@media (min-width: 1679px) {
+  .cinema_rooms {
+    -webkit-transform: scale(calc(((55/100)*1680)/1160)) !important;
+            transform: scale(calc(((55/100)*1680)/1160)) !important;
+  }
 }
-
-.main .container .cinema_rooms .cinema_rooms_list{
-    height: 100%;
-    width: 90%;
+@media (min-width: 1919px) {
+  .cinema_rooms {
+    -webkit-transform: scale(calc(((55/100)*1920)/1160)) !important;
+            transform: scale(calc(((55/100)*1920)/1160)) !important;
+  }
 }
-
-.main .container .cinema_rooms .cinema_rooms_list .cinema_room{
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    border-radius: 15px;
-    margin-top: 4%;
-    background-color: rgba(0, 0, 0, 0.25);
-    padding: 10px;
+@media (min-width: 2559px) {
+  .cinema_rooms {
+    -webkit-transform: scale(calc(((55/100)*2560)/1160)) !important;
+            transform: scale(calc(((55/100)*2560)/1160)) !important;
+  }
 }
-
-.main .container .cinema_rooms .cinema_rooms_list .cinema_room_create{
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px;
-    margin-top: 4%;
-    background-color: rgba(0, 0, 0, 0.25);
-    padding: 10px;
-}
-
-.cinema_room_create h2{
-    padding-bottom: 10px;
-    text-align: center;
+@media (min-width: 3839px) {
+  .cinema_rooms {
+    -webkit-transform: scale(calc(((55/100)*3840)/1160)) !important;
+            transform: scale(calc(((55/100)*3840)/1160)) !important;
+  }
 }

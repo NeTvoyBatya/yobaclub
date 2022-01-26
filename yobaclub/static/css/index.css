@@ -365,6 +365,12 @@
             transform: rotate(-360deg);
   }
 }
+@media (max-width: 590px) {
+  .main_menu {
+    -webkit-transform: scale(0.45) !important;
+            transform: scale(0.45) !important;
+  }
+}
 @media (min-width: 1365px) {
   .main_menu {
     -webkit-transform: scale(calc(((42/100)*1366)/710)) !important;

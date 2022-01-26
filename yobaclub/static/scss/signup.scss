@@ -88,6 +88,14 @@
         }
     }
 }
+
+@media (max-width:590px) {
+    .signup__form{
+        width: 100vw;
+        border-radius: 0px;
+    }
+} 
+
 @media (min-width:1365px) {
     .signup{
         transform:scale(calc(((29/100)*1366)/500)) !important;

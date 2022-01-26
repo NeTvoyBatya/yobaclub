@@ -3,15 +3,15 @@
 
 {% block page_content %}
 <div class="main">
-    <main class="container">
+    <main class="container" id="mainContainer">
         <div class="cinema_rooms">
             <h3>Комнаты кинотеатра</h3>
             <li id="roomsList" type="none" class="cinema_rooms_list">
                 <ul>
                     <form class="cinema_room_create" method="POST">
                         <h2>Создать комнату</h2>
-                        <h1>Название комнаты: <input type="text" name="room_name"></h1>
-                        <h1>Вход только для членов йобаклуба? <input name="login_only" type="checkbox"></h1>
+                        <h1>Название комнаты: <input type="text" name="room_name" placeholder="Введи название"></h1>
+                        <h1>Вход только для членов Yoba-клуба? <input name="login_only" type="checkbox"></h1>
                         <h2><input type="submit" value="Создать комнату"></h2>
                     </form>
                 </ul>

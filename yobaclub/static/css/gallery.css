@@ -265,6 +265,16 @@
   border-radius: 9em;
 }
 
+@media (max-width: 590px) {
+  .gallery {
+    -webkit-transform: scale(0.5) !important;
+            transform: scale(0.5) !important;
+  }
+
+  .postitem_form {
+    width: 500px;
+  }
+}
 @media (min-width: 1365px) {
   .gallery {
     -webkit-transform: scale(calc(((55/100)*1366)/1160)) !important;

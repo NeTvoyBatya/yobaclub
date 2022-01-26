@@ -73,7 +73,7 @@ body.WhiteArea {
   background-image: url(/static/media/WhiteAreaBacground.png);
 }
 body.done {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 body .load_screen {
   width: 100%;
@@ -161,6 +161,9 @@ body .wrapper .header {
           justify-content: center;
   margin-top: 8px;
 }
+body .wrapper .header .phone__menu {
+  display: none;
+}
 body .wrapper .header .container .YobaLogo {
   cursor: pointer;
   opacity: 75%;
@@ -182,6 +185,13 @@ body .wrapper .header .container .header_navigation {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+body .wrapper .header .container .header_navigation .phone__menu {
+  opacity: 0;
+  visibility: hidden;
+}
+body .wrapper .header .container .header_navigation button {
+  display: none;
 }
 body .wrapper .header .container .header_navigation a {
   text-decoration: none;
@@ -354,4 +364,174 @@ body .wrapper .footer .container .footer_link a img {
   /* Показываем подсказку */
   bottom: 3ex;
   /* Положение подсказки */
+}
+
+@media (max-width: 725px) {
+  body.nonScroll {
+    overflow: hidden;
+  }
+
+  .container.blur {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+  }
+
+  .header_navigation button {
+    display: block !important;
+  }
+  .header_navigation a {
+    display: none;
+  }
+  .header_navigation .theme_menu {
+    display: none;
+  }
+  .header_navigation .phone__menu-button {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.75);
+    z-index: 10;
+  }
+
+  .theme_check_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 4% 0px 4% 0px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .theme_check_box input {
+    display: none;
+  }
+  .theme_check_box h4 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+        user-select: none;
+    font-size: 36px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .theme_check_box h4:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .theme_check_box .new_check_box {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    position: relative;
+  }
+  .theme_check_box .new_check_box .Marker {
+    position: absolute;
+    left: -1px;
+    bottom: 1px;
+    opacity: 0;
+  }
+  .theme_check_box .new_check_box .Circle {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+  }
+  .theme_check_box .new_check_box .SamuraiCheckMark.on {
+    opacity: 1;
+  }
+  .theme_check_box .new_check_box .ForestCheckMark.on {
+    opacity: 1;
+  }
+  .theme_check_box .new_check_box .FactoryCheckMark.on {
+    opacity: 1;
+  }
+  .theme_check_box .new_check_box .WhiteAreaCheckMark.on {
+    opacity: 1;
+  }
+
+  .phone__menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    -webkit-transition: 0.8s cubic-bezier(0.65, 0.05, 0.36, 1);
+    transition: 0.8s cubic-bezier(0.65, 0.05, 0.36, 1);
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .phone__menu.on {
+    opacity: 1;
+    height: 100%;
+  }
+  .phone__menu .phone__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .phone__menu .phone__nav.on {
+    opacity: 1;
+    visibility: visible;
+  }
+  .phone__menu .phone__nav a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0px 4px 0px 4px;
+    font-size: 36px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    padding: 10px 0px 10px 0px;
+  }
+}
+@media (max-width: 590px) {
+  .load_screen .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .load_screen .container .loader {
+    -webkit-transform: scale(0.75) !important;
+            transform: scale(0.75) !important;
+  }
+  .load_screen .container .load_screen-text {
+    width: auto !important;
+  }
 }

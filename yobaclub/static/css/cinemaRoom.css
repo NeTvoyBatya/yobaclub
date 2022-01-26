@@ -1,118 +1,100 @@
 .main .join_room_window {
-    position: fixed;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    visibility: visible;
-    opacity: 1;
-    z-index: 9;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    -webkit-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-    -webkit-transition-property: opacity, visibility;
-    transition-property: opacity, visibility;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  visibility: visible;
+  opacity: 1;
+  z-index: 9;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .main .join_room_window.hidden {
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-    -webkit-transition-property: opacity, visibility;
-    transition-property: opacity, visibility;
+  visibility: hidden;
+  opacity: 0;
 }
 .main .join_room_window .join_room_content {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    cursor: pointer;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 50%;
-    -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-    width: 500px;
-    height: 500px;
-    padding: 10px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+          box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+  width: 500px;
+  height: 500px;
+  padding: 10px;
 }
-.main .join_room_window .join_room_content .join_window_title{
-    margin-bottom: 2%;
+.main .join_room_window .join_room_content .join_window_title {
+  margin-bottom: 2%;
 }
-.main .join_room_window .join_room_content .join_window_users{
-    margin-bottom: 2%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    max-width: 85%;
-    overflow-y: hidden;
+.main .join_room_window .join_room_content .join_window_users {
+  margin-bottom: 2%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 85%;
+  overflow-y: hidden;
 }
 .main .join_room_window .join_room_content .close_button {
-    position: absolute;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    top: 15px;
-    right: 15px;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 50%;
-    -webkit-animation: 2s puls infinite ease-in-out;
-        animation: 2s puls infinite ease-in-out;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-    pointer-events: none;
-    pointer-events: auto;
-    cursor: pointer;
-    border: 0px;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  -webkit-animation: 2s puls infinite ease-in-out;
+          animation: 2s puls infinite ease-in-out;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
+  border: 0px;
 }
 .main .join_room_window .join_room_content .close_button img {
-    width: 25px;
-    height: 25px;
-    margin: 0px 0px 0px 0px;
+  width: 25px;
+  height: 25px;
+  margin: 0px 0px 0px 0px;
 }
 .main .join_room_window .join_room_content .close_button:hover {
-    background-color: rgba(0, 0, 0, 0.35);
-    -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+          box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
 }
-
-.main .container.blur {
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-  }
-
 .main .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -120,6 +102,13 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.main .container.blur {
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
 }
 .main .container .cinema {
   display: -webkit-box;
@@ -134,23 +123,44 @@
 }
 .main .container .cinema .plyr__video-embed {
   margin: 5px;
-  max-width: calc(250px + 710 * (100vw / 1920));
-  min-width: calc(250px + 710 * (100vw / 1920));
-  max-height: calc(147px + 393 * (100vw / 1920));
-  min-height: calc(147px + 393 * (100vw / 1920));
-  background-color: rgba(255, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5) !important;
   border: 0px solid red;
   border-radius: 25px;
+  height: auto;
+  width: auto;
   padding: 0 !important;
 }
 .main .container .cinema .plyr__video-embed iframe {
   border-radius: 25px;
 }
+.main .container .cinema .plyr__video-embed .plyr--video {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.main .container .cinema .plyr__video-embed .plyr--video .plyr__video-wrapper {
+  position: unset !important;
+  background: rgba(0, 0, 0, 0) !important;
+  width: 840px;
+  height: 480px !important;
+}
+.main .container .cinema .plyr__video-embed .plyr--video .plyr__video-wrapper .plyr__poster {
+  background-size: cover !important;
+  -webkit-box-shadow: inset 0px 0px 200px 0px black;
+          box-shadow: inset 0px 0px 200px 0px black;
+}
 .main .container .cinema_chat {
   position: relative;
   width: 285px;
-  max-height: calc(147px + 393 * (100vw / 1920));
-  min-height: calc(147px + 393 * (100vw / 1920));
+  height: 488px;
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   display: -webkit-box;
@@ -160,12 +170,15 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 .main .container .cinema_chat .message_block {
   margin: 0px 5px 0px 0px;
   overflow-y: scroll;
   border-radius: 25px;
-  height: calc(147px + 393 * (100vw / 1920));
+  height: 100%;
 }
 .main .container .cinema_chat .message_block .message {
   font-size: 14px;
@@ -241,28 +254,27 @@
   border-radius: 9em;
 }
 
-.plyr--video {
-  background-color: rgba(0, 0, 0, 0) !important;
-  border-radius: 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  max-width: calc(250px + 710 * (100vw / 1920));
-  min-width: calc(250px + 710 * (100vw / 1920));
-  max-height: calc(147px + 393 * (100vw / 1920));
-  min-height: calc(147px + 393 * (100vw / 1920));
-}
-
 html {
   --plyr-color-main: rgba(132, 181, 255, 0.74);
 }
 
+@media (max-width: 945px) {
+  .cinema {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cinema_chat {
+    width: 100% !important;
+    height: auto;
+  }
+}
+@media (max-width: 590px) {
+  .plyr__video-wrapper {
+    width: 100vw !important;
+  }
+}
 @media (min-width: 1365px) {
   .cinema {
     -webkit-transform: scale(calc(((69/100)*1366)/1166)) !important;
@@ -293,32 +305,3 @@ html {
             transform: scale(calc(((69/100)*3840)/1166)) !important;
   }
 }
-
-@-webkit-keyframes puls {
-    0% {
-      -webkit-transform: translate(0px, 0px);
-              transform: translate(0px, 0px);
-    }
-    50% {
-      -webkit-transform: translate(0px, 10px);
-              transform: translate(0px, 10px);
-    }
-    100% {
-      -webkit-transform: translate(0px, 0px);
-              transform: translate(0px, 0px);
-    }
-  }
-  @keyframes puls {
-    0% {
-      -webkit-transform: translate(0px, 0px);
-              transform: translate(0px, 0px);
-    }
-    50% {
-      -webkit-transform: translate(0px, 10px);
-              transform: translate(0px, 10px);
-    }
-    100% {
-      -webkit-transform: translate(0px, 0px);
-              transform: translate(0px, 0px);
-    }
-  }
