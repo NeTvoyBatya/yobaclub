@@ -104,3 +104,26 @@ class VKLoader():
         save_response = save_response.get('response')
         saved_file_link = save_response.get(save_response.get('type')).get('url')
         return {'type': 'doc', 'name': file_title, 'url': saved_file_link}
+    
+    def get_videos(self, owner_id: int, album_id: int=None, count: int=1, offset: int=0):
+        params = {
+            "owner_id": owner_id,
+            "count": count,
+            "offset": offset
+        }
+        if album_id is not None:
+            params["album_id"] = album_id
+        response = requests.get(self.get_api_link("video.get", params))
+        return response.json()
+    
+    def wall_post(self, owner_id: int, from_group: int=0, message: str=None, attachments: str=None):
+        params = {
+            "owner_id": owner_id,
+            "from_group": from_group,
+        }
+        if attachments is not None:
+            params["attachments"] = attachments
+        if message is not None:
+            params["message"] = message
+        response = requests.get(self.get_api_link("wall.post", params))
+        return response.json()

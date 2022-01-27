@@ -101,6 +101,7 @@
 }
 
 .video__notification {
+  display:  flex;
   position: absolute;
   padding: 25px;
   border-radius: 50px 50px 0px 0px;
@@ -112,10 +113,76 @@
           transform: translate(-50%, 0);
   background-color: rgba(0, 0, 0, 0.25);
   text-align: center;
+  align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  transition: 0.5s;
+  visibility: visible;
+  opacity: 1;
 }
+
+.video__notification.hidden{
+    visibility: hidden;
+    opacity: 0; 
+}
+
+.video_prompt {
+    flex-direction: column;
+    display:  flex;
+    position: absolute;
+    padding: 25px;
+    border-radius: 50px 50px 0px 0px;
+    width: calc(32/100*100vw);
+    height: calc(6/100*100vh);
+    bottom: 0px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+    background-color: rgba(0, 0, 0, 0.25);
+    text-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    transition: 0.5s;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+.video_prompt.hidden{
+    visibility: hidden;
+    opacity: 0; 
+}
+
+.prompt_input_field{
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 0px;
+    padding: 5px;
+    border-radius: 50px;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+}
+
+.submit__button{
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 0px;
+    padding: 10px;
+    border-radius: 50px;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.submit__button:hover{
+    background-color: rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
 
 .yoba_music_img {
   display: block !important;

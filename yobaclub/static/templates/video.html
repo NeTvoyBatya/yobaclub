@@ -20,9 +20,9 @@
                             </video>
                             <div class="video__settings">
                                 <button onclick="inThread()">В тред</button>
-                                <button>Пост</button>
+                                <button onclick="yobaPrompt(15000)">Пост</button>
                                 <button id="loopButton" onclick="loop()">Повтор</button>
-                                <button id="autoplayButton" onclick="autoplay()">Автопроигрование</button>
+                                <button id="autoplayButton" onclick="autoplay()">Автопроигрывание</button>
                             </div>
                         </div>
                         <button onclick="nextVideo()" class="video__block-button">
@@ -37,9 +37,14 @@
         
 
 {% block footer_content %}
-    <form class="video__notification" action="">
-        <p>Lorem ipsum dora sit amet, consectetur adipisicing elit. Vitae, saepe?</p>
-    </form>
+    <div id="notificationForm" class="video__notification hidden" action="">
+        <p></p>
+    </div>
+    <div id="promptForm" class="video_prompt hidden" action="">
+        <p>Введи заголовок для поста</p>
+        <input id="promptInput" class="prompt_input_field" type="text" placeholder="Введи название видео" required>
+        <button onclick="postVideo()" type="button" class="submit__button">Загрузить видео</button>
+    </div>
 {% endblock%}
 
 {% block page_scripts %}

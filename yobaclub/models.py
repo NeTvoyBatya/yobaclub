@@ -18,6 +18,7 @@ class User(AbstractBaseUser):
     registered_time = models.FloatField('UTC Registration Date', unique=False, default=get_current_timestamp)
     is_admin = models.BooleanField('Is user an admin', unique=False, default=False)
     is_member = models.BooleanField('Is user an VIP', unique=False, default=False)
+    can_post = models.BooleanField('Can this user post video to group', unique=False, default=False)
     is_active = models.BooleanField('Is user currently active', default=False)
     seen_news = models.BooleanField('Is user seen last news on main page', unique=False, default=False)
     last_login = models.DateTimeField(null=True, blank=True)

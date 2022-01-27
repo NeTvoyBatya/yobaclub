@@ -1,7 +1,7 @@
 window.onload = function(){
     fetch("api/get_videos")
-    .then(function(respone){
-        return respone.json()
+    .then(function(response){
+        return response.json()
     })
     .then(loadVideos)
 
@@ -95,4 +95,39 @@ function inThread(){
     video = window.videos[window.current_video_index]
     let thread_link = `${video["link"].replace("src", "res").split("/").slice(0, -1).join("/")}.html#${video["post_num"]}`
     window.open(thread_link, "_blank").focus()
+}
+
+function yobaAlert(text, showTime){
+    let notificationForm = document.getElementById("notificationForm")
+    notificationForm.firstElementChild.innerHTML = text
+    notificationForm.classList.remove("hidden")
+    return new Promise(resolve => {
+        setTimeout(() => {notificationForm.classList.add("hidden"); resolve(true)}, showTime)
+    })
+}
+
+function yobaPrompt(timeout){
+    let promptForm = document.getElementById("promptForm")
+    promptForm.classList.remove("hidden")
+    return new Promise(resolve => {
+        setTimeout(() => {promptForm.classList.add("hidden"); resolve(false)}, timeout)
+    })
+}
+
+function postVideo(){
+    post_src = document.getElementById("video_player").src
+    post_title = document.getElementById("promptInput").value
+    document.getElementById("promptForm").classList.add("hidden")
+    document.getElementById("promptInput").value = ""
+    fetch("api/post_video",{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({"src": post_src, "title": post_title})
+    })
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(json){
+        yobaAlert(json["text"], 5000)
+    })
 }
