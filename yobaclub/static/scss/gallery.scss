@@ -195,7 +195,7 @@
                 }
             }
         } 
-    }
+    } 
 }
 }
 ::-webkit-scrollbar {
@@ -209,10 +209,14 @@
 
 @media (max-width:590px) {
     .gallery{
-        transform:scale(0.5) !important;
+        transform:scale(0.45) !important;
+        &__list{
+            height: 1115px !important; 
+        }
     } 
     .postitem_form{
-        width: 500px;
+        min-width: 500px;
+        transform: scale(0.7);
     }
 }
 

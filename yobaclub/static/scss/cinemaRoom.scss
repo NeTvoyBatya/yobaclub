@@ -31,6 +31,15 @@
       width: 500px;
       height: 500px;
       padding: 10px;
+      min-width: 500px;
+      h1{
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
       .join_window_title{
         margin-bottom: 2%;
       }
@@ -105,7 +114,7 @@
             position: unset !important;
             background: rgb(0, 0, 0, 0) !important;
             width: 840px;
-            height: 480px !important;
+            height: 480px;
             .plyr__poster{
               background-size: cover !important;
               box-shadow: inset 0px 0px 200px 0px rgb(0, 0, 0,1);
@@ -196,23 +205,30 @@ html{
   --plyr-color-main: rgba(132, 181, 255, 0.74);
 }
 
-@media (max-width:945px) {
+@media (max-width:590px){
+  .join_room_content{
+    min-width: 500px;
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width:845px) {
+  .plyr__video-wrapper{
+    width: 95% !important;
+    height: calc((100vw/16)*9) !important;
+  } 
+}
+
+@media (max-width:1140px) {
   .cinema{
       flex-direction: column;
       &_chat{
         width: 100% !important;
-        height: auto;
-      }
-      
+        height: calc((100vw/16)*9) !important;
+        max-height: 300px;
+      }   
   }
 }
-@media (max-width:590px) {
-  .plyr__video-wrapper{
-    width: 100vw !important;
-
-  } 
-}
-
 
 @media (min-width:1365px) {
   .cinema{

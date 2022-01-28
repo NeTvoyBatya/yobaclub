@@ -7,7 +7,7 @@
             <main class="container" id="mainContainer">
                 <div class="video">
                     <div class="video__block">
-                        <button onclick="previousVideo()" class="video__block-button">
+                        <button onclick="previousVideo()" class="video__block-button left">
                             <img src={{ static('media/svg/ArrowLeft.svg') }} alt="<">
                         </button>
                         <div class="video__player">
@@ -25,7 +25,7 @@
                                 <button id="autoplayButton" onclick="autoplay()">Автопроигрывание</button>
                             </div>
                         </div>
-                        <button onclick="nextVideo()" class="video__block-button">
+                        <button onclick="nextVideo()" class="video__block-button right">
                             <img src={{ static('media/svg/ArrowRight.svg') }} alt=">">
                         </button>
                     </div>

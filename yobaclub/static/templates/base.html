@@ -135,7 +135,9 @@
                                 </div>
                             </div>    
                         </div>
-                        <button class="phone__menu-button" onclick="PhoneMenu()"></button>
+                        <button class="phone__menu-button" id="PhoneMenuButton" onclick="PhoneMenu()">
+                            <div class="center__Line"></div>
+                        </button>
                     </div>
                 </div>
                 
@@ -146,7 +148,7 @@
             
             <footer class="footer"> 
                 <div class="container">
-                    <div>3.0 - alpha<br>Design by Medvils</div>
+                    <div class="version">3.0 - alpha<br>Design by Medvils</div>
                     <div class="weather"></div>
                     {% block footer_content %}
                     {% endblock %}

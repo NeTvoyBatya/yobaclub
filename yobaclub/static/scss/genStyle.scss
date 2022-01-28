@@ -264,6 +264,7 @@ body{
         }
     }
     .container{
+        transition: 0.4s;
         &.blur{
             filter: blur(5px);
             -webkit-filter: blur(5px);
@@ -283,11 +284,73 @@ body{
             display: none;
         }
         .phone__menu-button{
+            background-color: rgb(0, 0, 0, 0);
+            border: 0px;
             width: 50px;
             height: 50px;
-            background-color: rgba(255, 255, 255, 0.75);
-            z-index: 10;
-        } 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0px;
+            position: relative;
+            &::before{
+                position: absolute;
+                top: 30%;
+                left: 0px;
+                content: "";
+
+                width: 50px;
+                height: 3px;
+                border-radius: 50px;
+                background-color: rgba(255, 255, 255, 0.75);
+                transition: 0.4s;
+            }
+            .center__Line{
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                content: "";
+
+                width: 40px;
+                height: 3px;
+                border-radius: 50px;
+                background-color: rgba(255, 255, 255, 0.75);
+                transition: 0.4s;
+            }
+            &::after{
+                position: absolute;
+                top: 70%;
+                left: 10px;
+                content: "";
+
+                width: 30px;
+                height: 3px;
+                border-radius: 50px;
+                background-color: rgba(255, 255, 255, 0.75);
+                transition: 0.4s;
+            }
+            &.on{
+                &::before{
+                    top: 50%;
+                    left: 0px;
+                    width: 100%;
+                    height: 3px;
+                    transform: rotate(-45deg);
+                }
+                .center__Line{
+                    top: 50%;
+                    left: 0px;
+                    width: 100%;
+                    height: 3px;
+                    transform: rotate(45deg);
+                }
+                &::after{
+                    top: 100%;
+                    opacity: 0;
+                }
+            }
+
+        }
     }
     .theme_check_box{
         display: flex;
