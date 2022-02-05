@@ -10,7 +10,8 @@ from yobaclub.logic.utils.vk_loader import VKLoader
 from json import load, loads
 from urllib.request import urlretrieve
 from os import path, remove
-
+from requests import post
+from yobaclub.logic.utils.acrCloud import cutToRecognize, recognizeFile
 
 VIDEO_DESCRIPTION = '''Видео от USERNAME.
 YOBACLUB: http://yobatube.herokuapp.com
@@ -120,6 +121,77 @@ def api_post_video(request: WSGIRequest):
             remove(file_path)
         return JsonResponse(
             {"result": "fail", "text": "Ошибка при загрузке видео в группу"},
+            json_dumps_params={'ensure_ascii': False}, 
+            content_type='application/json; charset=utf8',
+            safe=False)
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def api_get_music(request: WSGIRequest):
+    file_saved = False
+    cutted_path = None
+    file_cutted = False
+    if request.user.is_anonymous:
+        return JsonResponse(
+            {"result": "fail", "text": "Распознавание музыки доступно только членам клуба"},
+            json_dumps_params={'ensure_ascii': False}, 
+            content_type='application/json; charset=utf8',
+            safe=False)
+
+    data = loads(request.body.decode())
+    video_url = data.get("url")
+    video_current_time = data.get("time")
+    video_duration = data.get("duration")
+    try:
+        file_path = path.join('yobaclub', 'static', 'uploads', video_url.split('/')[-1])
+        urlretrieve( video_url, file_path )
+        file_saved = True
+    except:
+        if file_saved and path.isfile(file_path):
+            remove(file_path)
+        return JsonResponse(
+            {"result": "fail", "text": "К сожалению, это видео недоступно"},
+            json_dumps_params={'ensure_ascii': False}, 
+            content_type='application/json; charset=utf8',
+            safe=False)
+
+    try:
+        cutted_path = cutToRecognize(file_path, video_current_time, video_duration)
+        if cutted_path is None:
+            raise RuntimeError("Error while cutting video")
+        file_cutted = True
+    except:
+        if file_saved and path.isfile(file_path):
+            remove(file_path)
+        if file_cutted and cutted_path is not None and path.isfile(cutted_path):
+            remove(cutted_path)
+        return JsonResponse(
+            {"result": "fail", "text": "Произошла ошибка при обрезке видео"},
+            json_dumps_params={'ensure_ascii': False}, 
+            content_type='application/json; charset=utf8',
+            safe=False)
+    
+    try:
+        result = recognizeFile(cutted_path)
+        if result is None:
+            raise RuntimeError("Error while recognition")
+    except:
+        if file_saved and path.isfile(file_path):
+            remove(file_path)
+        if file_cutted and cutted_path is not None and path.isfile(cutted_path):
+            remove(cutted_path)
+        return JsonResponse(
+            {"result": "fail", "text": "К сожалению, нам не удалось распознать аудио"},
+            json_dumps_params={'ensure_ascii': False}, 
+            content_type='application/json; charset=utf8',
+            safe=False)
+
+    if file_saved and path.isfile(file_path):
+        remove(file_path)
+    if file_cutted and cutted_path is not None and path.isfile(cutted_path):
+        remove(cutted_path)
+    return JsonResponse(
+            {"result": "success", "text": result},
             json_dumps_params={'ensure_ascii': False}, 
             content_type='application/json; charset=utf8',
             safe=False)

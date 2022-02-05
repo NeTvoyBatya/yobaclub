@@ -18,10 +18,16 @@ window.onload = function(){
 function updateTitles(){
     let number = document.getElementById("video_number")
     let title = document.getElementById("video_title")
+    let title_text = window.videos[window.current_video_index]["name"]
     number.innerHTML = `${window.current_video_index+1}/${window.videos.length}`
-    title.innerHTML = window.videos[window.current_video_index]["name"]
-    title.setAttribute('data-tooltip', window.videos[window.current_video_index]["name"])
-    
+    if (title_text.length > 25){
+        title.innerHTML =   title_text.slice(0, 25)+"..."
+        title.setAttribute('data-tooltip', window.videos[window.current_video_index]["name"])
+    }else{
+        title.removeAttribute('data-tooltip')
+        title.innerHTML =  title_text
+    }
+
 }
 
 function updatePlayer(){
@@ -130,4 +136,22 @@ function postVideo(){
     .then(function(json){
         yobaAlert(json["text"], 5000)
     })
+}
+
+function getTrack(button){
+    player = document.getElementById("video_player")
+    button.classList.add("active")
+    fetch("api/get_track", {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({"url": document.getElementById("video_player").src, "time": player.currentTime, "duration": player.duration})
+    })
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(json){
+        yobaAlert(json["text"], 5000)
+        button.classList.remove("active")
+    })
+
 }
