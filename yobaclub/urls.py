@@ -17,6 +17,7 @@ urlpatterns = [
     path('sign-in', views.sign_in, name = 'sign_in'),
     path('sign-up', views.sign_up, name='sign_up'),
     path('logout', views.logout, name='logout'),
+    path('PageNotFound404', views.PageNotFound404, name='404 PageNotFound'),
 
     path('api/get_videos', api_views.api_get_videos, name = 'api_get_videos'),
     path('api/get_commits', api_views.api_get_commits, name = 'api_get_commits'),

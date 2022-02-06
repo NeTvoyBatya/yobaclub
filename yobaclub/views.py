@@ -37,7 +37,10 @@ def cinema_room(request: WSGIRequest, room_id: str):
     except CinemaRoom.DoesNotExist:
         return redirect('index')#TODO: ERROR PAGE 404
         
-    
+
+@require_http_methods(["GET"])
+def PageNotFound404(request: WSGIRequest):
+    return HttpResponse(render(request, '404.html')) 
     
 
 @require_http_methods(["GET"])

@@ -24,7 +24,7 @@
           align-items: center;
 }
 .main .container .video .video__block .video__block-button {
-  margin: 0 auto;
+  margin: 0px 100px 0px 100px;
   background-color: rgba(0, 0, 0, 0);
   border: 0px;
   padding: 10px;
@@ -226,6 +226,13 @@
     margin: 0px 0px 10px 0px;
   }
 }
+
+@media (max-width: 890px) {
+  .video__block-button {
+    margin: 0px !important;
+  }
+}
+
 @media (max-width: 725px) {
   .video__block-button {
     position: absolute;
