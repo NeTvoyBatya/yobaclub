@@ -4,11 +4,8 @@ from requests import get
 from json import load
 from datetime import datetime
 
-def process_time(strtime: str) -> str:
-    strtime = strtime.replace("Z", "")
-    dt = datetime.strptime(strtime, r"%Y-%m-%dT%H:%M:%S")
-    strtime = dt.strftime(r"%d.%m.%Y %H:%M:%S")
-    return strtime
+def to_timestamp(strtime: str) -> float:
+    return datetime.strptime(strtime, r"%Y-%m-%dT%H:%M:%SZ").timestamp()+18000
 
 def remove_links(string: str) -> str:
     words = string.split(" ")
@@ -35,7 +32,7 @@ def get_commits() -> list:
                         "author_link": payload["author"]["html_url"] if payload.get("author") is not None
                             else None,
                         "message": remove_links(payload["commit"]["message"]), 
-                        "time": process_time(payload["commit"]["author"]["date"])}
+                        "time": to_timestamp(payload["commit"]["author"]["date"])}
                         for payload in res.json()]
         repo_commits.extend(page_commits)
         if res.links.get("next") is None:

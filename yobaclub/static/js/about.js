@@ -6,6 +6,22 @@ window.onload = function(){
     .then(loadCommits)
 }
 
+function simpleStrftime(timestamp) {
+    var d = new Date(timestamp * 1000)
+    hours = String(d.getHours())
+    minutes = String(d.getMinutes())
+    day = String(d.getDate())
+    month = String(d.getMonth()+1)
+    year = String(d.getFullYear())
+
+    hours = hours.length < 2 ? "0"+hours : hours
+    minutes = minutes.length < 2 ? "0"+minutes : minutes
+    day = day.length < 2 ? "0"+day : day
+    month = month.length < 2 ? "0"+month : month
+
+    return `${hours}:${minutes} ${day}.${month}.${year}`
+  }
+
 function loadCommits(json){
     var list = document.getElementById("commits_list")
     var preloader = document.getElementById('loadScreenId');
@@ -32,7 +48,7 @@ function loadCommits(json){
 
         let time = document.createElement("span")
         time.className = "history-update__time"
-        time.innerHTML = commit["time"]
+        time.innerHTML = simpleStrftime(commit["time"])
 
         let list_item = document.createElement("li")
         list_item.className = "history-update__element"
