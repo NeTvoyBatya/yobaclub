@@ -14,6 +14,7 @@ def main():
         ) from exc
     if len(sys.argv) <2:
         sys.argv.append("runserver")
+        sys.argv.append("--insecure")
     execute_from_command_line(sys.argv)
 
 
@@ -29,9 +30,7 @@ if __name__ == '__main__':
 #----MAMANYA--------
 #BUG: FILES UPLOADING TO VK MULTIPLE TIMES AT GALLERY \\ #NOTE: CAN'T REPRODUCE, FIXED?
 
-#TODO: json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0) AT VIDEOS
 #TODO: MOVE SECRET TOKEN IN SETTINGS TO ENV AND CHANGE IT
-#TODO: AUTO SET DEBUG TO FALSE IF FOUND HEREKUENV VARIABLE
 #TODO: DEPLOY REDIS SERVER ON HEROKU
 #TODO: AUTO SET SOCKETS BACKEND TO REDIS ON HEROKU DUE TO SAFETY NEEDS
 

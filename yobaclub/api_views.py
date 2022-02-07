@@ -1,4 +1,4 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseServerError
 from django.views.decorators.http import require_http_methods
 from yobaclub.logic.videos import getVideos
 from yobaclub.logic.about import get_commits

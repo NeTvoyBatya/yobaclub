@@ -1,10 +1,5 @@
 window.onload = function(){
-    fetch("api/get_videos")
-    .then(function(response){
-        return response.json()
-    })
-    .then(loadVideos)
-
+    getVideos()
     window.autoplay_on = false
     window.addEventListener("keydown", function(event) {
         if (event.key == 'ArrowRight'){
@@ -13,6 +8,16 @@ window.onload = function(){
           previousVideo()
         }
         }, true);
+}
+
+function getVideos(){
+    fetch("api/get_videos")
+    .then(function(response){
+        if (response.status != 200){
+            setTimeout(getVideos, 2000)
+        }else{
+            response.json().then(loadVideos)
+        }})
 }
 
 function updateTitles(){
@@ -42,6 +47,7 @@ function updateVideo(){
 }
 
 function loadVideos(json){
+    console.log(json)
     var preloader = document.getElementById("loadScreenId")
     let player = document.getElementById("video_player")
     window.videos = json["videos"]
@@ -50,7 +56,6 @@ function loadVideos(json){
     player.volume = 0.15
     updateVideo()
     player.pause()
-    console.log(json)
     preloader.classList.add("done")
     player.play()
 }

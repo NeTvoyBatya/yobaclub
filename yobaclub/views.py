@@ -39,8 +39,8 @@ def cinema_room(request: WSGIRequest, room_id: str):
         
 
 @require_http_methods(["GET"])
-def PageNotFound404(request: WSGIRequest):
-    return HttpResponse(render(request, '404.html')) 
+def page_not_found(request: WSGIRequest, exception=None):
+    return HttpResponse(render(request, '404.html'), status=404) 
     
 
 @require_http_methods(["GET"])
