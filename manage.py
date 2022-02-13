@@ -14,7 +14,6 @@ def main():
         ) from exc
     if len(sys.argv) <2:
         sys.argv.append("runserver")
-        sys.argv.append("--insecure")
     execute_from_command_line(sys.argv)
 
 
