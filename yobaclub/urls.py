@@ -3,9 +3,13 @@ from yobaclub import views, api_views
 from django.urls import path
 from yobaclub.models import CinemaRoom
 
-rooms = CinemaRoom.objects.all()
-for room in rooms:
-    room.delete()
+
+try:
+    rooms = CinemaRoom.objects.all()
+    for room in rooms:
+        room.delete()
+except:
+    pass
 
 urlpatterns = [
     path('', views.index, name='index'),

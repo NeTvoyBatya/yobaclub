@@ -33,12 +33,12 @@ else:
         secrets = load(f)
     SECRET_KEY = secrets.get("django_secret_key")
 
-    DEBUG = False
+    DEBUG = True
 
     CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
-        },
+        'default': {
+            'BACKEND': 'channels.layers.InMemoryChannelLayer',
+            },
     }
 
     DATABASES = {
@@ -88,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-#WSGI_APPLICATION = 'yobaclub.settings.wsgi.application'
+WSGI_APPLICATION = 'yobaclub.settings.wsgi.application'
 ASGI_APPLICATION = 'yobaclub.settings.asgi.application'
 
 
