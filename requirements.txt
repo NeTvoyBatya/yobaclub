@@ -7,3 +7,4 @@ channels-redis
 git+https://github.com/acrcloud/acrcloud_sdk_python
 psycopg2==2.8.6
 daphne
+requests
