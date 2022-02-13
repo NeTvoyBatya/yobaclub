@@ -21,11 +21,10 @@ urlpatterns = [
     path('sign-in', views.sign_in, name = 'sign_in'),
     path('sign-up', views.sign_up, name='sign_up'),
     path('logout', views.logout, name='logout'),
-    path('test', views.test, name="test"),
 
     path('api/get_videos', api_views.api_get_videos, name = 'api_get_videos'),
     path('api/get_commits', api_views.api_get_commits, name = 'api_get_commits'),
-    path('api/get_things', api_views.api_get_things, name='apo_get_things'),
+    path('api/get_things', api_views.api_get_things, name='api_get_things'),
     path('api/get_cinema_rooms', api_views.api_get_cinema_rooms, name='api_get_cinema_rooms'),
     path('api/post_video', api_views.api_post_video, name='api_post_video'),
     path('api/get_track', api_views.api_get_music, name='api_get_track')
