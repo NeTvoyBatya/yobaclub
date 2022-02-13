@@ -1,6 +1,8 @@
 from pathlib import Path
 import os
+from django import setup
 from json import load
+setup()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
