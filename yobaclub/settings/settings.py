@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-from django import setup
 from json import load
 
 
