@@ -35,7 +35,7 @@ else:
         secrets = load(f)
     SECRET_KEY = secrets.get("django_secret_key")
 
-    DEBUG = False
+    DEBUG = True
 
     CHANNEL_LAYERS = {
         'default': {

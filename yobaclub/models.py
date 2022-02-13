@@ -52,7 +52,7 @@ class CinemaRoom(models.Model):
     users_in = models.TextField("Users currently in room", default="[]")
     messages = models.TextField("Messages in this room's chat", default="[]")
     admin = models.CharField("Room admin's channel name", null=True, max_length=100)
-    room_id = models.CharField("HEX-ID of the room", unique=True, max_length=15, default=create_hex, primary_key=True)
+    room_id = models.CharField("HEX-ID of the room", unique=True, max_length=25, default=create_hex, primary_key=True)
     waiting_users = models.TextField("New users, waiting for state", default="[]")
 
     def add_message(self, message):
