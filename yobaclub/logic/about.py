@@ -5,7 +5,7 @@ from os import getenv
 
 
 def to_timestamp(strtime: str) -> float:
-    return datetime.strptime(strtime, r"%Y-%m-%dT%H:%M:%SZ").timestamp()+18000
+    return datetime.strptime(strtime, r"%Y-%m-%dT%H:%M:%SZ").timestamp()
 
 def remove_links(string: str) -> str:
     words = string.split(" ")
