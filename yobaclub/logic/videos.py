@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from httpx import AsyncClient
 import asyncio
 from requests import get
-from os import environ
+from os import getenv
 from random import shuffle
 
 
@@ -47,7 +47,7 @@ async def getAllBoardMedia(board_name: str):
     return data
 
 def getVideos():
-    if not "HEROKUENV" in environ:
+    if getenv("HEROKU") is None:
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     res = asyncio.run(getAllBoardMedia('b'))
     shuffle(res["videos"])
