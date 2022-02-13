@@ -8,3 +8,4 @@ git+https://github.com/acrcloud/acrcloud_sdk_python
 psycopg2==2.8.6
 daphne
 requests==2.23.0
+whitenoise==6.0.0
