@@ -13,8 +13,11 @@ if os.getenv("HEROKU") is not None:
     SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
     CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'default': {
+            'BACKEND': 'channels_redis.core.RedisChannelLayer',
+            'CONFIG': {
+                "hosts": ["redis://:p0575b1dd72a9501afc98fc02290fdbf11b53f9edc3667f876925d61942dd8d52@ec2-34-251-79-166.eu-west-1.compute.amazonaws.com:25120"],
+            },
         },
     }
 
@@ -61,7 +64,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'yobaclub',
-    'channels'
+    'channels',
 ]
 
 MIDDLEWARE = [
