@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block page_title %}401{% endblock %}
+
+        {% block page_content %}
+                <main class="main">
+                        <div class="container" id="mainContainer">
+                                <div class="text__block">
+                                        <div class="text__block-title">
+                                                <h1>401</h1>
+                                                <h3>Unauthorized</h3>
+                                        </div>
+                                        <div class="text__block-text">
+                                                <h2>Упс!</h2>
+                                                <h3>Для посещения этой страницы нужна авторизация!</h3>
+                                        </div>
+                                </div>
+                                <div class="big__Yoba">
+                                        <img src={{ static('media/YobaImg.png') }} alt="">
+                                </div>
+                        </div>
+               </main>
+                
+        {% endblock %}
+
+{% block page_scripts %}
+{% endblock%}
+
+{% block page_styles %}
+        <link rel="stylesheet" href={{ static('css/404.css') }}>
+{% endblock %}

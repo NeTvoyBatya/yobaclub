@@ -106,6 +106,7 @@
   border-radius: 50px;
   text-align: center;
   overflow-y: scroll;
+  scrollbar-width: none; /*Бронебойный снаряд противофаерфоксного типа*/
 }
 .update_history .container .update_history-block h3 {
   padding: 15px;

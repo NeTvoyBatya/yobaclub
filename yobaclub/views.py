@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseServerError
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect
@@ -36,12 +36,6 @@ def cinema_room(request: WSGIRequest, room_id: str):
         return HttpResponse(render(request, 'CinemaRoom.html'))
     except CinemaRoom.DoesNotExist:
         return redirect('index')#TODO: ERROR PAGE 404
-        
-
-@require_http_methods(["GET"])
-def page_not_found(request: WSGIRequest, exception=None):
-    return HttpResponse(render(request, '404.html'), status=404) 
-    
 
 @require_http_methods(["GET"])
 def about(request: WSGIRequest):
@@ -88,3 +82,27 @@ def logout(request: WSGIRequest):
         logout_user(request)
     return redirect_back_or_index(request)
     
+#ERRORS
+@require_http_methods(["GET"])
+def page_not_found(request: WSGIRequest, exception=None):
+    return HttpResponse(render(request, '404.html'), status=404) 
+
+@require_http_methods(["GET"])
+def internal_server_error(request: WSGIRequest, exception=None):
+    return HttpResponse(render(request, '500.html'), status=500) 
+
+@require_http_methods(["GET"])
+def service_unavailable(request: WSGIRequest, exception=None):
+    return HttpResponse(render(request, '503.html'), status=503) 
+
+@require_http_methods(["GET"])
+def forbidden(request: WSGIRequest, exception=None):
+    return HttpResponse(render(request, '403.html'), status=403) 
+
+@require_http_methods(["GET"])
+def unauthorized(request: WSGIRequest, exception=None):
+    return HttpResponse(render(request, '401.html'), status=401) 
+
+@require_http_methods(["GET"])
+def test(request: WSGIRequest):
+    return HttpResponseServerError("smth")

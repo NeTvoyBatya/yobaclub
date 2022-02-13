@@ -232,6 +232,7 @@
   height: 700px;
   overflow-y: scroll;
   border-radius: 50px;
+  scrollbar-width: none; /*Бронебойный снаряд противофаерфоксного типа*/
 }
 .main .container .gallery__item {
   background-color: rgba(0, 0, 0, 0.25);
@@ -248,11 +249,31 @@
   height: 250px;
   border-radius: 50px;
 }
-.main .container .gallery__item-text {
+.main .container .gallery__item-div {
   padding: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
-.main .container .gallery__item-text h3 {
+.main .container .gallery__item-div .gallery__item-title h3 {
   margin: 0px 0px 10px 0px;
+}
+
+.main .container .gallery__item-div .gallery__item-title{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5%;
+}
+
+.main .container .gallery__item-div .gallery__item-text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 2%;
+    height: 100%;
 }
 
 ::-webkit-scrollbar {

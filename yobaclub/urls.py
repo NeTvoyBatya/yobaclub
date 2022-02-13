@@ -17,6 +17,7 @@ urlpatterns = [
     path('sign-in', views.sign_in, name = 'sign_in'),
     path('sign-up', views.sign_up, name='sign_up'),
     path('logout', views.logout, name='logout'),
+    path('test', views.test, name="test"),
 
     path('api/get_videos', api_views.api_get_videos, name = 'api_get_videos'),
     path('api/get_commits', api_views.api_get_commits, name = 'api_get_commits'),
@@ -27,3 +28,7 @@ urlpatterns = [
 ]
 
 handler404 = "yobaclub.views.page_not_found"
+handler500 = "yobaclub.views.internal_server_error"
+handler503 = "yobaclub.views.service_unavailable"
+handler403 = "yobaclub.views.forbidden"
+handler401 = "yobaclub.views.unauthorized"

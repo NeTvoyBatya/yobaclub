@@ -22,27 +22,46 @@ function loadThings(json){
 
         p = document.createElement("p")
         h3 = document.createElement("h3")
+        author = document.createElement("h3")
         img = document.createElement("img")
-        div = document.createElement("div")
+        item_div = document.createElement("div")
+        title_div = document.createElement("div")
         li = document.createElement("li")
 
         h3.innerHTML = thing["name"]
         p.innerHTML = thing["description"]
+        author.innerHTML = thing["author"]
+        
+        if (thing_files.length > 1){
+            files_length = String(thing_files.length)
+            if(files_length.endsWith('1') && files_length[files_length.length-2] !='1'){
+                h3.innerHTML += ` (${files_length} файл)`
+            }else if((files_length.endsWith('2') || files_length.endsWith('3') || files_length.endsWith('4')) && files_length[files_length.length-2] !='1'){
+                h3.innerHTML += ` (${files_length} файла)`
+            }else{
+                h3.innerHTML += ` (${files_length} файлов)`
+            }
+        }
 
+        
         if (main_image.length < 1){
-            //Вставить сюда дефолтную картинку
+            img.setAttribute("src", "static/media/image_placeholder.jpg")
         }else{
             img.setAttribute("src", main_image)
         }
 
-        div.className = "gallery__item-text"
+        item_div.className = "gallery__item-div"
+        title_div.className = "gallery__item-title"
         li.className = "gallery__item"
 
-        div.appendChild(h3)
-        div.appendChild(p)
+        title_div.appendChild(h3)
+        title_div.appendChild(author)
+
+        item_div.appendChild(title_div)
+        item_div.appendChild(p)
 
         li.appendChild(img)
-        li.appendChild(div)
+        li.appendChild(item_div)
 
         list.append(li)
     });

@@ -1,6 +1,25 @@
 from subprocess import run
 from json import load, loads
 from acrcloud.recognizer import ACRCloudRecognizer
+from os import getenv
+
+
+if getenv("HEROKU") is not None:
+    ACR_CONFIG = {
+        "host": getenv("ACR_HOST"),
+        "access_key": getenv("ACR_ACCESS"),
+        "access_secret": getenv("ACR_SECRET"),
+        "timeout": 10
+    }
+else:
+    with open("secrets.json", 'r', encoding="utf-8") as f:
+        secrets = load(f)
+        ACR_CONFIG = {
+            "host": secrets.get("acr_host"),
+            "access_key": secrets.get("acr_access_key"),
+            "access_secret": secrets.get("acr_secret_key"),
+            "timeout": 10
+        }
 
 def secondsToHumanTime(seconds):
         seconds = round(seconds)
@@ -26,15 +45,8 @@ def cutToRecognize(video_path, start_time, video_duration, output_path=None):
     return output_path
 
 def recognizeFile(filepath):
-    with open("secrets.json", 'r', encoding="utf-8") as f:
-        secrets = load(f)
-        config = {
-        "host": secrets.get("acr_host"),
-        "access_key": secrets.get("acr_access_key"),
-        "access_secret": secrets.get("acr_secret_key"),
-        "timeout": 10
-        }
-    recognizer = ACRCloudRecognizer(config)
+    
+    recognizer = ACRCloudRecognizer(ACR_CONFIG)
     result = recognizer.recognize_by_file(filepath, 0)
     result = loads(result)
     if result.get("status") is not None:

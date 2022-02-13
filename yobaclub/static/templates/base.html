@@ -14,6 +14,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
         <title>{% block page_title%}{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href={{ static('media/favicon.png') }}>
     </head>
     
     <body class="body {{theme}}" id = body>
@@ -45,35 +46,31 @@
                         
                         <div class="theme_check_box">
                             <div class="new_check_box">
-                                <img class="Marker SamuraiCheckMark" id = "SamuraiCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                <img class="Marker SamuraiCheckMark" id = "SamuraiCheckMarkPhone" src={{ static('media/svg/CheckMark.svg') }} alt="">
                                 <div class="Circle"></div>
                             </div>
-                            <input id="SamuraiCheckBoxId" type="radio">
-                            <h4 href="#" onclick="SamuraiTheme()">Samurai</h4>
+                            <h4 href="#" onclick="setTheme('samurai')">Samurai</h4>
                         </div>
                         <div class="theme_check_box">
                             <div class="new_check_box">
-                                <img class="Marker ForestCheckMark" id = "ForestCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                <img class="Marker ForestCheckMark" id = "ForestCheckMarkPhone" src={{ static('media/svg/CheckMark.svg') }} alt="">
                                 <div class="Circle"></div>
                             </div>
-                            <input id="ForestCheckBoxId" type="radio">
-                            <h4 href="#" onclick="ForestTheme()">Forest</h4>
+                            <h4 href="#" onclick="setTheme('forest')">Forest</h4>
                         </div>
                         <div class="theme_check_box">
                             <div class="new_check_box">
-                                <img class="Marker FactoryCheckMark" id = "FactoryCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                <img class="Marker FactoryCheckMark" id = "FactoryCheckMarkPhone" src={{ static('media/svg/CheckMark.svg') }} alt="">
                                 <div class="Circle"></div>
                             </div>
-                            <input id="FactoryCheckBoxId" type="radio">
-                            <h4 href="#" onclick="FactoryTheme()">Factory</h4>
+                            <h4 href="#" onclick="setTheme('factory')">Factory</h4>
                         </div>
                         <div class="theme_check_box">
                             <div class="new_check_box">
-                                <img class="Marker WhiteAreaCheckMark" id = "WhiteAreaCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                <img class="Marker WhiteAreaCheckMark" id = "WhiteAreaCheckMarkPhone" src={{ static('media/svg/CheckMark.svg') }} alt="">
                                 <div class="Circle"></div>
                             </div>
-                            <input id="WhiteAreaCheckBoxId" type="radio">
-                            <h4 href="#" onclick="WhiteAreaTheme()">White area</h4>
+                            <h4 href="#" onclick="setTheme('white_area')">White area</h4>
                         </div> 
                     </div>
                     
@@ -104,32 +101,28 @@
                                                 <img class="Marker SamuraiCheckMark" id = "SamuraiCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
                                                 <div class="Circle"></div>
                                             </div>
-                                            <input id="SamuraiCheckBoxId" type="radio">
-                                            <h4 href="#" onclick="SamuraiTheme()">Samurai</h4>
+                                            <h4 href="#" onclick="setTheme('samurai')">Samurai</h4>
                                         </div>
                                         <div class="theme_check_box">
                                             <div class="new_check_box">
                                                 <img class="Marker ForestCheckMark" id = "ForestCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
                                                 <div class="Circle"></div>
                                             </div>
-                                            <input id="ForestCheckBoxId" type="radio">
-                                            <h4 href="#" onclick="ForestTheme()">Forest</h4>
+                                            <h4 href="#" onclick="setTheme('forest')">Forest</h4>
                                         </div>
                                         <div class="theme_check_box">
                                             <div class="new_check_box">
                                                 <img class="Marker FactoryCheckMark" id = "FactoryCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
                                                 <div class="Circle"></div>
                                             </div>
-                                            <input id="FactoryCheckBoxId" type="radio">
-                                            <h4 href="#" onclick="FactoryTheme()">Factory</h4>
+                                            <h4 href="#" onclick="setTheme('factory')">Factory</h4>
                                         </div>
                                         <div class="theme_check_box">
                                             <div class="new_check_box">
                                                 <img class="Marker WhiteAreaCheckMark" id = "WhiteAreaCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
                                                 <div class="Circle"></div>
                                             </div>
-                                            <input id="WhiteAreaCheckBoxId" type="radio">
-                                            <h4 href="#" onclick="WhiteAreaTheme()">White area</h4>
+                                            <h4 href="#" onclick="setTheme('white_area')">White area</h4>
                                         </div> 
                                     </div>
                                 </div>

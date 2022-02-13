@@ -1,8 +1,8 @@
-#ВСЕМ ПРИВЕТ, МЕНЯ ЗОВУТ АЛЕКС784 И СЕГОДНЯ Я ПОКАЖУ ВАМ, 
-#КАК ПАРСИТЬ ВСЕ КОММИТЫ С ПРИВАТНОГО РЕППОЗИТОРИЯ
 from requests import get
 from json import load
 from datetime import datetime
+from os import getenv
+
 
 def to_timestamp(strtime: str) -> float:
     return datetime.strptime(strtime, r"%Y-%m-%dT%H:%M:%SZ").timestamp()+18000
@@ -16,10 +16,14 @@ def remove_links(string: str) -> str:
     return ' '.join(words)
 
 def get_commits() -> list:
-    with open("secrets.json", 'r', encoding="utf-8") as f:
-        secrets = load(f)
-    link = secrets["git_link"]
-    token = secrets["git_token"]
+    if getenv("HEROKU") is not None:
+        link = getenv("GIT_LINK")
+        token = getenv("GIT_TOKEN")
+    else:
+        with open("secrets.json", 'r', encoding="utf-8") as f:
+            secrets = load(f)
+        link = secrets["git_link"]
+        token = secrets["git_token"]
     login = "NeTvoyBatya"
     repo_commits = []
     

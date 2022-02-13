@@ -9,8 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from yobaclub.logic.utils.vk_loader import VKLoader
 from json import load, loads
 from urllib.request import urlretrieve
-from os import path, remove
-from requests import post
+from os import path, remove, getenv
 from yobaclub.logic.utils.acrCloud import cutToRecognize, recognizeFile
 
 VIDEO_DESCRIPTION = '''Видео от USERNAME.
@@ -18,6 +17,14 @@ YOBACLUB: http://yobatube.herokuapp.com
 DISCORD: https://discord.com/invite/PVpMB5Yuew
 VK: https://vk.com/zolupaofficial'''
 #TODO: MOVE THIS SHIT SOMEWHERE ELSE
+
+
+if getenv("HEROKU") is not None:
+    POST_VIDEO_TOKEN = getenv("VK_UPLOAD_VIDEO_TOKEN")
+else:
+    with open('secrets.json', 'r', encoding='utf-8') as f:
+            POST_VIDEO_TOKEN = load(f).get('vk_upload_video_token')
+
 
 @require_http_methods(["GET"])
 def api_get_videos(request: WSGIRequest):
@@ -71,9 +78,8 @@ def api_post_video(request: WSGIRequest):
             safe=False)
 
     data = loads(request.body.decode())
-    with open('secrets.json', 'r', encoding='utf-8') as f:
-            vk_token = load(f).get('vk_upload_video_token')
-    loader = VKLoader(vk_token)
+    
+    loader = VKLoader(POST_VIDEO_TOKEN)
     file_saved = False
     video_file = None
 

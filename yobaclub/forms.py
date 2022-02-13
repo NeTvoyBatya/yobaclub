@@ -4,6 +4,13 @@ from django.contrib.auth.hashers import PBKDF2PasswordHasher
 from django.contrib.auth import authenticate, login
 from yobaclub.logic.utils.vk_loader import VKLoader
 from json import load, dumps
+from os import getenv
+
+if getenv("HEROKU") is not None:
+    SAVE_THING_TOKEN = getenv("VK_SAVE_THING_TOKEN")
+else:
+    with open('secrets.json', 'r', encoding='utf-8') as f:
+            SAVE_THING_TOKEN = load(f).get('vk_save_thing_files_token')
 
 
 class SignUpForm(forms.Form):
@@ -83,11 +90,8 @@ class PostThingForm(forms.Form):
         saved_files = []
         if self.files.get("thing_files") is None:
             return saved_files
-        #MAMU V ENV
-        with open('secrets.json', 'r', encoding='utf-8') as f:
-            vk_token = load(f).get('vk_save_thing_files_token')
-        #MAMU V ENV
-        loader = VKLoader(vk_token)
+        
+        loader = VKLoader(SAVE_THING_TOKEN)
         uploaded_files = self.files.getlist("thing_files")
         uploaded_images = [uploaded_file for uploaded_file in uploaded_files 
                             if uploaded_file.name.split('.') is not None and 

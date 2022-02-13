@@ -1,22 +1,52 @@
 from pathlib import Path
 import os
+from json import load
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+=%f2x8&h@^@(4beje+d3n5v(c2t4um$phrj#vwliwyta-!t-%'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-if os.getenv("HEROKU"):
+if os.getenv("HEROKU") is not None:
     DEBUG = False
+
+    SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+
+    CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        },
+    }
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.getenv("DB_NAME"),
+            'USER' : os.getenv("DB_USERNAME"),
+            'PASSWORD' : os.getenv("DB_PASSWORD"),
+            'HOST' : os.getenv("DB_HOST"),
+            'PORT' : os.getenv("DB_PORT"),
+        }
+    }
 else:
-    DEBUG = True
+    with open("secrets.json", 'r', encoding="utf-8") as f:
+        secrets = load(f)
+    SECRET_KEY = secrets.get("django_secret_key")
+
+    DEBUG = False
+
+    CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+        },
+    }
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'static', 'db.sqlite3')
+    }
+    }
 
 ALLOWED_HOSTS = ['*']
-
 #Maybe needed for loading youtube iframes
 #SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 
@@ -56,24 +86,15 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'yobaclub.settings.wsgi.application'
+#WSGI_APPLICATION = 'yobaclub.settings.wsgi.application'
 ASGI_APPLICATION = 'yobaclub.settings.asgi.application'
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
-    },
-}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'static', 'db.sqlite3')
-    }
-}
+
+
 
 AUTH_USER_MODEL = 'yobaclub.User'
 AUTHENTICATION_BACKENDS = ['yobaclub.logic.auth.YobaBackend',]
@@ -115,6 +136,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

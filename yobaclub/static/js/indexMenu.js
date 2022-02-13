@@ -11,8 +11,6 @@ window.onclick = function(event) {
                 closeButton()
             }
             break
-        default:
-            console.log(event.target)
     }
 }
 
