@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 from django import setup
 from json import load
-setup()
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -47,6 +47,8 @@ else:
             'NAME': os.path.join(BASE_DIR, 'static', 'db.sqlite3')
     }
     }
+
+setup()
 
 ALLOWED_HOSTS = ['*']
 #Maybe needed for loading youtube iframes
