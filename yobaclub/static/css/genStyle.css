@@ -90,6 +90,7 @@ body .load_screen {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  opacity: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -112,7 +113,11 @@ body .load_screen.WhiteArea {
   background-image: url(/static/media/WhiteAreaBacground.png);
 }
 body .load_screen.done {
-  display: none;
+  opacity: 0%;
+  pointer-events: none;
+  transition-property: opacity;
+  transition-duration: 0.75s;
+  
   -webkit-animation: 1s LoadScreenDone linear;
           animation: 1s LoadScreenDone linear;
 }
@@ -152,6 +157,24 @@ body .load_screen .container .load_screen-text {
   margin: 0px 0px 0px 10px;
   width: 900px;
 }
+
+body .load_screen .container .load_screen-text p{
+    animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+@keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.3em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
 body .wrapper .header {
   width: 100%;
   display: -webkit-box;
@@ -261,23 +284,6 @@ body .wrapper .footer .container .footer_link a img {
   display: none;
 }
 
-@-webkit-keyframes LoadScreenDone {
-  from {
-    opacity: 100%;
-  }
-  to {
-    opacity: 0%;
-  }
-}
-
-@keyframes LoadScreenDone {
-  from {
-    opacity: 100%;
-  }
-  to {
-    opacity: 0%;
-  }
-}
 @-webkit-keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
