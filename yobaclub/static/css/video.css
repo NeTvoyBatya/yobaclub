@@ -66,7 +66,7 @@
   max-width: 70%;
 }
 .main .container .video .video__block .video__player video {
-  max-width: 640px;
+  width: 640px;
   max-height: 500px;
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 50px;
