@@ -1,0 +1,1 @@
+This file used for Heroku, without it Heroku will not create "uploads" folder.
