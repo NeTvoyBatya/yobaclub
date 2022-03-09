@@ -163,6 +163,7 @@ def api_get_music(request: WSGIRequest):
 
     try:
         cutted_path = cutToRecognize(file_path, video_current_time, video_duration)
+        print(f"CUTTED FILE: {cutted_path}")
         if cutted_path is None:
             raise RuntimeError("Error while cutting video")
         file_cutted = True
