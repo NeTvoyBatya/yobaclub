@@ -47,8 +47,8 @@ async def getAllBoardMedia(board_name: str):
     return data
 
 def getVideos():
-    if getenv("HEROKU") is None:
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    #if getenv("HEROKU") is None:
+        #asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     res = asyncio.run(getAllBoardMedia('b'))
     shuffle(res["videos"])
     return res
