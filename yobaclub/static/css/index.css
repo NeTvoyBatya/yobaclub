@@ -50,6 +50,13 @@
   border-radius: 50%;
   z-index: 2;
 }
+
+.main .container .main_menu-close .YobaImg.Opened {
+    transition-duration: 1.2s;
+    transition-property: transform;
+    transform: translate(-50%, -50%) rotate(360deg);
+}
+
 .main .container .main_menu-close .all_orvits {
   position: relative;
   width: 710px;

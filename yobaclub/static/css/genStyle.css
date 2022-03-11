@@ -73,6 +73,9 @@ body.Factory {
 body.WhiteArea {
   background-image: url(/static/media/WhiteAreaBacground.png);
 }
+body.Secret {
+    background-image: url(/static/media/SecretBackground.png);
+}
 body.done {
   overflow-y: scroll;
 }
@@ -112,6 +115,9 @@ body .load_screen.Factory {
 body .load_screen.WhiteArea {
   background-image: url(/static/media/WhiteAreaBacground.png);
 }
+body .load_screen.Secret {
+    background-image: url(/static/media/SecretBackground.png);
+  }
 body .load_screen.done {
   opacity: 0%;
   pointer-events: none;
@@ -530,6 +536,9 @@ body .wrapper .footer .container .footer_link a img {
     opacity: 1;
   }
   .theme_check_box .new_check_box .WhiteAreaCheckMark.on {
+    opacity: 1;
+  }
+  .theme_check_box .new_check_box .SecretCheckMark.on {
     opacity: 1;
   }
 

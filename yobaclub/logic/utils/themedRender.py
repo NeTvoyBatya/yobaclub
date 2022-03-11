@@ -11,7 +11,14 @@ def render(request, template_name, context=None, content_type=None, status=None,
     """
     if context is None:
         context = {}
+    if request.COOKIES.get('lkklchesdf') is not None:
+        context['secret_theme'] = True
+    else:
+        context['secret_theme'] = False
     if request.COOKIES.get('theme') is not None:
         context['theme'] = cookie_to_classname(request.COOKIES.get('theme'))
+        if request.COOKIES.get('theme') == 'secret' and request.COOKIES.get('lkklchesdf') is None:
+            context['theme'] = cookie_to_classname('samurai')
+            request.COOKIES.setdefault('theme', 'samurai')
     content = loader.render_to_string(template_name, context, request, using=using)
     return HttpResponse(content, content_type, status)

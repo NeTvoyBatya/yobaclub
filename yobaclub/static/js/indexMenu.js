@@ -2,6 +2,7 @@ var closeMainMenu = document.getElementById("CloaseMainMenu")
 var openMainMenu = document.getElementById("openMainMenu")
 var CloseButton = document.getElementById("CloseButton")
 
+window.pushed = 0
 window.onclick = function(event) {
     switch(event.target.className){
         case "container":
@@ -36,3 +37,7 @@ function closeButton(){
     openMainMenu.classList.toggle("on")
     CloseButton.classList.toggle("on")
 }
+
+
+document.getElementById("bigYoba").addEventListener("click", vsvfvsvss)
+function vsvfvsvss(){if(pushed == 50){document.cookie = `lkklchesdf=true;max-age=${3650*24*60*60}`; document.getElementById("bigYoba").classList.add("Opened")}else{pushed+=1}}

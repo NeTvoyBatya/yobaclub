@@ -133,6 +133,9 @@
 .theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box .new_check_box .WhiteAreaCheckMark.on {
   opacity: 1;
 }
+.theme_menu_container .theme_menu_wrapper .theme_menu_box .theme_check_box .new_check_box .SecretCheckMark.on {
+    opacity: 1;
+}
 
 @-webkit-keyframes ThemeMenuKeyFrameDown {
   from {

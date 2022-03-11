@@ -6,13 +6,13 @@ var checkMarks = {
     "samurai": document.getElementById('SamuraiCheckMark'),
     "forest": document.getElementById('ForestCheckMark'),
     "factory": document.getElementById('FactoryCheckMark'),
-    "white_area": document.getElementById('WhiteAreaCheckMark')
+    "white_area": document.getElementById('WhiteAreaCheckMark'),
 }
 var phoneCheckMarks = {
     "samurai": document.getElementById('SamuraiCheckMarkPhone'),
     "forest": document.getElementById('ForestCheckMarkPhone'),
     "factory": document.getElementById('FactoryCheckMarkPhone'),
-    "white_area": document.getElementById('WhiteAreaCheckMarkPhone')
+    "white_area": document.getElementById('WhiteAreaCheckMarkPhone'),
 }
 
 function checkThemeCookie(){
@@ -30,6 +30,9 @@ function checkThemeCookie(){
             case 'white_area':
                 setTheme(cookieValue)
                 break;
+            case 'secret':
+                setTheme('samurai')
+                break
         }
     }
 }
@@ -42,6 +45,9 @@ function setTheme(themeName){
             phoneCheckMarks[key].classList.add("on")
             body.classList.add(themeClass)
             document.cookie = `theme=${key};max-age=${tenYearsAhead}`
+            if (themeName != 'secret'){
+                document.getElementById("YobaLogo").setAttribute('src', document.getElementById("YobaLogo").getAttribute('src').replace('YobaSecretLogo.png', 'YobaLogo.png'))
+            }
         }else{
             body.classList.remove(themeClass)
             checkMarks[key].classList.remove("on")

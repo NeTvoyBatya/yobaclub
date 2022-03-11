@@ -71,13 +71,26 @@
                                 <div class="Circle"></div>
                             </div>
                             <h4 href="#" onclick="setTheme('white_area')">White area</h4>
-                        </div> 
+                        </div>
+                        {% if secret_theme == True %}
+                            <div class="theme_check_box">
+                                <div class="new_check_box">
+                                    <img class="Marker SecretCheckMark" id = "SecretCheckMarkPhone" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                    <div class="Circle"></div>
+                                </div>
+                                <h4 href="#" onclick="setTheme('secret')">Cute Rock</h4>
+                            </div>
+                        {% endif %}
                     </div>
                     
                 </div>     
                 <div class="container">
                     <a href={{ url('index') }}>
-                        <img class="YobaLogo" id="YobaLogo" src={{ static('media/YobaLogo.png') }} alt="YobaClub" pointer-events: none; draggable="false">
+                        {% if secret_theme == True and theme == 'Secret' %}
+                            <img class="YobaLogo" id="YobaLogo" src={{ static('media/YobaSecretLogo.png') }} alt="YobaClub" pointer-events: none; draggable="false">
+                        {% else %}
+                            <img class="YobaLogo" id="YobaLogo" src={{ static('media/YobaLogo.png') }} alt="YobaClub" pointer-events: none; draggable="false">
+                        {% endif %}
                     </a>
                     <div class="header_navigation" id="header_navigationId">
                         <a href={{ url('index') }}>Главная</a>
@@ -124,6 +137,15 @@
                                             </div>
                                             <h4 href="#" onclick="setTheme('white_area')">White area</h4>
                                         </div> 
+                                        {% if secret_theme == True %}
+                                            <div class="theme_check_box">
+                                                <div class="new_check_box">
+                                                    <img class="Marker SecretCheckMark" id = "SecretCheckMark" src={{ static('media/svg/CheckMark.svg') }} alt="">
+                                                    <div class="Circle"></div>
+                                                </div>
+                                                <h4 href="#" onclick="setTheme('secret')">Cute Rock</h4>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>    
@@ -162,7 +184,11 @@
         {% block under_page_content %}
         {% endblock %}
     <script src={{ static('js/phoneMenu.js') }}></script>
-    <script src={{ static('js/SelectTheme.js') }}></script>
+    {% if secret_theme == True %}
+        <script src={{ static('js/SelectThemeSecret.js') }}></script>
+    {% else %}
+        <script src={{ static('js/SelectTheme.js') }}></script>
+    {% endif %}
     <script src={{ static('js/preloader.js') }}></script>
     {% block page_scripts%}
     {% endblock%}
