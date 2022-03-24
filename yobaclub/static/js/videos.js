@@ -160,3 +160,27 @@ function getTrack(button){
     })
 
 }
+
+function removeVideosOfThread(){
+    let to_delete = []
+    thread_num = window.videos[window.current_video_index]["thread_num"]
+    for (let i = window.videos.length-1; i >= 0; i--) {
+        if (window.videos[i]["thread_num"] == thread_num){
+            to_delete.push(i)
+        }
+    }
+    console.log(`Deliting ${to_delete.length} videos from thread ${thread_num}`)
+    while (to_delete.includes(window.current_video_index)) {
+        window.current_video_index++
+    }
+    let offset = 0
+    for (const index of to_delete) {
+        window.videos.splice(index, 1)
+        if (index < window.current_video_index){
+            offset++
+        }
+    }
+    window.current_video_index-=offset
+    if (window.current_video_index >= window.videos.length) window.current_video_index = window.videos.length-1
+    updateVideo()
+}

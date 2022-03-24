@@ -24,6 +24,9 @@
                                 <button id="loopButton" onclick="loop()">Повтор</button>
                                 <button id="autoplayButton" onclick="autoplay()">Автопроигрывание</button>
                             </div>
+                            <div class="video__settings">
+                                <button onclick="removeVideosOfThread()">Удалить видео из треда</button>
+                            </div>
                         </div>
                         <button onclick="nextVideo()" class="video__block-button right">
                             <img src={{ static('media/svg/ArrowRight.svg') }} alt=">">
