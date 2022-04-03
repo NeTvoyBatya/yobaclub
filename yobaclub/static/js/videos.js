@@ -169,7 +169,6 @@ function removeVideosOfThread(){
             to_delete.push(i)
         }
     }
-    console.log(`Deliting ${to_delete.length} videos from thread ${thread_num}`)
     while (to_delete.includes(window.current_video_index)) {
         window.current_video_index++
     }
@@ -183,4 +182,38 @@ function removeVideosOfThread(){
     window.current_video_index-=offset
     if (window.current_video_index >= window.videos.length) window.current_video_index = window.videos.length-1
     updateVideo()
+    document.getElementById("deleteThreadWindow").classList.add("hidden")
+    document.getElementById("mainContainer").classList.remove("blur")
 }
+
+function showDeleteThreadWindow(){
+    deleted_thread_num = window.videos[window.current_video_index]["thread_num"]
+    deleted_count = 0
+    for (const video of window.videos) {
+        if (video["thread_num"] == deleted_thread_num){
+            deleted_count++
+        }
+    }
+    window_title = window.threads[deleted_thread_num]['subject']
+    window_text = `После удаления, в списке останется ${window.videos.length-deleted_count} видео`
+    button_text = `Удалить ${deleted_count} видео`
+    document.getElementById("deleteThreadTitle").innerHTML = window_title
+    document.getElementById("deleteThreadText").innerHTML = window_text
+    document.getElementById("deleteButton").innerHTML = button_text
+    document.getElementById("video_player").pause()
+    document.getElementById("mainContainer").classList.add("blur")
+    document.getElementById("deleteThreadWindow").classList.remove("hidden")
+}
+
+[document.getElementById("closeDeleteWindowButton"), window].forEach(element => {
+    element.onclick = function(event){
+        switch(event.target.className){
+            case "delete_thread_window":
+            case "container":
+            case "close_button":
+            case "close_button_img":
+                document.getElementById("deleteThreadWindow").classList.add("hidden")
+                document.getElementById("mainContainer").classList.remove("blur")
+        }
+    }
+})

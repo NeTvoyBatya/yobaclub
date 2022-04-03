@@ -15,6 +15,13 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+.main .container.blur {
+    filter: brightness(30%) blur(15px);
+    -webkit-filter: brightness(30%) blur(15px);
+    -moz-filter: brightness(30%) blur(15px);
+    -o-filter: brightness(30%) blur(15px);
+    -ms-filter: brightness(30%) blur(15px);
+}
 .main .container .video .video__block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -72,7 +79,7 @@
   border-radius: 50px;
 }
 .main .container .video .video__block .video__player .video__settings {
-  margin: 5px 0px 0px 0px;
+  margin: 10px 0px 0px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,22 +88,18 @@
       justify-content: space-around;
 }
 .main .container .video .video__block .video__player .video__settings button {
-  font-family: "Montserrat", sans-serif;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.75);
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
   background-color: rgba(0, 0, 0, 0);
   border: rgba(0, 0, 0, 0);
 }
+
 .main .container .video .video__block .video__player .video__settings button:hover {
-  color: rgba(255, 255, 255, 0.9);
+    filter: brightness(0) saturate(100%) invert(99%) sepia(44%) saturate(413%) hue-rotate(295deg) brightness(118%) contrast(76%);
 }
 .main .container .video .video__block .video__player .video__settings button.active {
-  color: rgba(240, 122, 191, 0.75);
+    filter: brightness(0) saturate(100%) invert(68%) sepia(24%) saturate(660%) hue-rotate(275deg) brightness(102%) contrast(91%);
 }
 .main .container .video .video__block .video__player .video__settings button.active:hover {
-  color: rgba(240, 122, 191, 0.9);
+    filter: brightness(0) saturate(100%) invert(82%) sepia(38%) saturate(3289%) hue-rotate(286deg) brightness(103%) contrast(90%);
 }
 
 .video__notification {
@@ -302,4 +305,122 @@
     -webkit-transform: scale(calc(((46/100)*3840)/640)) !important;
             transform: scale(calc(((46/100)*3840)/640)) !important;
   }
+}
+
+.main .delete_thread_window {
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    visibility: visible;
+    opacity: 1;
+    z-index: 9;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+    -webkit-transition-property: opacity, visibility;
+    transition-property: opacity, visibility;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .main .delete_thread_window.hidden {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+    -webkit-transition-property: opacity, visibility;
+    transition-property: opacity, visibility;
+  }
+  .main .delete_thread_window .delete_thread_content {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+  }
+  .main .delete_thread_window .delete_thread_content .popup_title {
+    padding: 0px 0px 48px 0px;
+  }
+  .main .delete_thread_window .delete_thread_content .close_button {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    -webkit-animation: 2s puls infinite ease-in-out;
+            animation: 2s puls infinite ease-in-out;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    pointer-events: none;
+    pointer-events: auto;
+    cursor: pointer;
+    border: 0px;
+  }
+  .main .delete_thread_window .delete_thread_content .close_button img {
+    width: 25px;
+    height: 25px;
+    margin: 0px 0px 0px 0px;
+  }
+  .main .delete_thread_window .delete_thread_content .close_button:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+  }
+  .main .delete_thread_window .delete_thread_content .delete_button {
+    border: 0;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 400;
+    font-size: 18px;
+    padding: 10px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    margin: 15px 0px 0px 0px;
+  }
+.main .delete_thread_window .delete_thread_content .delete_button:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
 }

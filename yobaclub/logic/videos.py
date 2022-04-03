@@ -30,7 +30,7 @@ async def getAllBoardMedia(board_name: str):
         posts = thread.get('threads')[0].get('posts')
         thread_num = posts[0].get('num')
         thread_url = f"https://2ch.hk/{board_name}/res/{thread_num}.html"
-        thread_subject = posts[0].get('subjects')
+        thread_subject = posts[0].get('subject')
         for post in posts:
             post_videos = [{'link': f"https://2ch.hk{post_file.get('path')}", 
                             'name': post_file.get("fullname"),
