@@ -161,15 +161,12 @@ def api_get_music(request: WSGIRequest):
             json_dumps_params={'ensure_ascii': False}, 
             content_type='application/json; charset=utf8',
             safe=False)
-    print(f"FILE SAVED AT {file_path}")
     try:
         cutted_path = cutToRecognize(file_path, video_current_time, video_duration)
-        print(f"CUTTED FILE: {cutted_path}")
         if cutted_path is None:
             raise RuntimeError("Error while cutting video")
         file_cutted = True
-    except Exception as e:
-        print(e.__repr__())
+    except:
         if file_saved and path.isfile(file_path):
             remove(file_path)
         if file_cutted and cutted_path is not None and path.isfile(cutted_path):
@@ -179,13 +176,11 @@ def api_get_music(request: WSGIRequest):
             json_dumps_params={'ensure_ascii': False}, 
             content_type='application/json; charset=utf8',
             safe=False)
-    print(f"FILE CUTTED AT {cutted_path}")
     try:
         result = recognizeFile(cutted_path)
         if result is None:
             raise RuntimeError("Error while recognition")
-    except Exception as e:
-        print(e.__repr__())
+    except Exception:
         if file_saved and path.isfile(file_path):
             remove(file_path)
         if file_cutted and cutted_path is not None and path.isfile(cutted_path):
