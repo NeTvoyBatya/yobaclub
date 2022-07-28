@@ -35,7 +35,11 @@ class CinemaVideo{
 }
 
 function connectToSocket(){
-    socket_url = `ws:${window.location.host}/socket/cinema/${window.location.pathname.split('/')[2]}`
+    if(window.location.protocol.startsWith("https")){
+        socket_url = `wss:${window.location.host}/socket/cinema/${window.location.pathname.split('/')[2]}`
+    }else{
+        socket_url = `ws:${window.location.host}/socket/cinema/${window.location.pathname.split('/')[2]}`
+    }
     window.chat_socket = new WebSocket(socket_url);
     chat_socket.onmessage = (data) => socket_onmessage(data)
     chat_socket.onopen = () => {
