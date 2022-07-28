@@ -162,23 +162,22 @@ def api_get_music(request: WSGIRequest):
             content_type='application/json; charset=utf8',
             safe=False)
     print(f"FILE SAVED AT {file_path}")
-    try:
-        cutted_path = cutToRecognize(file_path, video_current_time, video_duration)
-        print(f"CUTTED FILE: {cutted_path}")
-        if cutted_path is None:
-            raise RuntimeError("Error while cutting video")
-        file_cutted = True
-    except Exception as e:
-        print(e.__repr__())
-        if file_saved and path.isfile(file_path):
-            remove(file_path)
-        if file_cutted and cutted_path is not None and path.isfile(cutted_path):
-            remove(cutted_path)
-        return JsonResponse(
-            {"result": "fail", "text": "Произошла ошибка при обрезке видео"},
-            json_dumps_params={'ensure_ascii': False}, 
-            content_type='application/json; charset=utf8',
-            safe=False)
+    cutted_path = cutToRecognize(file_path, video_current_time, video_duration)
+    print(f"CUTTED FILE: {cutted_path}")
+    return
+        #if cutted_path is None:
+        #    raise RuntimeError("Error while cutting video")
+        #file_cutted = True
+        #print(e.__repr__())
+        #if file_saved and path.isfile(file_path):
+        #    remove(file_path)
+        #if file_cutted and cutted_path is not None and path.isfile(cutted_path):
+        #    remove(cutted_path)
+        #return JsonResponse(
+        #    {"result": "fail", "text": "Произошла ошибка при обрезке видео"},
+        #    json_dumps_params={'ensure_ascii': False}, 
+        #    content_type='application/json; charset=utf8',
+        #    safe=False)
     print(f"FILE CUTTED AT {cutted_path}")
     try:
         result = recognizeFile(cutted_path)

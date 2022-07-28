@@ -41,9 +41,10 @@ def cutToRecognize(video_path, start_time, video_duration, output_path=None):
         output_path = video_path[:video_path.rindex('.')]+"-cutted"+video_path[video_path.rindex('.'):]
     print(f"ffmpeg -i {video_path} -ss {start_time_str} -to {end_time_str} -map 0:a -c copy {output_path}")
     result = run(f"ffmpeg -i {video_path} -ss {start_time_str} -to {end_time_str} -map 0:a -c copy {output_path}")
-    if result.returncode != 0:
-        print(result.stderr)
-        return None
+    print(result)
+    #if result.returncode != 0:
+    #    print(result.stderr)
+    #    return None
     
     return output_path
 
