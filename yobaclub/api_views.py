@@ -152,8 +152,9 @@ def api_get_music(request: WSGIRequest):
         file_path = path.join('yobaclub', 'static', 'uploads', video_url.split('/')[-1])
         urlretrieve( video_url, file_path )
         file_saved = True
-    except:
-        if file_saved and path.isfile(file_path):
+    except Exception as e:
+        print(e.__repr__())
+        if path.isfile(file_path):
             remove(file_path)
         return JsonResponse(
             {"result": "fail", "text": "К сожалению, это видео недоступно"},
@@ -167,7 +168,8 @@ def api_get_music(request: WSGIRequest):
         if cutted_path is None:
             raise RuntimeError("Error while cutting video")
         file_cutted = True
-    except:
+    except Exception as e:
+        print(e.__repr__())
         if file_saved and path.isfile(file_path):
             remove(file_path)
         if file_cutted and cutted_path is not None and path.isfile(cutted_path):
@@ -182,7 +184,8 @@ def api_get_music(request: WSGIRequest):
         result = recognizeFile(cutted_path)
         if result is None:
             raise RuntimeError("Error while recognition")
-    except:
+    except Exception as e:
+        print(e.__repr__())
         if file_saved and path.isfile(file_path):
             remove(file_path)
         if file_cutted and cutted_path is not None and path.isfile(cutted_path):
