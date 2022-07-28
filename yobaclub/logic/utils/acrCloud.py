@@ -1,7 +1,7 @@
 from subprocess import run
 from json import load, loads
 from acrcloud.recognizer import ACRCloudRecognizer
-from os import getenv, path
+from os import getenv, path, remove
 
 
 if getenv("HEROKU") is not None:
@@ -39,14 +39,12 @@ def cutToRecognize(video_path, start_time, video_duration, output_path=None):
     end_time_str = secondsToHumanTime(end_time)
     if output_path is None:
         output_path = video_path[:video_path.rindex('.')]+"-cutted"+video_path[video_path.rindex('.'):]
-    try:
-        print(f"ffmpeg -i {video_path} -ss {start_time_str} -to {end_time_str} -map 0:a -c copy {output_path}")
-        result = run(f"ffmpeg -i {video_path} -ss {start_time_str} -to {end_time_str} -map 0:a -c copy {output_path}")
-    except Exception as e:
-        print(e.__repr__())
-        return None
+    print(f"ffmpeg -i {video_path} -ss {start_time_str} -to {end_time_str} -map 0:a -c copy {output_path}")
+    result = run(f"ffmpeg -i {video_path} -ss {start_time_str} -to {end_time_str} -map 0:a -c copy {output_path}")
     if result.returncode != 0:
+        print(result.stderr)
         return None
+    
     return output_path
 
 def recognizeFile(filepath):
