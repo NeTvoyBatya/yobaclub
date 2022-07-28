@@ -149,7 +149,7 @@ def api_get_music(request: WSGIRequest):
     video_current_time = data.get("time")
     video_duration = data.get("duration")
     try:
-        file_path = path.join('yobaclub', 'static', 'uploads', video_url.split('/')[-1])
+        file_path = path.abspath(path.join('yobaclub', 'static', 'uploads', video_url.split('/')[-1]))
         urlretrieve( video_url, file_path )
         file_saved = True
     except Exception as e:
@@ -161,7 +161,7 @@ def api_get_music(request: WSGIRequest):
             json_dumps_params={'ensure_ascii': False}, 
             content_type='application/json; charset=utf8',
             safe=False)
-
+    print(f"FILE SAVED AT {file_path}")
     try:
         cutted_path = cutToRecognize(file_path, video_current_time, video_duration)
         print(f"CUTTED FILE: {cutted_path}")
@@ -179,7 +179,7 @@ def api_get_music(request: WSGIRequest):
             json_dumps_params={'ensure_ascii': False}, 
             content_type='application/json; charset=utf8',
             safe=False)
-    
+    print(f"FILE CUTTED AT {cutted_path}")
     try:
         result = recognizeFile(cutted_path)
         if result is None:
