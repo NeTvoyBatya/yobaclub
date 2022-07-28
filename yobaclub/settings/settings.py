@@ -11,23 +11,29 @@ if os.getenv("HEROKU") is not None:
 
     SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
+    #Thanks, Heroku for not allowing Russians to use Redis
+    #CHANNEL_LAYERS = {
+    #    'default': {
+    #        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+    #        'CONFIG': {
+    #            "hosts": ["redis://:redishost"],
+    #        },
+    #    },
+    #}
     CHANNEL_LAYERS = {
         'default': {
-            'BACKEND': 'channels_redis.core.RedisChannelLayer',
-            'CONFIG': {
-                "hosts": ["redis://:p0575b1dd72a9501afc98fc02290fdbf11b53f9edc3667f876925d61942dd8d52@ec2-34-251-79-166.eu-west-1.compute.amazonaws.com:25120"],
+            'BACKEND': 'channels.layers.InMemoryChannelLayer',
             },
-        },
     }
 
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.getenv("DB_NAME"),
-            'USER' : os.getenv("DB_USERNAME"),
-            'PASSWORD' : os.getenv("DB_PASSWORD"),
-            'HOST' : os.getenv("DB_HOST"),
-            'PORT' : os.getenv("DB_PORT"),
+            'NAME': os.getenv("DATABASE_URL").split("/")[-1],
+            'USER' : os.getenv("DATABASE_URL").split(":")[1][2:],
+            'PASSWORD' : os.getenv("DATABASE_URL").split("@")[0].split(":")[2],
+            'HOST' : os.getenv("DATABASE_URL").split("@")[1].split(":")[0],
+            'PORT' : os.getenv("DATABASE_URL").split("@")[1].split(":")[1].split("/")[0],
         }
     }
 else:
