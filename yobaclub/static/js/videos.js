@@ -3,11 +3,24 @@ window.onload = function(){
     window.autoplay_on = false
     window.addEventListener("keydown", function(event) {
         if (event.key == 'ArrowRight'){
-          nextVideo()
+            let button = this.document.getElementById("buttonNext")
+            button.classList.add('pseudo_active')
+            button.click()
         }else if(event.key == 'ArrowLeft'){
-          previousVideo()
+            let button =  this.document.getElementById("buttonPrevious")
+            button.classList.add('pseudo_active')
+            button.click()
         }
-        }, true);
+    }, true);
+    window.addEventListener("keyup", function(event) {
+        if (event.key == 'ArrowRight'){
+            let button = this.document.getElementById("buttonNext")
+            button.classList.remove('pseudo_active')
+        }else if(event.key == 'ArrowLeft'){
+            let button =  this.document.getElementById("buttonPrevious")
+            button.classList.remove('pseudo_active')
+        }
+    }, true);
 }
 
 function getVideos(){

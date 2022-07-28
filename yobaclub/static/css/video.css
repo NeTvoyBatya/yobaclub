@@ -45,6 +45,27 @@
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
+.main .container .video .video__block .video__block-button:active {
+            filter: brightness(0) saturate(100%) invert(68%) sepia(24%) saturate(660%) hue-rotate(275deg) brightness(102%) contrast(91%);
+            transition: 0.2s;
+}
+.main .container .video .video__block .video__block-button.right:active {
+    transform: translateX(10px);
+}
+.main .container .video .video__block .video__block-button.left:active {
+    transform: translateX(-10px);
+}
+/*https://stackoverflow.com/a/2990787*/
+.main .container .video .video__block .video__block-button.pseudo_active {
+            filter: brightness(0) saturate(100%) invert(68%) sepia(24%) saturate(660%) hue-rotate(275deg) brightness(102%) contrast(91%);
+            transition: 0.2s;
+}
+.main .container .video .video__block .video__block-button.right.pseudo_active {
+    transform: translateX(10px);
+}
+.main .container .video .video__block .video__block-button.left.pseudo_active {
+    transform: translateX(-10px);
+}
 .main .container .video .video__block .video__player {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -100,6 +121,9 @@
 }
 .main .container .video .video__block .video__player .video__settings button.active:hover {
     filter: brightness(0) saturate(100%) invert(82%) sepia(38%) saturate(3289%) hue-rotate(286deg) brightness(103%) contrast(90%);
+}
+.main .container .video .video__block .video__player .video__settings button:active {
+    transform: translateY(1px) scale(0.8);
 }
 
 .video__notification {
